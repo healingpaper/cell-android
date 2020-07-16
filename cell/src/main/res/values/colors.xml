@@ -1,0 +1,22 @@
+<resources>
+    <color name="confident_orange">#ff540f</color>
+    <color name="confident_orange_alpha_50">#80FF540F</color>
+    <color name="warm_yellow">#ffd267</color>
+    <color name="lemonade">#fff7e0</color>
+    <color name="latte">#bf8650</color>
+    <color name="black">#000000</color>
+    <color name="text_black">#4c4c4c</color>
+    <color name="charcoal">#666666</color>
+    <color name="ash">#999999</color>
+    <color name="gray">#d6d6d6</color>
+    <color name="light_gray">#f5f5f5</color>
+    <color name="white">#ffffff</color>
+    <color name="poppy_red">#e03131</color>
+    <color name="ginger">#ebb450</color>
+    <color name="black_30_percent">#4c000000</color>
+
+    <!-- Deprecated -->
+
+    <color name="salmon">#ff7373</color>
+    <color name="french_blue">#456aa8</color>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/rect_orange_radius_right8" android:state_selected="true" />
+    <item android:drawable="@drawable/rect_orange_radius_right8" android:state_checked="true" />
+    <item android:drawable="@drawable/rect_white_border_orange_radius_right8_inset" />
+</selector>

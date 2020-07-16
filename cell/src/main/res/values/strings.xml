@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="min_max_length_format">%d/%d자</string>
+    <string name="please_input">내용을 입력해주세요.</string>
+    <string name="view_detail">상세보기</string>
+</resources>
