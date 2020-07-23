@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.cell_input_set_view.view.*
 import kotlinx.android.synthetic.main.cell_input_set_view.view.titleTxt
 
 class CellInputSet @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
     var titleText: String? = null
         set(value) {
@@ -42,9 +42,8 @@ class CellInputSet @JvmOverloads constructor(
     var errorEnabled = true
         set(value) {
             field = value
-            updateState(state, value)
+            updateState(state, value, showDrawableEnd)
         }
-
     var errorText: String? = null
         set(value) {
             if (!errorEnabled) throw IllegalAccessException("errorText cannot be set, when errorEnabled is false.")
@@ -57,41 +56,60 @@ class CellInputSet @JvmOverloads constructor(
                 throw IllegalAccessException("state can be only set as NORMAL, when errorEnabled is false.")
             }
             field = value
-            updateState(value, errorEnabled)
+            updateState(value, errorEnabled, showDrawableEnd)
+        }
+    var showDrawableEnd = false
+        set(value) {
+            field = value
+            updateState(state, errorEnabled, value)
         }
 
     init {
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         LayoutInflater.from(context).inflate(R.layout.cell_input_set_view, this, true)
         initView(attrs)
     }
 
     private fun initView(attrs: AttributeSet?) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellInputSet, 0, 0)
-                .use {
-                    errorEnabled = it.getBoolean(R.styleable.CellInputSet_errorEnabled, true)
-                    state = InputSetState.fromId(it.getInt(R.styleable.CellInputSet_state, 0))
-                    inputType = it.getInt(R.styleable.CellInputSet_android_inputType, InputType.TYPE_TEXT_VARIATION_NORMAL)
-                    if (it.hasValue(R.styleable.CellInputSet_android_text)) {
-                        text = it.getString(R.styleable.CellInputSet_android_text)
-                    }
-                    if (it.hasValue(R.styleable.CellInputSet_android_hint)) {
-                        hint = it.getString(R.styleable.CellInputSet_android_hint)
-                    }
-                    if (it.hasValue(R.styleable.CellInputSet_titleText)) {
-                        titleText = it.getString(R.styleable.CellInputSet_titleText)
-                    }
-                    if (it.hasValue(R.styleable.CellInputSet_errorText)) {
-                        errorText = it.getString(R.styleable.CellInputSet_errorText)
-                    }
+            .use {
+                errorEnabled = it.getBoolean(R.styleable.CellInputSet_errorEnabled, true)
+                showDrawableEnd = it.getBoolean(R.styleable.CellInputSet_showDrawableEnd, true)
+                state = InputSetState.fromId(it.getInt(R.styleable.CellInputSet_state, 0))
+                inputType = it.getInt(
+                    R.styleable.CellInputSet_android_inputType,
+                    InputType.TYPE_TEXT_VARIATION_NORMAL
+                )
+                titleText = it.getString(R.styleable.CellInputSet_titleText)
+                if (it.hasValue(R.styleable.CellInputSet_android_text)) {
+                    text = it.getString(R.styleable.CellInputSet_android_text)
                 }
+                if (it.hasValue(R.styleable.CellInputSet_android_hint)) {
+                    hint = it.getString(R.styleable.CellInputSet_android_hint)
+                }
+                if (it.hasValue(R.styleable.CellInputSet_errorText)) {
+                    errorText = it.getString(R.styleable.CellInputSet_errorText)
+                }
+            }
     }
 
-    private fun updateState(state: InputSetState, errorEnabled: Boolean) {
+    private fun updateState(
+        state: InputSetState,
+        errorEnabled: Boolean,
+        showDrawableEnd: Boolean
+    ) {
         setErrorTextVisibility(errorEnabled, state)
         mainInput.apply {
             hasError = state.hasError
-            setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, state.compoundDrawableResId, 0)
+            if (showDrawableEnd) setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                0,
+                state.compoundDrawableResId,
+                0
+            )
         }
     }
 
@@ -114,7 +132,7 @@ class CellInputSet @JvmOverloads constructor(
     enum class InputSetState(val hasError: Boolean, val compoundDrawableResId: Int) {
         NORMAL(false, 0),
         CORRECT(false, R.drawable.ic_validation_success),
-        ERROR(true, R.drawable.ic_validation_error);
+        ERROR(true, 0);
 
         companion object {
             fun fromId(id: Int): InputSetState {

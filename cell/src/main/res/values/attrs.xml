@@ -103,6 +103,7 @@
         <attr name="titleText" />
         <attr name="errorText" format="string" />
         <attr name="errorEnabled" format="boolean" />
+        <attr name="showDrawableEnd" format="boolean" />
         <attr name="state" format="enum">
             <enum name="normal" value="0" />
             <enum name="correct" value="1" />

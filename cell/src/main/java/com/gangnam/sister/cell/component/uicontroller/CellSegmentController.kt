@@ -17,6 +17,8 @@ import androidx.core.view.children
 import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.listener.OnItemSelectedListener
 import com.gangnam.sister.cell.util.DisplayManager
+import com.jakewharton.rxbinding3.view.clicks
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.cell_segment_controller_view.view.*
 
 /**
@@ -135,5 +137,10 @@ class CellSegmentController @JvmOverloads constructor(
 
     fun setOnItemSelectedListener(function: (ViewGroup, View, Int) -> Unit) {
         this.itemSelectedFunction = function
+    }
+
+    fun itemSelects(): Observable<Int> {
+        val obs = children.mapIndexed { index, view -> view.clicks().map { index } }
+        return Observable.merge(obs.toList()).share()
     }
 }
