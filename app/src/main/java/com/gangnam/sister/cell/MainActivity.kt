@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         selectSet.setOnItemSelectedListener { _, _, i -> toast("position: $i") }
         segmentController.setOnItemSelectedListener { _, _, i -> toast("position: $i") }
-        cellInputSet.addTextChangedListener(object : TextWatcher {
+        cellInputSet.textBox.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 

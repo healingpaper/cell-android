@@ -2,7 +2,6 @@ package com.gangnam.sister.cell.component.inputset
 
 import android.content.Context
 import android.text.InputType
-import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -10,14 +9,14 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.use
 import com.gangnam.sister.cell.R
-import com.jakewharton.rxbinding3.InitialValueObservable
-import com.jakewharton.rxbinding3.widget.textChanges
+import com.gangnam.sister.cell.element.textbox.CellTextBox
 import kotlinx.android.synthetic.main.cell_input_set_view.view.*
-import kotlinx.android.synthetic.main.cell_input_set_view.view.titleTxt
 
 class CellInputSet @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
+    val textBox: CellTextBox
+        get() = mainInput
     var titleText: String? = null
         set(value) {
             field = value
@@ -119,14 +118,6 @@ class CellInputSet @JvmOverloads constructor(
             errorEnabled && state == InputSetState.ERROR -> View.VISIBLE
             else -> View.INVISIBLE
         }
-    }
-
-    fun addTextChangedListener(textWatcher: TextWatcher) {
-        mainInput.addTextChangedListener(textWatcher)
-    }
-
-    fun textChanges(): InitialValueObservable<CharSequence> {
-        return mainInput.textChanges()
     }
 
     enum class InputSetState(val hasError: Boolean, val compoundDrawableResId: Int) {
