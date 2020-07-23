@@ -114,9 +114,8 @@ class CellInputSet @JvmOverloads constructor(
 
     private fun setErrorTextVisibility(errorEnabled: Boolean, state: InputSetState) {
         errorTxt.visibility = when {
-            !errorEnabled -> View.GONE
             errorEnabled && state == InputSetState.ERROR -> View.VISIBLE
-            else -> View.INVISIBLE
+            else -> View.GONE
         }
     }
 
