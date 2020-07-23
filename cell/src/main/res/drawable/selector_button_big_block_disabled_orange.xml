@@ -2,5 +2,5 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/ripple_margin_orange_radius8" android:state_checked="true" />
     <item android:drawable="@drawable/ripple_margin_orange_radius8" android:state_selected="true" />
-    <item android:drawable="@drawable/rect_margin_ash_radius8" />
+    <item android:drawable="@drawable/rect_margin_gray_radius8" />
 </selector>
