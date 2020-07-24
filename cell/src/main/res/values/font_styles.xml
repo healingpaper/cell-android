@@ -152,7 +152,7 @@
         <item name="android:textColor">@color/charcoal</item>
     </style>
 
-    <style name="T02H216BoldCenterOrange">11
+    <style name="T02H216BoldCenterOrange">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/small</item>
