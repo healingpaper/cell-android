@@ -44,8 +44,8 @@ class CellBadgeStack @JvmOverloads constructor(
                     if (it.hasValue(R.styleable.CellBadgeStack_badgeStackType)) {
                         badgeType = CellBadge.BadgeType.fromId(it.getInt(R.styleable.CellBadgeStack_badgeStackType, 0))
                     }
+                    val dividerDrawable = it.getDrawable(R.styleable.CellBadgeStack_dividerDrawable) ?: ContextCompat.getDrawable(context, R.drawable.divider_transparents_tiny)
                     badgeStackViewType = BadgeStackViewType.fromId(it.getInt(R.styleable.CellBadgeStack_badgeStackViewType, 0))
-                    val dividerDrawable = ContextCompat.getDrawable(context, R.drawable.divider_transparents_4dp)
                     adapter = badgeStackAdapter
                     layoutManager = FlexboxLayoutManager(context)
                     isNestedScrollingEnabled = false

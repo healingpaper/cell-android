@@ -171,12 +171,26 @@
             android:layout_marginTop="@dimen/tiny"
             app:badgeStackColor="lightGray"
             app:badgeStackType="deletable"
-            app:badgeStackViewType="horizontal"
             app:badges="@array/gender"
             app:flexWrap="wrap"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cellBadge" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadgeStack
+            android:id="@+id/cellBadgeStack2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny"
+            app:badgeStackColor="lightGray"
+            app:badgeStackType="deletable"
+            app:badgeStackViewType="horizontal"
+            app:badges="@array/gender"
+            app:dividerDrawable="@drawable/divider_transparents_4dp"
+            app:flexWrap="wrap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cellBadgeStack" />
 
         <com.gangnam.sister.cell.element.checkbox.CellCheckBox
             android:id="@+id/cellCheckBox"
@@ -184,7 +198,7 @@
             android:layout_height="wrap_content"
             android:text="체크박스"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cellBadgeStack" />
+            app:layout_constraintTop_toBottomOf="@+id/cellBadgeStack2" />
 
         <com.gangnam.sister.cell.element.radiobutton.CellRadioButton
             android:id="@+id/cellRadioButton"
@@ -192,7 +206,7 @@
             android:layout_height="wrap_content"
             android:text="라디오 버튼"
             app:layout_constraintStart_toEndOf="@+id/cellCheckBox"
-            app:layout_constraintTop_toBottomOf="@+id/cellBadgeStack" />
+            app:layout_constraintTop_toBottomOf="@+id/cellBadgeStack2" />
 
         <com.gangnam.sister.cell.element.selectbox.CellSelectBox
             android:id="@+id/selectBox1"
