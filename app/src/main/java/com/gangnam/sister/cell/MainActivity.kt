@@ -1,6 +1,5 @@
 package com.gangnam.sister.cell
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,12 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.gangnam.sister.cell.component.inputset.CellInputSet
 import com.gangnam.sister.cell.element.badge.CellBadge
 import com.gangnam.sister.cell.element.button.CellButton
-import com.gangnam.sister.cell.element.spacing.CellSpacing
-import com.gangnam.sister.cell.element.spacing.CellSpacingItemDecoration
+import com.gangnam.sister.cell.element.divider.CellDivider
+import com.gangnam.sister.cell.element.divider.CellDividerItemDecoration
 import com.gangnam.sister.cell.listener.OnItemClickListener
 import com.gangnam.sister.cell.util.DisplayManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -70,15 +70,17 @@ class MainActivity : AppCompatActivity() {
         recyclerView.apply {
             adapter = TestAdapter()
 //            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
-            addItemDecoration(CellSpacingItemDecoration(context).apply {
-                type = CellSpacing.SpacingType.SMALL
+//            addItemDecoration(CellSpacingItemDecoration(context).apply {
+//                type = CellSpacing.SpacingType.SMALL
+//            })
+            addItemDecoration(CellDividerItemDecoration(context).apply {
+                marginStart = DisplayManager.dpToPx(context, 16)
+                marginEnd = DisplayManager.dpToPx(context, 16)
+                marginTop = DisplayManager.dpToPx(context, 16)
+                marginBottom = DisplayManager.dpToPx(context, 16)
+                type = CellDivider.DividerType.LIST
+                height = DisplayManager.dpToPx(context, 16)
             })
-            /*addItemDecoration(CellDividerItemDecoration(context).apply {
-                marginStart = DisplayManager.dpToPx(16)
-                marginEnd = DisplayManager.dpToPx(16)
-                type = CellDivider.DividerType.SECTION
-                height = DisplayManager.dpToPx(8)
-            })*/
         }
     }
 
@@ -90,6 +92,8 @@ class MainActivity : AppCompatActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestViewHolder {
             return TestViewHolder(TextView(parent.context).apply {
+                layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                setBackgroundColor(parent.context.getColor(R.color.confident_orange))
                 setPadding(
                     0,
                     DisplayManager.dpToPx(context, 8),
