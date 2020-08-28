@@ -90,7 +90,7 @@
             <enum name="horizontal" value="1" />
         </attr>
         <attr name="badges" format="reference" />
-        <attr name="dividerDrawable" format="reference" />
+        <attr name="dividerSize" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="CellSelectBox">

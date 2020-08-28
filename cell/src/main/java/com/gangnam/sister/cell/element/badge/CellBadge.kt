@@ -11,7 +11,7 @@ import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.util.DisplayManager
 
 class CellBadge @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
     var badgeColor: BadgeColor = BadgeColor.LIGHT_GRAY
         set(value) {
@@ -33,15 +33,15 @@ class CellBadge @JvmOverloads constructor(
 
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadge, defStyleAttr, 0)
-                .use {
-                    badgeColor = BadgeColor.fromId(it.getInt(R.styleable.CellBadge_badgeColor, 0))
-                    badgeType = BadgeType.fromId(it.getInt(R.styleable.CellBadge_badgeType, 0))
-                    maxLines = 1
-                    ellipsize = TextUtils.TruncateAt.END
-                    includeFontPadding = false
-                    gravity = Gravity.CENTER
-                    setPadding(dp8, dp4, dp8, dp4)
-                }
+            .use {
+                badgeColor = BadgeColor.fromId(it.getInt(R.styleable.CellBadge_badgeColor, 0))
+                badgeType = BadgeType.fromId(it.getInt(R.styleable.CellBadge_badgeType, 0))
+                maxLines = 1
+                ellipsize = TextUtils.TruncateAt.END
+                includeFontPadding = false
+                gravity = Gravity.CENTER
+                setPadding(dp8, dp4, dp8, dp4)
+            }
     }
 
     private fun updateBadgeColor(badgeColor: BadgeColor) {

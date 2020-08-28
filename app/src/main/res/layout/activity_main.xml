@@ -159,22 +159,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="뱃지"
-            app:badgeColor="lemonade"
+            android:text="CCTV"
+            app:badgeColor="lightGray"
             app:layout_constraintStart_toEndOf="@+id/cellBadge"
             app:layout_constraintTop_toBottomOf="@id/cellTextBox4" />
+
+        <TextView
+            android:id="@+id/badgeStackTitleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginTop="@dimen/tiny"
+            android:text="마진마진"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cellBadge" />
 
         <com.gangnam.sister.cell.element.badge.CellBadgeStack
             android:id="@+id/cellBadgeStack"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="@dimen/tiny"
+            android:layout_marginEnd="@dimen/small"
             app:badgeStackColor="lightGray"
-            app:badgeStackType="deletable"
             app:badges="@array/gender"
             app:flexWrap="wrap"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/badgeStackTitleTxt"
             app:layout_constraintTop_toBottomOf="@+id/cellBadge" />
 
         <com.gangnam.sister.cell.element.badge.CellBadgeStack
@@ -186,7 +197,6 @@
             app:badgeStackType="deletable"
             app:badgeStackViewType="horizontal"
             app:badges="@array/gender"
-            app:dividerDrawable="@drawable/divider_transparents_4dp"
             app:flexWrap="wrap"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

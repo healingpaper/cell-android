@@ -54,10 +54,19 @@ class MainActivity : AppCompatActivity() {
         cellBtn6.buttonType = CellButton.ButtonType.BIG_BLOCK
         cellBtn7.buttonType = CellButton.ButtonType.FULL_WIDTH
         val badges = arrayListOf<String>()
-        for (i in 1..15) badges.add("Badge $i")
-        badges.add("Badge 1")
+        badges.add("CCTV")
+        badges.add("전문의뱃지")
+        badges.add("입원실")
+        badges.add("안심실명제")
+        badges.add("야간진료")
+        badges.add("응급의료가능")
+        badges.add("분야별전문")
+        badges.add("전용회복실")
+        badges.add("부작용이없다")
+        badges.add("전용숙소")
+        badges.add("의료의료")
+        badges.add("여성전문의가")
         cellBadgeStack.setData(badges)
-        cellBadgeStack.badgeColor = CellBadge.BadgeColor.LEMONADE
         cellBadgeStack.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
                 Log.d("CellTestActivity", "$position")
@@ -92,7 +101,10 @@ class MainActivity : AppCompatActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestViewHolder {
             return TestViewHolder(TextView(parent.context).apply {
-                layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
                 setBackgroundColor(parent.context.getColor(R.color.confident_orange))
                 setPadding(
                     0,

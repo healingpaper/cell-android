@@ -47,8 +47,8 @@ internal class CellBadgeStackAdapter(val list: ArrayList<String>) : RecyclerView
     }
 
     internal class CellBadgeStackViewHolder(
-            val badge: CellBadge,
-            private val itemClickListener: OnItemClickListener?
+        val badge: CellBadge,
+        private val itemClickListener: OnItemClickListener?
     ) : RecyclerView.ViewHolder(badge) {
         init {
             badge.setOnClickListener { itemClickListener?.onItemClick(adapterPosition) }
