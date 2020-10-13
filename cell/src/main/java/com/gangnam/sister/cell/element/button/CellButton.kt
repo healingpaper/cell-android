@@ -25,6 +25,12 @@ class CellButton @JvmOverloads constructor(
             update()
         }
 
+    var isDisabled: Boolean = false
+        set(value) {
+            field = value
+            update()
+        }
+
     private val smallHeight = DisplayManager.dpToPx(context, 32)
     private val mediumHeight = DisplayManager.dpToPx(context, 36)
     private val largeHeight = DisplayManager.dpToPx(context, 52)
@@ -38,6 +44,7 @@ class CellButton @JvmOverloads constructor(
             .use {
                 style = ButtonStyle.fromId(it.getInt(R.styleable.CellButton_cellButtonStyle, 0))
                 size = ButtonSize.fromId(it.getInt(R.styleable.CellButton_cellButtonSize, 0))
+                isDisabled = it.getBoolean(R.styleable.CellButton_isDisabled, false)
                 stateListAnimator = null
                 isClickable = true
                 isFocusable = true
@@ -50,6 +57,7 @@ class CellButton @JvmOverloads constructor(
         setBackgroundResource(getCellButtonBackgroundResource(style))
         setTextAppearance(getCellButtonTextStyle(size))
         setTextColor(getCellButtonTextColor(style))
+        isSelected = !isDisabled
     }
 
     private fun getCellButtonHeight(buttonSize: ButtonSize): Int {
@@ -62,13 +70,11 @@ class CellButton @JvmOverloads constructor(
 
     private fun getCellButtonBackgroundResource(buttonStyle: ButtonStyle): Int {
         return when (buttonStyle) {
-            ButtonStyle.PRIMARY -> R.drawable.rect_fill_orange_radius8_btn
-            ButtonStyle.SECONDARY -> R.drawable.rect_fill_lemonde_radius8_btn
-            ButtonStyle.TERTIARY -> R.drawable.rect_fill_gray_radius8_btn
-            ButtonStyle.DISABLED -> R.drawable.rect_fill_gray_radius8_btn
-            ButtonStyle.ACTION -> R.drawable.rect_fill_gray_radius8_btn
-            ButtonStyle.ABOVE_KEYBOARD -> R.drawable.rect_fill_orange_btn
-            ButtonStyle.ABOVE_KEYBOARD_DISABLED -> R.drawable.rect_fill_gray_btn
+            ButtonStyle.PRIMARY -> R.drawable.selector_rect_fill_orange_gray_radius8_btn
+            ButtonStyle.SECONDARY -> R.drawable.selector_rect_fill_lemonde_gray_radius8_btn
+            ButtonStyle.TERTIARY -> R.drawable.selector_rect_fill_gray_gray_radius8_btn
+            ButtonStyle.ACTION -> R.drawable.selector_rect_fill_gray_gray_radius8_btn
+            ButtonStyle.ABOVE_KEYBOARD -> R.drawable.selector_rect_fill_orange_gray_btn
         }
     }
 
@@ -82,13 +88,11 @@ class CellButton @JvmOverloads constructor(
 
     private fun getCellButtonTextColor(buttonStyle: ButtonStyle): Int {
         val colorRes = when (buttonStyle) {
-            ButtonStyle.PRIMARY -> R.color.white
-            ButtonStyle.SECONDARY -> R.color.confident_orange
-            ButtonStyle.TERTIARY -> R.color.black
-            ButtonStyle.DISABLED -> R.color.light_gray
-            ButtonStyle.ACTION -> R.color.black
-            ButtonStyle.ABOVE_KEYBOARD -> R.color.white
-            ButtonStyle.ABOVE_KEYBOARD_DISABLED -> R.color.light_gray
+            ButtonStyle.PRIMARY -> R.color.selector_cell_color_white_gray
+            ButtonStyle.SECONDARY -> R.color.selector_cell_color_orange_gray
+            ButtonStyle.TERTIARY -> R.color.selector_cell_color_black_gray
+            ButtonStyle.ACTION -> R.color.selector_cell_color_black_gray
+            ButtonStyle.ABOVE_KEYBOARD -> R.color.selector_cell_color_white_gray
         }
         return ContextCompat.getColor(context, colorRes)
     }
@@ -97,10 +101,8 @@ class CellButton @JvmOverloads constructor(
         PRIMARY,
         SECONDARY,
         TERTIARY,
-        DISABLED,
         ACTION,
-        ABOVE_KEYBOARD, // Use Only with ButtonStack
-        ABOVE_KEYBOARD_DISABLED; // Use Only with ButtonStack
+        ABOVE_KEYBOARD; // Use Only with ButtonStack
 
         companion object {
             fun fromId(id: Int): ButtonStyle {
