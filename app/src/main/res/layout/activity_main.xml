@@ -158,9 +158,10 @@
             android:id="@+id/cellBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_etc_hashtag"
             android:text="Badge"
-            app:badgeColor="lightGray"
-            app:badgeType="deletable"
+            app:badgeSize="medium"
+            app:badgeStyle="lightGray"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cellTextBox4" />
 
@@ -169,9 +170,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:drawableStart="@drawable/ic_etc_hashtag"
             android:text="CCTV"
-            app:badgeColor="lightGray"
+            app:badgeSize="small"
+            app:badgeStyle="lightGray"
+            app:layout_constraintBottom_toBottomOf="@id/cellBadge"
             app:layout_constraintStart_toEndOf="@+id/cellBadge"
+            app:layout_constraintTop_toTopOf="@id/cellBadge" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/cellBadge3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="CCTV"
+            app:badgeStyle="orange"
+            app:layout_constraintStart_toEndOf="@+id/cellBadge2"
             app:layout_constraintTop_toBottomOf="@id/cellTextBox4" />
 
         <TextView
@@ -204,7 +218,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/tiny"
             app:badgeStackColor="lightGray"
-            app:badgeStackType="deletable"
+            app:badgeStackType="medium"
             app:badgeStackViewType="horizontal"
             app:badges="@array/gender"
             app:flexWrap="wrap"
@@ -350,9 +364,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="안녕하세요"
+                app:cellButtonEnabled="false"
                 app:cellButtonSize="large"
                 app:cellButtonStyle="secondary"
-                app:cellButtonEnabled="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/cellBtn5"
                 app:layout_constraintStart_toStartOf="parent"

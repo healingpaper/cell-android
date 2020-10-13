@@ -21,10 +21,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        buttonStack.buttonCount = 1
-        buttonStack.setButtonItemClickListener { _: View, index: Int ->
-            if (index == 0) buttonStack.isAboveKeyboard = true
-        }
+//        buttonStack.buttonCount = 1
+//        buttonStack.setButtonItemClickListener { _: View, index: Int ->
+//            if (index == 0) buttonStack.isAboveKeyboard = true
+//        }
         selectSet.setOnItemSelectedListener { _, _, i -> toast("position: $i") }
         segmentController.setOnItemSelectedListener { _, _, i -> toast("position: $i") }
         cellInputSet.textBox.addTextChangedListener(object : TextWatcher {
