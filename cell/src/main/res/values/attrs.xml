@@ -65,7 +65,7 @@
 
     <declare-styleable name="CellRadioButton"></declare-styleable>
 
-    <declare-styleable name="CellTextBox">
+    <declare-styleable name="CellTextField">
         <attr name="android:gravity" />
         <attr name="android:padding" />
         <attr name="android:paddingStart" />

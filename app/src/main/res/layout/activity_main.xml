@@ -96,7 +96,7 @@
             app:showDrawableEnd="false"
             app:titleText="이메일" />
 
-        <com.gangnam.sister.cell.element.textbox.CellTextBox
+        <com.gangnam.sister.cell.element.textbox.CellTextField
             android:id="@+id/cellTextBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cellTextBox" />
 
-        <com.gangnam.sister.cell.element.textbox.CellTextBox
+        <com.gangnam.sister.cell.element.textbox.CellTextField
             android:id="@+id/cellTextBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cellDivider" />
 
-        <com.gangnam.sister.cell.element.textbox.CellTextBox
+        <com.gangnam.sister.cell.element.textbox.CellTextField
             android:id="@+id/cellTextBox3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cellTextBox2" />
 
-        <com.gangnam.sister.cell.element.textbox.CellTextBox
+        <com.gangnam.sister.cell.element.textbox.CellTextField
             android:id="@+id/cellTextBox4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

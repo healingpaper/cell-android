@@ -30,7 +30,7 @@
         app:layout_constraintStart_toEndOf="@id/titleTxt"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.gangnam.sister.cell.element.textbox.CellTextBox
+    <com.gangnam.sister.cell.element.textbox.CellTextField
         android:id="@+id/mainInput"
         android:layout_width="match_parent"
         android:layout_height="180dp"

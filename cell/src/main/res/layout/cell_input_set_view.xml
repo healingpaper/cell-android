@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="제목을 입력해주세요." />
 
-    <com.gangnam.sister.cell.element.textbox.CellTextBox
+    <com.gangnam.sister.cell.element.textbox.CellTextField
         android:id="@+id/mainInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

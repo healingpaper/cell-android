@@ -9,13 +9,13 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.use
 import com.gangnam.sister.cell.R
-import com.gangnam.sister.cell.element.textbox.CellTextBox
+import com.gangnam.sister.cell.element.textbox.CellTextField
 import kotlinx.android.synthetic.main.cell_input_set_view.view.*
 
 class CellInputSet @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-    val textBox: CellTextBox
+    val textField: CellTextField
         get() = mainInput
     var titleText: String? = null
         set(value) {

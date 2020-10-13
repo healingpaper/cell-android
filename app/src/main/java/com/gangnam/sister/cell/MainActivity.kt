@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 //        }
         selectSet.setOnItemSelectedListener { _, _, i -> toast("position: $i") }
         segmentController.setOnItemSelectedListener { _, _, i -> toast("position: $i") }
-        cellInputSet.textBox.addTextChangedListener(object : TextWatcher {
+        cellInputSet.textField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 

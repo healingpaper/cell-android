@@ -12,7 +12,7 @@ import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.util.DisplayManager
 
 
-class CellTextBox @JvmOverloads constructor(
+class CellTextField @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null
 ) : AppCompatEditText(context, attrs, androidx.appcompat.R.attr.editTextStyle) {
     var hasError = false
@@ -34,16 +34,16 @@ class CellTextBox @JvmOverloads constructor(
     }
 
     private fun initView(attrs: AttributeSet?) {
-        context.theme.obtainStyledAttributes(attrs, R.styleable.CellTextBox, 0, 0)
+        context.theme.obtainStyledAttributes(attrs, R.styleable.CellTextField, 0, 0)
                 .use {
-                    val padding = it.getDimensionPixelSize(R.styleable.CellTextBox_android_padding, 0)
-                    val paddingStart = it.getDimensionPixelSize(R.styleable.CellTextBox_android_paddingStart, dp16)
-                    val paddingEnd = it.getDimensionPixelSize(R.styleable.CellTextBox_android_paddingEnd, dp16)
-                    val paddingTop = it.getDimensionPixelSize(R.styleable.CellTextBox_android_paddingTop, 0)
-                    val paddingBottom = it.getDimensionPixelSize(R.styleable.CellTextBox_android_paddingBottom, 0)
-                    hasError = it.getBoolean(R.styleable.CellTextBox_hasError, false)
-                    maxLength = it.getInt(R.styleable.CellTextBox_android_maxLength, Int.MAX_VALUE)
-                    gravity = it.getInt(R.styleable.CellTextBox_android_gravity, Gravity.CENTER_VERTICAL)
+                    val padding = it.getDimensionPixelSize(R.styleable.CellTextField_android_padding, 0)
+                    val paddingStart = it.getDimensionPixelSize(R.styleable.CellTextField_android_paddingStart, dp16)
+                    val paddingEnd = it.getDimensionPixelSize(R.styleable.CellTextField_android_paddingEnd, dp16)
+                    val paddingTop = it.getDimensionPixelSize(R.styleable.CellTextField_android_paddingTop, 0)
+                    val paddingBottom = it.getDimensionPixelSize(R.styleable.CellTextField_android_paddingBottom, 0)
+                    hasError = it.getBoolean(R.styleable.CellTextField_hasError, false)
+                    maxLength = it.getInt(R.styleable.CellTextField_android_maxLength, Int.MAX_VALUE)
+                    gravity = it.getInt(R.styleable.CellTextField_android_gravity, Gravity.CENTER_VERTICAL)
                     compoundDrawablePadding = dp16
                     maxLines = 1
                     setLines(1)
