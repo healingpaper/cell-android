@@ -25,7 +25,7 @@ class CellButton @JvmOverloads constructor(
             update()
         }
 
-    var isDisabled: Boolean = false
+    var isButtonEnabled: Boolean = false
         set(value) {
             field = value
             update()
@@ -44,7 +44,7 @@ class CellButton @JvmOverloads constructor(
             .use {
                 style = ButtonStyle.fromId(it.getInt(R.styleable.CellButton_cellButtonStyle, 0))
                 size = ButtonSize.fromId(it.getInt(R.styleable.CellButton_cellButtonSize, 0))
-                isDisabled = it.getBoolean(R.styleable.CellButton_isDisabled, false)
+                isButtonEnabled = it.getBoolean(R.styleable.CellButton_cellButtonEnabled, false)
                 stateListAnimator = null
                 isClickable = true
                 isFocusable = true
@@ -57,7 +57,7 @@ class CellButton @JvmOverloads constructor(
         setBackgroundResource(getCellButtonBackgroundResource(style))
         setTextAppearance(getCellButtonTextStyle(size))
         setTextColor(getCellButtonTextColor(style))
-        isSelected = !isDisabled
+        isSelected = !isButtonEnabled
     }
 
     private fun getCellButtonHeight(buttonSize: ButtonSize): Int {
@@ -96,6 +96,8 @@ class CellButton @JvmOverloads constructor(
         }
         return ContextCompat.getColor(context, colorRes)
     }
+
+    override fun setEnabled(enabled: Boolean) = throw IllegalAccessException("enabled cannot be set in this element.")
 
     enum class ButtonStyle {
         PRIMARY,
