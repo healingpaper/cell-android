@@ -67,6 +67,8 @@ class CellButton @JvmOverloads constructor(
             ButtonStyle.TERTIARY -> R.drawable.rect_fill_gray_radius8_btn
             ButtonStyle.DISABLED -> R.drawable.rect_fill_gray_radius8_btn
             ButtonStyle.ACTION -> R.drawable.rect_fill_gray_radius8_btn
+            ButtonStyle.ABOVE_KEYBOARD -> R.drawable.rect_fill_orange_btn
+            ButtonStyle.ABOVE_KEYBOARD_DISABLED -> R.drawable.rect_fill_gray_btn
         }
     }
 
@@ -85,12 +87,20 @@ class CellButton @JvmOverloads constructor(
             ButtonStyle.TERTIARY -> R.color.black
             ButtonStyle.DISABLED -> R.color.light_gray
             ButtonStyle.ACTION -> R.color.black
+            ButtonStyle.ABOVE_KEYBOARD -> R.color.white
+            ButtonStyle.ABOVE_KEYBOARD_DISABLED -> R.color.light_gray
         }
         return ContextCompat.getColor(context, colorRes)
     }
 
     enum class ButtonStyle {
-        PRIMARY, SECONDARY, TERTIARY, DISABLED, ACTION;
+        PRIMARY,
+        SECONDARY,
+        TERTIARY,
+        DISABLED,
+        ACTION,
+        ABOVE_KEYBOARD, // Use Only with ButtonStack
+        ABOVE_KEYBOARD_DISABLED; // Use Only with ButtonStack
 
         companion object {
             fun fromId(id: Int): ButtonStyle {
