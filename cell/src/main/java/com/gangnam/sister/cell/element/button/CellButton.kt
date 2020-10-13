@@ -109,7 +109,7 @@ class CellButton @JvmOverloads constructor(
         companion object {
             fun fromId(id: Int): ButtonStyle {
                 values().forEach { if (it.ordinal == id) return it }
-                throw IllegalArgumentException("Please set button color among \"primary, secondary, tertiary, disabled, action\".")
+                throw IllegalArgumentException("Please set button style among \"primary, secondary, tertiary, disabled, action\".")
             }
         }
     }
@@ -120,7 +120,7 @@ class CellButton @JvmOverloads constructor(
         companion object {
             fun fromId(id: Int): ButtonSize {
                 values().forEach { if (it.ordinal == id) return it }
-                throw IllegalArgumentException("Please set button color among \"large, medium, small\".")
+                throw IllegalArgumentException("Please set button size among \"large, medium, small\".")
             }
         }
     }
