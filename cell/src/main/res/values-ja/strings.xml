@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="min_max_length_format">%d/%d字</string>
+    <string name="min_max_length_format">%1$d/%2$d字</string>
     <string name="please_input">内容を入力してください。</string>
     <string name="view_detail">詳細</string>
 </resources>
