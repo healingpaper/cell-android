@@ -9,13 +9,23 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
+        <com.gangnam.sister.cell.component.button.CellButtonStack
+            android:id="@+id/buttonStack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/buttonStack" />
 
         <com.gangnam.sister.cell.component.uicontroller.CellSegmentController
             android:id="@+id/segmentController"
