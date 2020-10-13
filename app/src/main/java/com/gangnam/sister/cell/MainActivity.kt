@@ -11,8 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.gangnam.sister.cell.component.inputset.CellInputSet
-import com.gangnam.sister.cell.element.badge.CellBadge
-import com.gangnam.sister.cell.element.button.CellButton
 import com.gangnam.sister.cell.element.divider.CellDivider
 import com.gangnam.sister.cell.element.divider.CellDividerItemDecoration
 import com.gangnam.sister.cell.listener.OnItemClickListener
@@ -48,11 +46,6 @@ class MainActivity : AppCompatActivity() {
                 cellTextBox.hasError = s.length > 5
             }
         })
-        cellBtn1.buttonColor = CellButton.ButtonColor.LIGHT_GRAY
-        cellBtn3.buttonButtonTextAppearance = CellButton.ButtonTextAppearance.BIG
-        cellBtn5.buttonType = CellButton.ButtonType.FULL_WIDTH
-        cellBtn6.buttonType = CellButton.ButtonType.BIG_BLOCK
-        cellBtn7.buttonType = CellButton.ButtonType.FULL_WIDTH
         val badges = arrayListOf<String>()
         badges.add("CCTV")
         badges.add("전문의뱃지")
