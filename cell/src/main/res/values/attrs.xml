@@ -3,6 +3,7 @@
     <attr name="titleText" format="string" />
     <attr name="itemNameArray" format="reference" />
     <attr name="selectedIndex" format="integer" />
+    <attr name="hasError" format="boolean" />
 
     <declare-styleable name="CellSpacing">
         <attr name="spacingType" format="enum">
@@ -73,7 +74,18 @@
         <attr name="android:paddingTop" />
         <attr name="android:paddingBottom" />
         <attr name="android:maxLength" />
-        <attr name="hasError" format="boolean" />
+        <attr name="hasError" />
+    </declare-styleable>
+
+    <declare-styleable name="CellTextArea">
+        <attr name="android:gravity" />
+        <attr name="android:padding" />
+        <attr name="android:paddingStart" />
+        <attr name="android:paddingEnd" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingBottom" />
+        <attr name="android:maxLength" />
+        <attr name="hasError" />
     </declare-styleable>
 
     <declare-styleable name="TextBoxState">

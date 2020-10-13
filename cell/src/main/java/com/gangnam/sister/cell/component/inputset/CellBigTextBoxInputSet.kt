@@ -89,7 +89,7 @@ class CellBigTextBoxInputSet @JvmOverloads constructor(
             }
             maxLength = typedArray.getInt(R.styleable.CellBigTextBoxInputSet_android_maxLength, 500)
             addTextChangedListener(afterTextChanged = {
-                textCountTxt.text = String.format(context.getString(R.string.min_max_length_format), it.toString().length, mainInput.maxLength)
+                this@CellBigTextBoxInputSet.textCountTxt.text = String.format(context.getString(R.string.min_max_length_format), it.toString().length, mainInput.maxLength)
             })
             setOnTouchListener(textBoxTouchListener)
         }
