@@ -55,7 +55,7 @@ class CellButton @JvmOverloads constructor(
     private fun update() {
         height = getCellButtonHeight(size)
         setBackgroundResource(getCellButtonBackgroundResource(style))
-        setTextAppearance(getCellButtonTextStyle(size))
+        setTextAppearance(getCellButtonTextStyle(size, style))
         setTextColor(getCellButtonTextColor(style))
         isSelected = !isButtonEnabled
     }
@@ -78,11 +78,16 @@ class CellButton @JvmOverloads constructor(
         }
     }
 
-    private fun getCellButtonTextStyle(buttonSize: ButtonSize): Int {
+    private fun getCellButtonTextStyle(buttonSize: ButtonSize, buttonStyle: ButtonStyle): Int {
         return when (buttonSize) {
             ButtonSize.LARGE -> R.style.T02H216BoldCenterBlack
             ButtonSize.MEDIUM -> R.style.T03Body14BoldCenterBlack
-            ButtonSize.SMALL -> R.style.T04Label12BoldCenterBlack
+            ButtonSize.SMALL -> {
+                when (buttonStyle) {
+                    ButtonStyle.PRIMARY, ButtonStyle.SECONDARY -> R.style.T04Label12BoldCenterBlack
+                    else -> R.style.T04Label12MediumCenterBlack
+                }
+            }
         }
     }
 
@@ -97,7 +102,8 @@ class CellButton @JvmOverloads constructor(
         return ContextCompat.getColor(context, colorRes)
     }
 
-    override fun setEnabled(enabled: Boolean) = throw IllegalAccessException("enabled cannot be set in this element.")
+    override fun setEnabled(enabled: Boolean) =
+        throw IllegalAccessException("enabled cannot be set in this element.")
 
     enum class ButtonStyle {
         PRIMARY,
