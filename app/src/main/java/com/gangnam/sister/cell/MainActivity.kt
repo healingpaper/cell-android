@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.gangnam.sister.cell.component.inputset.CellInputSet
+import com.gangnam.sister.cell.element.badge.CellBadge
+import com.gangnam.sister.cell.element.badge.CellBadgeStack
 import com.gangnam.sister.cell.element.divider.CellDivider
 import com.gangnam.sister.cell.element.divider.CellDividerItemDecoration
 import com.gangnam.sister.cell.listener.OnItemClickListener
@@ -64,6 +66,12 @@ class MainActivity : AppCompatActivity() {
         badges.add("의료의료")
         badges.add("여성전문의가")
         cellBadgeStack.setData(badges)
+        cellBadgeStack.setDataWithItem(badges.mapIndexed { index: Int, text: String ->
+            val color = if(index % 2 == 0) CellBadge.BadgeStyle.LEMONADE else CellBadge.BadgeStyle.LIGHT_GRAY
+            val drawableStart = if(index % 2 == 0) R.drawable.ic_etc_hashtag else 0
+            val drawableEnd = if(index % 2 == 1) R.drawable.ic_etc_hashtag else 0
+            CellBadgeStack.Item(text, color, drawableStart, drawableEnd)
+        })
         cellBadgeStack.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
                 Log.d("CellTestActivity", "$position")

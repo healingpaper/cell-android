@@ -93,14 +93,14 @@
     </declare-styleable>
 
     <declare-styleable name="CellBadgeStack">
-        <attr name="badgeStackColor" format="enum">
-            <enum name="lemonade" value="0" />
-            <enum name="lightGray" value="1" />
+        <attr name="badgeStackStyle" format="enum">
+            <enum name="orange" value="0" />
+            <enum name="lemonade" value="1" />
+            <enum name="lightGray" value="2" />
         </attr>
-        <attr name="badgeStackType" format="enum">
-            <enum name="base" value="0" />
-            <enum name="clickable" value="1" />
-            <enum name="deletable" value="2" />
+        <attr name="badgeStackSize" format="enum">
+            <enum name="medium" value="0" />
+            <enum name="small" value="1" />
         </attr>
         <attr name="badgeStackViewType" format="enum">
             <enum name="base" value="0" />

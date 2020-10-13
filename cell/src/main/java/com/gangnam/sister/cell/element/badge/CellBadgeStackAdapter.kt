@@ -4,14 +4,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gangnam.sister.cell.listener.OnItemClickListener
 
-internal class CellBadgeStackAdapter(val list: ArrayList<String>) : RecyclerView.Adapter<CellBadgeStackAdapter.CellBadgeStackViewHolder>() {
+internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) : RecyclerView.Adapter<CellBadgeStackAdapter.CellBadgeStackViewHolder>() {
     private var itemClickListener: OnItemClickListener? = null
-    internal var badgeColor: CellBadge.BadgeColor = CellBadge.BadgeColor.LIGHT_GRAY
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-    internal var badgeType: CellBadge.BadgeType = CellBadge.BadgeType.BASE
+
+    internal var badgeSize: CellBadge.BadgeSize = CellBadge.BadgeSize.MEDIUM
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -23,15 +19,17 @@ internal class CellBadgeStackAdapter(val list: ArrayList<String>) : RecyclerView
 
     override fun onBindViewHolder(holder: CellBadgeStackViewHolder, position: Int) {
         holder.badge.apply {
-            text = list[position]
-            badgeColor = this@CellBadgeStackAdapter.badgeColor
-            badgeType = this@CellBadgeStackAdapter.badgeType
+            val item = list[position]
+            text = item.text
+            badgeStyle = item.style
+            badgeSize = this@CellBadgeStackAdapter.badgeSize
+            setCompoundDrawablesRelativeWithIntrinsicBounds(item.startIconDrawable, 0, item.endIconDrawable, 0)
         }
     }
 
     override fun getItemCount() = list.size
 
-    fun setItems(list: List<String>) {
+    fun setData(list: List<CellBadgeStack.Item>) {
         this.list.clear()
         this.list.addAll(list)
         notifyDataSetChanged()

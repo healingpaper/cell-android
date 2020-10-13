@@ -19,15 +19,15 @@ class CellBadgeStack @JvmOverloads constructor(
 ) : RecyclerView(context, attrs, defStyleAttr) {
     private val badgeStackAdapter = CellBadgeStackAdapter(arrayListOf())
 
-    var badgeColor: CellBadge.BadgeColor = CellBadge.BadgeColor.LIGHT_GRAY
+    var badgeStyle: CellBadge.BadgeStyle = CellBadge.BadgeStyle.LIGHT_GRAY
         set(value) {
             field = value
-            badgeStackAdapter.badgeColor = this@CellBadgeStack.badgeColor
+            badgeStackAdapter.notifyDataSetChanged()
         }
-    var badgeType: CellBadge.BadgeType = CellBadge.BadgeType.BASE
+    var badgeSize: CellBadge.BadgeSize = CellBadge.BadgeSize.MEDIUM
         set(value) {
             field = value
-            badgeStackAdapter.badgeType = this@CellBadgeStack.badgeType
+            badgeStackAdapter.badgeSize = this@CellBadgeStack.badgeSize
         }
     var badgeStackViewType: BadgeStackViewType = BadgeStackViewType.BASE
         set(value) {
@@ -38,18 +38,18 @@ class CellBadgeStack @JvmOverloads constructor(
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadgeStack, defStyleAttr, 0)
             .use {
-                if (it.hasValue(R.styleable.CellBadgeStack_badgeStackColor)) {
-                    badgeColor = CellBadge.BadgeColor.fromId(
+                if (it.hasValue(R.styleable.CellBadgeStack_badgeStackStyle)) {
+                    badgeStyle = CellBadge.BadgeStyle.fromId(
                         it.getInt(
-                            R.styleable.CellBadgeStack_badgeStackColor,
+                            R.styleable.CellBadgeStack_badgeStackStyle,
                             0
                         )
                     )
                 }
-                if (it.hasValue(R.styleable.CellBadgeStack_badgeStackType)) {
-                    badgeType = CellBadge.BadgeType.fromId(
+                if (it.hasValue(R.styleable.CellBadgeStack_badgeStackSize)) {
+                    badgeSize = CellBadge.BadgeSize.fromId(
                         it.getInt(
-                            R.styleable.CellBadgeStack_badgeStackType,
+                            R.styleable.CellBadgeStack_badgeStackSize,
                             0
                         )
                     )
@@ -87,9 +87,16 @@ class CellBadgeStack @JvmOverloads constructor(
 
     fun setData(list: List<String>) {
         badgeStackAdapter.apply {
-            badgeColor = this@CellBadgeStack.badgeColor
-            badgeType = this@CellBadgeStack.badgeType
-            setItems(list.distinct())
+            badgeSize = this@CellBadgeStack.badgeSize
+            setData(list.map {Item(it, this@CellBadgeStack.badgeStyle) }.distinct())
+        }
+    }
+
+    // Badge 하나하나마다 스타일 지정하고 싶을 때 사용
+    fun setDataWithItem(list: List<Item>) {
+        badgeStackAdapter.apply {
+            badgeSize = this@CellBadgeStack.badgeSize
+            setData(list.distinct())
         }
     }
 
@@ -97,10 +104,7 @@ class CellBadgeStack @JvmOverloads constructor(
         badgeStackAdapter.setOnItemClickListener(itemClickListener)
     }
 
-    fun removeView(index: Int) {
-        if (badgeType != CellBadge.BadgeType.DELETABLE) throw IllegalAccessException("This method can be called only with \"BadgeType: Deletable.\"")
-        badgeStackAdapter.removeItem(index)
-    }
+    fun removeView(index: Int) = badgeStackAdapter.removeItem(index)
 
     override fun onInterceptTouchEvent(e: MotionEvent?): Boolean {
         return false
@@ -126,4 +130,11 @@ class CellBadgeStack @JvmOverloads constructor(
             }
         }
     }
+
+    data class Item(
+        val text: String,
+        val style: CellBadge.BadgeStyle,
+        val startIconDrawable: Int = 0,
+        val endIconDrawable: Int = 0
+    )
 }
