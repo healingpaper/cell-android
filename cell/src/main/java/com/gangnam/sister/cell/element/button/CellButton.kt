@@ -58,7 +58,7 @@ class CellButton @JvmOverloads constructor(
         buttonStyle?.let {
             height = it.getButtonHeight(appearanceType)
             background = it.getButtonBackground(isButtonEnabled)
-            setTextAppearance(it.getCellButtonTextStyle(appearanceType))
+            setTextAppearance(it.getCellButtonTextStyle(isButtonEnabled, appearanceType))
             setTextColor(it.getTextColor(isButtonEnabled))
         }
     }

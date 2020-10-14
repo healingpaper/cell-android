@@ -10,10 +10,12 @@
     <color name="ash">#999999</color>
     <color name="gray">#d6d6d6</color>
     <color name="light_gray">#f5f5f5</color>
+    <color name="silver">#bcbcbc</color>
     <color name="white">#ffffff</color>
     <color name="poppy_red">#e03131</color>
     <color name="poppy_red_5_percent">#0ce03131</color>
     <color name="ginger">#ebb450</color>
+    <color name="very_light_pink">#ffede3</color>
     <color name="black_30_percent">#4c000000</color>
 
     <!-- Deprecated -->

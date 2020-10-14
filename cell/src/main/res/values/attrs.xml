@@ -57,6 +57,9 @@
             <enum name="tertiary" value="2" />
             <enum name="action" value="3" />
         </attr>
+        <attr name="firstButtonText" format="string" />
+        <attr name="secondButtonText" format="string" />
+        <attr name="thirdButtonText" format="string" />
         <attr name="buttonCount" format="integer" />
     </declare-styleable>
 

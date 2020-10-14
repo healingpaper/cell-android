@@ -10,8 +10,8 @@ sealed class ButtonStyles: (Context) -> ButtonStyle {
             style = Primary,
             backgroundColorRes = R.color.confident_orange,
             textColorRes = R.color.white,
-            disabledBackgroundColorRes = R.color.gray,
-            disabledTextColorRes = R.color.light_gray
+            disabledBackgroundColorRes = R.color.light_gray,
+            disabledTextColorRes = R.color.silver
         )
     }
 
@@ -19,30 +19,32 @@ sealed class ButtonStyles: (Context) -> ButtonStyle {
         override fun invoke(context: Context): ButtonStyle = ButtonStyle.create(
             context = context,
             style = Secondary,
-            backgroundColorRes = R.color.lemonade,
+            backgroundColorRes = R.color.very_light_pink,
             textColorRes = R.color.confident_orange,
-            disabledBackgroundColorRes = R.color.gray,
-            disabledTextColorRes = R.color.light_gray
+            disabledBackgroundColorRes = R.color.light_gray,
+            disabledTextColorRes = R.color.silver
         )
     }
     object Tertiary : ButtonStyles() {
         override fun invoke(context: Context): ButtonStyle = ButtonStyle.create(
             context = context,
             style = Tertiary,
-            backgroundColorRes = R.color.gray,
+            backgroundColorRes = R.color.light_gray,
             textColorRes = R.color.black,
-            disabledBackgroundColorRes = R.color.gray,
-            disabledTextColorRes = R.color.light_gray
+            disabledBackgroundColorRes = R.color.light_gray,
+            disabledTextColorRes = R.color.silver
         )
     }
     object Action : ButtonStyles() {
         override fun invoke(context: Context): ButtonStyle = ButtonStyle.create(
             context = context,
             style = Action,
-            backgroundColorRes = R.color.gray,
+            backgroundColorRes = R.color.white,
             textColorRes = R.color.black,
-            disabledBackgroundColorRes = R.color.gray,
-            disabledTextColorRes = R.color.light_gray
+            borderColorRes = R.color.gray,
+            borderWidthRes = R.dimen.one,
+            disabledBackgroundColorRes = R.color.light_gray,
+            disabledTextColorRes = R.color.silver
         )
     }
     object AboveKeyboard : ButtonStyles() {
@@ -51,8 +53,8 @@ sealed class ButtonStyles: (Context) -> ButtonStyle {
             style = Action,
             backgroundColorRes = R.color.confident_orange,
             textColorRes = R.color.white,
-            disabledBackgroundColorRes = R.color.gray,
-            disabledTextColorRes = R.color.light_gray,
+            disabledBackgroundColorRes = R.color.light_gray,
+            disabledTextColorRes = R.color.silver,
             radiusRes = R.dimen.zero
         )
     }

@@ -70,15 +70,23 @@ class ButtonStyle(
         }
     }
 
-    fun getCellButtonTextStyle(appearanceType: CellButton.ButtonAppearanceType): Int {
-        return when (appearanceType) {
-            CellButton.ButtonAppearanceType.LARGE -> R.style.T02H216BoldCenterBlack
-            CellButton.ButtonAppearanceType.MEDIUM -> R.style.T03Body14BoldCenterBlack
-            CellButton.ButtonAppearanceType.SMALL -> {
-                when (style) {
-                    ButtonStyles.Primary, ButtonStyles.Secondary -> R.style.T04Label12BoldCenterBlack
-                    else -> R.style.T04Label12MediumCenterBlack
+    fun getCellButtonTextStyle(enabled: Boolean, appearanceType: CellButton.ButtonAppearanceType): Int {
+        return if (enabled){
+            when (appearanceType) {
+                CellButton.ButtonAppearanceType.LARGE -> R.style.T02H216BoldCenterBlack
+                CellButton.ButtonAppearanceType.MEDIUM -> R.style.T03Body14BoldCenterBlack
+                CellButton.ButtonAppearanceType.SMALL -> {
+                    when (style) {
+                        ButtonStyles.Primary, ButtonStyles.Secondary -> R.style.T04Label12BoldCenterBlack
+                        else -> R.style.T04Label12MediumCenterBlack
+                    }
                 }
+            }
+        } else {
+            when (appearanceType) {
+                CellButton.ButtonAppearanceType.LARGE -> R.style.T02H216BoldCenterBlack
+                CellButton.ButtonAppearanceType.MEDIUM -> R.style.T03Body14BoldCenterBlack
+                CellButton.ButtonAppearanceType.SMALL -> R.style.T04Label12MediumCenterBlack
             }
         }
     }

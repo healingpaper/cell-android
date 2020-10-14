@@ -8,5 +8,6 @@
     <dimen name="base">24dp</dimen>
     <dimen name="small">16dp</dimen>
     <dimen name="tiny">8dp</dimen>
+    <dimen name="one">1dp</dimen>
     <dimen name="zero">0dp</dimen>
 </resources>

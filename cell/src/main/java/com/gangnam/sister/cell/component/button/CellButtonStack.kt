@@ -1,6 +1,7 @@
 package com.gangnam.sister.cell.component.button
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,21 @@ class CellButtonStack @JvmOverloads constructor(
         set(value) {
             field = value
             updateThirdButton(value)
+        }
+    var firstButtonText: String? = null
+        set(value) {
+            field = value
+            if (firstBtn != null) firstBtn.text = value
+        }
+    var secondButtonText: String? = null
+        set(value) {
+            field = value
+            if (secondBtn != null) secondBtn.text = value
+        }
+    var thirdButtonText: String? = null
+        set(value) {
+            field = value
+            if (thirdBtn != null) thirdBtn.text = value
         }
 
     var buttonCount = 3
@@ -67,10 +83,14 @@ class CellButtonStack @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellButtonStack, defStyleAttr, 0)
             .use {
+                buttonCount = it.getInt(R.styleable.CellButtonStack_buttonCount, 3)
                 firstButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_firstButtonStyle, 0))
                 secondButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_secondButtonStyle, 1))
                 thirdButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_thirdButtonStyle, 2))
-                buttonCount = it.getInt(R.styleable.CellButtonStack_buttonCount, 3)
+                firstButtonText = it.getString(R.styleable.CellButtonStack_firstButtonText)
+                secondButtonText = it.getString(R.styleable.CellButtonStack_secondButtonText)
+                thirdButtonText = it.getString(R.styleable.CellButtonStack_thirdButtonText)
+                setBackgroundColor(Color.WHITE)
             }
     }
 
