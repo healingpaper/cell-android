@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ButtonActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/bigBlock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/tiny"
+                android:weightSum="3">
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/primaryLargeBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/primaryMediumBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/tiny"
+                    android:layout_weight="1"
+                    android:text="Primary"
+                    app:cellButtonAppearance="medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/primarySmallBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Primary"
+                    app:cellButtonAppearance="small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/tiny"
+                android:weightSum="3">
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/secondaryLargeBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Secondary"
+                    app:cellButtonStyle="secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/secondaryMediumBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/tiny"
+                    android:layout_weight="1"
+                    android:text="Secondary"
+                    app:cellButtonAppearance="medium"
+                    app:cellButtonStyle="secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/secondarySmallBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Secondary"
+                    app:cellButtonAppearance="small"
+                    app:cellButtonStyle="secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/tiny"
+                android:weightSum="3">
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/tertiaryLargeBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tertiary"
+                    app:cellButtonStyle="tertiary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/tertiaryMediumBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/tiny"
+                    android:layout_weight="1"
+                    android:text="Tertiary"
+                    app:cellButtonAppearance="medium"
+                    app:cellButtonStyle="tertiary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/tertiarySmallBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tertiary"
+                    app:cellButtonAppearance="small"
+                    app:cellButtonStyle="tertiary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/tiny"
+                android:weightSum="3">
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/disabledLargeBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Disabled"
+                    app:cellButtonEnabled="false"
+                    app:cellButtonStyle="primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/disabledMediumBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/tiny"
+                    android:layout_weight="1"
+                    android:text="Disabled"
+                    app:cellButtonAppearance="medium"
+                    app:cellButtonEnabled="false"
+                    app:cellButtonStyle="secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/disabledSmallBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Disabled"
+                    app:cellButtonAppearance="small"
+                    app:cellButtonEnabled="false"
+                    app:cellButtonStyle="tertiary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+            <com.gangnam.sister.cell.element.button.CellButton
+                android:id="@+id/fourthBtn"
+                android:layout_width="86dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tiny"
+                android:layout_marginTop="@dimen/tiny"
+                android:text="Action"
+                app:cellButtonAppearance="small"
+                app:cellButtonStyle="action"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/thirdBtn" />
+
+            <com.gangnam.sister.cell.component.button.CellButtonStack
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tiny"
+                app:firstButtonText="First"
+                app:secondButtonText="Second"
+                app:thirdButtonText="Third" />
+
+            <com.gangnam.sister.cell.component.button.CellButtonStack
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tiny"
+                app:buttonCount="2"
+                app:firstButtonText="First"
+                app:secondButtonText="Second" />
+
+            <com.gangnam.sister.cell.component.button.CellButtonStack
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tiny"
+                app:buttonCount="2"
+                app:firstButtonStyle="tertiary"
+                app:firstButtonText="First"
+                app:secondButtonText="Second" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.gangnam.sister.cell.component.button.CellButtonStack
+        android:id="@+id/bigBlock"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny"
+        app:buttonCount="1"
+        app:firstButtonText="First"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
