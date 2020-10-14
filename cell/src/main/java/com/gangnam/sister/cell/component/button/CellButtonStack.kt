@@ -75,15 +75,15 @@ class CellButtonStack @JvmOverloads constructor(
     }
 
     private fun updateFirstButton(style: CellButton.ButtonStyle) {
-        firstBtn.style = style
+        firstBtn.theme = style
     }
 
     private fun updateSecondButton(style: CellButton.ButtonStyle) {
-        secondBtn.style = style
+        secondBtn.theme = style
     }
 
     private fun updateThirdButton(style: CellButton.ButtonStyle) {
-        thirdBtn.style = style
+        thirdBtn.theme = style
     }
 
     private fun updateButtonVisibility(buttonCount: Int) {
@@ -94,10 +94,10 @@ class CellButtonStack @JvmOverloads constructor(
 
     private fun updateAboveKeyboardMode(aboveKeyboard: Boolean) {
         if (aboveKeyboard) {
-            firstBtn.style = CellButton.ButtonStyle.ABOVE_KEYBOARD
+            firstBtn.theme = CellButton.ButtonStyle.ABOVE_KEYBOARD
             root.setPadding(0, 0, 0, 0)
         } else {
-            firstBtn.style = originalFirstButtonStyle
+            firstBtn.theme = originalFirstButtonStyle
             root.setPadding(dp8, dp8, dp8, dp8)
         }
     }

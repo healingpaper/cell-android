@@ -13,13 +13,13 @@ import com.gangnam.sister.cell.util.DisplayManager
 class CellButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : AppCompatButton(context, attrs, defStyleAttr) {
-    var style: ButtonStyle = ButtonStyle.PRIMARY
+    var theme: ButtonStyle = ButtonStyle.PRIMARY
         set(value) {
             field = value
             update()
         }
 
-    var size: ButtonSize = ButtonSize.LARGE
+    var appearance: ButtonSize = ButtonSize.LARGE
         set(value) {
             field = value
             update()
@@ -42,8 +42,8 @@ class CellButton @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellButton, defStyleAttr, 0)
             .use {
-                style = ButtonStyle.fromId(it.getInt(R.styleable.CellButton_cellButtonStyle, 0))
-                size = ButtonSize.fromId(it.getInt(R.styleable.CellButton_cellButtonSize, 0))
+                theme = ButtonStyle.fromId(it.getInt(R.styleable.CellButton_buttonTheme, 0))
+                appearance = ButtonSize.fromId(it.getInt(R.styleable.CellButton_buttonApearance, 0))
                 isButtonEnabled = it.getBoolean(R.styleable.CellButton_cellButtonEnabled, false)
                 stateListAnimator = null
                 isClickable = true
@@ -53,10 +53,10 @@ class CellButton @JvmOverloads constructor(
     }
 
     private fun update() {
-        height = getCellButtonHeight(size)
-        setBackgroundResource(getCellButtonBackgroundResource(style))
-        setTextAppearance(getCellButtonTextStyle(size, style))
-        setTextColor(getCellButtonTextColor(style))
+        height = getCellButtonHeight(appearance)
+        setBackgroundResource(getCellButtonBackgroundResource(theme))
+        setTextAppearance(getCellButtonTextStyle(appearance, theme))
+        setTextColor(getCellButtonTextColor(theme))
         isSelected = !isButtonEnabled
     }
 

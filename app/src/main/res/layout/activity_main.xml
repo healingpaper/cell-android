@@ -299,8 +299,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/tiny"
             android:text="안녕하세요"
-            app:cellButtonSize="small"
-            app:cellButtonStyle="tertiary"
+            app:buttonApearance="small"
+            app:buttonTheme="tertiary"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintTop_toBottomOf="@+id/cellBigTextBoxInputSet2" />
 
@@ -317,8 +317,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="안녕하세요"
-                app:cellButtonSize="medium"
-                app:cellButtonStyle="primary"
+                app:buttonApearance="medium"
+                app:buttonTheme="primary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/cellBtn2"
                 app:layout_constraintStart_toStartOf="parent"
@@ -331,8 +331,8 @@
                 android:layout_marginStart="@dimen/tiny"
                 android:layout_marginEnd="@dimen/tiny"
                 android:text="안녕하세요"
-                app:cellButtonSize="medium"
-                app:cellButtonStyle="secondary"
+                app:buttonApearance="medium"
+                app:buttonTheme="secondary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/cellBtn3"
                 app:layout_constraintStart_toEndOf="@id/cellBtn1"
@@ -343,8 +343,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="안녕하세요"
-                app:cellButtonSize="medium"
-                app:cellButtonStyle="tertiary"
+                app:buttonApearance="medium"
+                app:buttonTheme="tertiary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/cellBtn2"
@@ -365,8 +365,8 @@
                 android:layout_height="wrap_content"
                 android:text="안녕하세요"
                 app:cellButtonEnabled="false"
-                app:cellButtonSize="large"
-                app:cellButtonStyle="secondary"
+                app:buttonApearance="large"
+                app:buttonTheme="secondary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/cellBtn5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -378,7 +378,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/tiny"
                 android:text="안녕하세요"
-                app:cellButtonSize="medium"
+                app:buttonApearance="medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/cellBtn4"
@@ -390,7 +390,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="안녕하세요"
-            app:cellButtonSize="small"
+            app:buttonApearance="small"
             app:layout_constraintBottom_toTopOf="@+id/cellBtn7" />
 
         <com.gangnam.sister.cell.element.button.CellButton
@@ -398,7 +398,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="안녕하세요"
-            app:cellButtonStyle="primary"
+            app:buttonTheme="primary"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
