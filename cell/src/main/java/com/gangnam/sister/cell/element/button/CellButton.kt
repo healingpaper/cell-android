@@ -4,36 +4,32 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.use
 import com.gangnam.sister.cell.R
-import com.gangnam.sister.cell.util.DisplayManager
 
 
 class CellButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : AppCompatButton(context, attrs, defStyleAttr) {
-    var theme: ButtonStyle = ButtonStyle.PRIMARY
+    var styleType: ButtonStyleType = ButtonStyleType.PRIMARY
+        set(value) {
+            field = value
+            applyStyle(value.style(context))
+        }
+
+    var appearanceType: ButtonAppearanceType = ButtonAppearanceType.LARGE
         set(value) {
             field = value
             update()
         }
 
-    var appearance: ButtonSize = ButtonSize.LARGE
+    var isButtonEnabled: Boolean = true
         set(value) {
             field = value
             update()
         }
 
-    var isButtonEnabled: Boolean = false
-        set(value) {
-            field = value
-            update()
-        }
-
-    private val smallHeight = DisplayManager.dpToPx(context, 32)
-    private val mediumHeight = DisplayManager.dpToPx(context, 36)
-    private val largeHeight = DisplayManager.dpToPx(context, 52)
+    private var buttonStyle: ButtonStyle? = null
 
     init {
         initView(attrs, defStyleAttr)
@@ -42,89 +38,54 @@ class CellButton @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellButton, defStyleAttr, 0)
             .use {
-                theme = ButtonStyle.fromId(it.getInt(R.styleable.CellButton_buttonTheme, 0))
-                appearance = ButtonSize.fromId(it.getInt(R.styleable.CellButton_buttonApearance, 0))
-                isButtonEnabled = it.getBoolean(R.styleable.CellButton_cellButtonEnabled, false)
+                isButtonEnabled = it.getBoolean(R.styleable.CellButton_cellButtonEnabled, true)
+                appearanceType = ButtonAppearanceType.fromId(it.getInt(R.styleable.CellButton_cellButtonAppearance, 0))
+                styleType = ButtonStyleType.fromId(it.getInt(R.styleable.CellButton_cellButtonStyle, 0))
                 stateListAnimator = null
                 isClickable = true
                 isFocusable = true
                 gravity = Gravity.CENTER
+                applyStyle(styleType.style(context))
             }
+    }
+
+    fun applyStyle(style: ButtonStyle) {
+        this.buttonStyle = style
+        update()
     }
 
     private fun update() {
-        height = getCellButtonHeight(appearance)
-        setBackgroundResource(getCellButtonBackgroundResource(theme))
-        setTextAppearance(getCellButtonTextStyle(appearance, theme))
-        setTextColor(getCellButtonTextColor(theme))
-        isSelected = !isButtonEnabled
-    }
-
-    private fun getCellButtonHeight(buttonSize: ButtonSize): Int {
-        return when (buttonSize) {
-            ButtonSize.LARGE -> largeHeight
-            ButtonSize.MEDIUM -> mediumHeight
-            ButtonSize.SMALL -> smallHeight
+        buttonStyle?.let {
+            height = it.getButtonHeight(appearanceType)
+            background = it.getButtonBackground(isButtonEnabled)
+            setTextAppearance(it.getCellButtonTextStyle(appearanceType))
+            setTextColor(it.getTextColor(isButtonEnabled))
         }
-    }
-
-    private fun getCellButtonBackgroundResource(buttonStyle: ButtonStyle): Int {
-        return when (buttonStyle) {
-            ButtonStyle.PRIMARY -> R.drawable.selector_rect_fill_orange_gray_radius8_btn
-            ButtonStyle.SECONDARY -> R.drawable.selector_rect_fill_lemonde_gray_radius8_btn
-            ButtonStyle.TERTIARY -> R.drawable.selector_rect_fill_gray_gray_radius8_btn
-            ButtonStyle.ACTION -> R.drawable.selector_rect_fill_gray_gray_radius8_btn
-            ButtonStyle.ABOVE_KEYBOARD -> R.drawable.selector_rect_fill_orange_gray_btn
-        }
-    }
-
-    private fun getCellButtonTextStyle(buttonSize: ButtonSize, buttonStyle: ButtonStyle): Int {
-        return when (buttonSize) {
-            ButtonSize.LARGE -> R.style.T02H216BoldCenterBlack
-            ButtonSize.MEDIUM -> R.style.T03Body14BoldCenterBlack
-            ButtonSize.SMALL -> {
-                when (buttonStyle) {
-                    ButtonStyle.PRIMARY, ButtonStyle.SECONDARY -> R.style.T04Label12BoldCenterBlack
-                    else -> R.style.T04Label12MediumCenterBlack
-                }
-            }
-        }
-    }
-
-    private fun getCellButtonTextColor(buttonStyle: ButtonStyle): Int {
-        val colorRes = when (buttonStyle) {
-            ButtonStyle.PRIMARY -> R.color.selector_cell_color_white_gray
-            ButtonStyle.SECONDARY -> R.color.selector_cell_color_orange_gray
-            ButtonStyle.TERTIARY -> R.color.selector_cell_color_black_gray
-            ButtonStyle.ACTION -> R.color.selector_cell_color_black_gray
-            ButtonStyle.ABOVE_KEYBOARD -> R.color.selector_cell_color_white_gray
-        }
-        return ContextCompat.getColor(context, colorRes)
     }
 
     override fun setEnabled(enabled: Boolean) =
         throw IllegalAccessException("enabled cannot be set in this element.")
 
-    enum class ButtonStyle {
-        PRIMARY,
-        SECONDARY,
-        TERTIARY,
-        ACTION,
-        ABOVE_KEYBOARD; // Use Only with ButtonStack
+    enum class ButtonStyleType(val style: (Context) -> ButtonStyle) {
+        PRIMARY(ButtonStyles.Primary),
+        SECONDARY(ButtonStyles.Secondary),
+        TERTIARY(ButtonStyles.Tertiary),
+        ACTION(ButtonStyles.Action),
+        ABOVE_KEYBOARD(ButtonStyles.AboveKeyboard); // Use Only with ButtonStack
 
         companion object {
-            fun fromId(id: Int): ButtonStyle {
+            fun fromId(id: Int): ButtonStyleType {
                 values().forEach { if (it.ordinal == id) return it }
                 throw IllegalArgumentException("Please set button style among \"primary, secondary, tertiary, disabled, action\".")
             }
         }
     }
 
-    enum class ButtonSize {
+    enum class ButtonAppearanceType {
         LARGE, MEDIUM, SMALL;
 
         companion object {
-            fun fromId(id: Int): ButtonSize {
+            fun fromId(id: Int): ButtonAppearanceType {
                 values().forEach { if (it.ordinal == id) return it }
                 throw IllegalArgumentException("Please set button size among \"large, medium, small\".")
             }

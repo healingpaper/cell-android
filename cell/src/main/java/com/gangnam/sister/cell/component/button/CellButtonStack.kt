@@ -15,21 +15,21 @@ import kotlinx.android.synthetic.main.cell_button_stack.view.*
 class CellButtonStack @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-    var firstButtonStyle = CellButton.ButtonStyle.PRIMARY
+    var firstButtonStyle = CellButton.ButtonStyleType.PRIMARY
         set(value) {
             field = value
             originalFirstButtonStyle = value
             updateFirstButton(value)
         }
 
-    private var originalFirstButtonStyle = CellButton.ButtonStyle.PRIMARY
+    private var originalFirstButtonStyle = CellButton.ButtonStyleType.PRIMARY
 
-    var secondButtonStyle = CellButton.ButtonStyle.SECONDARY
+    var secondButtonStyle = CellButton.ButtonStyleType.SECONDARY
         set(value) {
             field = value
             updateSecondButton(value)
         }
-    var thirdButtonStyle = CellButton.ButtonStyle.TERTIARY
+    var thirdButtonStyle = CellButton.ButtonStyleType.TERTIARY
         set(value) {
             field = value
             updateThirdButton(value)
@@ -42,8 +42,8 @@ class CellButtonStack @JvmOverloads constructor(
             updateButtonVisibility(value)
             when (buttonCount) {
                 2 -> {
-                    updateFirstButton(CellButton.ButtonStyle.SECONDARY)
-                    updateSecondButton(CellButton.ButtonStyle.PRIMARY)
+                    updateFirstButton(CellButton.ButtonStyleType.SECONDARY)
+                    updateSecondButton(CellButton.ButtonStyleType.PRIMARY)
                 }
             }
         }
@@ -67,23 +67,23 @@ class CellButtonStack @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellButtonStack, defStyleAttr, 0)
             .use {
-                firstButtonStyle = CellButton.ButtonStyle.fromId(it.getInt(R.styleable.CellButtonStack_firstButtonStyle, 0))
-                secondButtonStyle = CellButton.ButtonStyle.fromId(it.getInt(R.styleable.CellButtonStack_secondButtonStyle, 1))
-                thirdButtonStyle = CellButton.ButtonStyle.fromId(it.getInt(R.styleable.CellButtonStack_thirdButtonStyle, 2))
+                firstButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_firstButtonStyle, 0))
+                secondButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_secondButtonStyle, 1))
+                thirdButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_thirdButtonStyle, 2))
                 buttonCount = it.getInt(R.styleable.CellButtonStack_buttonCount, 3)
             }
     }
 
-    private fun updateFirstButton(style: CellButton.ButtonStyle) {
-        firstBtn.theme = style
+    private fun updateFirstButton(styleType: CellButton.ButtonStyleType) {
+        firstBtn.styleType = styleType
     }
 
-    private fun updateSecondButton(style: CellButton.ButtonStyle) {
-        secondBtn.theme = style
+    private fun updateSecondButton(styleType: CellButton.ButtonStyleType) {
+        secondBtn.styleType = styleType
     }
 
-    private fun updateThirdButton(style: CellButton.ButtonStyle) {
-        thirdBtn.theme = style
+    private fun updateThirdButton(styleType: CellButton.ButtonStyleType) {
+        thirdBtn.styleType = styleType
     }
 
     private fun updateButtonVisibility(buttonCount: Int) {
@@ -94,10 +94,10 @@ class CellButtonStack @JvmOverloads constructor(
 
     private fun updateAboveKeyboardMode(aboveKeyboard: Boolean) {
         if (aboveKeyboard) {
-            firstBtn.theme = CellButton.ButtonStyle.ABOVE_KEYBOARD
+            firstBtn.styleType = CellButton.ButtonStyleType.ABOVE_KEYBOARD
             root.setPadding(0, 0, 0, 0)
         } else {
-            firstBtn.theme = originalFirstButtonStyle
+            firstBtn.styleType = originalFirstButtonStyle
             root.setPadding(dp8, dp8, dp8, dp8)
         }
     }
