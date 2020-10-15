@@ -4,10 +4,36 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gangnam.sister.cell.listener.OnItemClickListener
 
-internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) : RecyclerView.Adapter<CellBadgeStackAdapter.CellBadgeStackViewHolder>() {
+internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) :
+    RecyclerView.Adapter<CellBadgeStackAdapter.CellBadgeStackViewHolder>() {
     private var itemClickListener: OnItemClickListener? = null
 
-    internal var badgeSize: CellBadge.BadgeSize = CellBadge.BadgeSize.MEDIUM
+    internal var styleType: CellBadge.BadgeStyleType = CellBadge.BadgeStyleType.GRAY
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    internal var appearanceType: CellBadge.BadgeAppearanceType =
+        CellBadge.BadgeAppearanceType.MEDIUM
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    internal var hasBadgeRipple: Boolean = false
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    internal var drawableStart: Int = 0
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    internal var drawableEnd: Int = 0
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -21,9 +47,15 @@ internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) :
         holder.badge.apply {
             val item = list[position]
             text = item.text
-            badgeStyle = item.style
-            badgeSize = this@CellBadgeStackAdapter.badgeSize
-            setCompoundDrawablesRelativeWithIntrinsicBounds(item.startIconDrawable, 0, item.endIconDrawable, 0)
+            hasBadgeRipple = this@CellBadgeStackAdapter.hasBadgeRipple
+            appearanceType = this@CellBadgeStackAdapter.appearanceType
+            styleType = item.style ?: this@CellBadgeStackAdapter.styleType
+            setCompoundDrawablesRelativeWithIntrinsicBounds(
+                item.startIconDrawable ?: drawableStart,
+                0,
+                item.endIconDrawable ?: drawableEnd,
+                0
+            )
         }
     }
 

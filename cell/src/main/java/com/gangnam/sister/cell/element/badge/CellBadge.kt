@@ -33,7 +33,6 @@ context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 
     private var badgeStyle: BadgeStyle? = null
     private val dp4 = DisplayManager.dpToPx(context, 4)
-    private val dp8 = DisplayManager.dpToPx(context, 8)
 
     init {
         initView(attrs, defStyleAttr)
