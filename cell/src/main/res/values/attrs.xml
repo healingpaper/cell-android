@@ -100,15 +100,20 @@
     </declare-styleable>
 
     <declare-styleable name="CellBadge">
-        <attr name="badgeStyle" format="enum">
-            <enum name="orange" value="0" />
-            <enum name="lemonade" value="1" />
-            <enum name="lightGray" value="2" />
+        <attr name="cellBadgeStyle" format="enum">
+            <enum name="gray" value="0" />
+            <enum name="orange" value="1" />
+            <enum name="yellow" value="2" />
         </attr>
-        <attr name="badgeSize" format="enum">
+        <attr name="cellBadgeAppearance" format="enum">
             <enum name="medium" value="0" />
             <enum name="small" value="1" />
         </attr>
+        <attr name="hasCellBadgeRipple" format="boolean" />
+        <attr name="cellBadgeBackgroundColor" format="color" />
+        <attr name="cellBadgeTextColor" format="color" />
+        <attr name="cellBadgeBorderColor" format="color" />
+        <attr name="cellBadgeBorderWidth" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="CellBadgeStack">

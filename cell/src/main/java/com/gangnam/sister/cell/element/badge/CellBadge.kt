@@ -5,75 +5,104 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.use
 import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.util.DisplayManager
 
+// TODO: CompoundDrawable Tint 및 Size 먹이기
 class CellBadge @JvmOverloads constructor(
 context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
-    var badgeStyle: BadgeStyle = BadgeStyle.LIGHT_GRAY
+    var styleType: BadgeStyleType = BadgeStyleType.GRAY
         set(value) {
             field = value
-            updateBadgeStyle(value)
+            updateBadgeStyle(value.style(context), isEnabled, hasBadgeRipple)
         }
 
-    var badgeSize: BadgeSize = BadgeSize.MEDIUM
+    var appearanceType: BadgeAppearanceType = BadgeAppearanceType.MEDIUM
         set(value) {
             field = value
-            updateBadgeSize(value)
+            updateBadgeSize(styleType.style(context), appearanceType)
         }
+
+    var hasBadgeRipple: Boolean = true
+        set(value) {
+            field = value
+            updateBadgeStyle(styleType.style(context), isEnabled, hasBadgeRipple)
+        }
+
+    private var badgeStyle: BadgeStyle? = null
     private val dp4 = DisplayManager.dpToPx(context, 4)
+    private val dp8 = DisplayManager.dpToPx(context, 8)
 
     init {
         initView(attrs, defStyleAttr)
     }
 
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
+        var style: BadgeStyle
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadge, defStyleAttr, 0)
             .use {
-                badgeSize = BadgeSize.fromId(it.getInt(R.styleable.CellBadge_badgeSize, 0))
-                badgeStyle = BadgeStyle.fromId(it.getInt(R.styleable.CellBadge_badgeStyle, 0))
+                if (it.hasValue(R.styleable.CellBadge_hasCellBadgeRipple)){
+                    hasBadgeRipple = it.getBoolean(R.styleable.CellBadge_hasCellBadgeRipple, false)
+                }
+                if (it.hasValue(R.styleable.CellBadge_cellBadgeAppearance)){
+                    appearanceType = BadgeAppearanceType.fromId(it.getInt(R.styleable.CellBadge_cellBadgeAppearance, 0))
+                }
+                if (it.hasValue(R.styleable.CellBadge_cellBadgeStyle)){
+                    styleType = BadgeStyleType.fromId(it.getInt(R.styleable.CellBadge_cellBadgeStyle, 0))
+                }
                 maxLines = 1
                 ellipsize = TextUtils.TruncateAt.END
                 gravity = Gravity.CENTER
                 compoundDrawablePadding = dp4
+
+                style = BadgeStyle.createFromAttribute(context, it, styleType.style(context))
+                applyStyle(style)
             }
     }
 
-    private fun updateBadgeStyle(badgeStyle: BadgeStyle) {
-        setBackgroundResource(badgeStyle.background)
-        setTextColor(ContextCompat.getColor(context, badgeStyle.textColor))
+    private fun applyStyle(style: BadgeStyle) {
+        this.badgeStyle = style
+        updateBadgeSize(style, appearanceType)
+        updateBadgeStyle(style, isEnabled, hasBadgeRipple)
     }
 
-    private fun updateBadgeSize(badgeSize: BadgeSize) {
-        val topBottomPaddingSize = DisplayManager.dpToPx(context, badgeSize.topBottomPaddingSize)
-        val startEndPaddingSize = DisplayManager.dpToPx(context, badgeSize.startEndPaddingSize)
-        height = DisplayManager.dpToPx(context, badgeSize.height)
-        setTextAppearance(badgeSize.textStyle)
-        setPadding(startEndPaddingSize, topBottomPaddingSize, startEndPaddingSize, topBottomPaddingSize)
+    private fun updateBadgeStyle(
+        badgeStyle: BadgeStyle,
+        isEnabled: Boolean,
+        hasBadgeRipple: Boolean
+    ) {
+        background = badgeStyle.getBadgeBackground(isEnabled, hasBadgeRipple)
+        setTextColor(badgeStyle.getTextColor(isEnabled))
     }
 
-    enum class BadgeStyle(val background: Int, val textColor: Int) {
-        ORANGE(R.drawable.rect_fill_orange_radius14, R.color.latte),
-        LEMONADE(R.drawable.rect_fill_lemonade_radius14, R.color.latte),
-        LIGHT_GRAY(R.drawable.rect_fill_light_gray_radius14, R.color.black);
+    private fun updateBadgeSize(badgeStyle: BadgeStyle, appearanceType: BadgeAppearanceType) {
+        val topBottomPadding = badgeStyle.getBadgeTopBottomPadding(appearanceType)
+        val startEndPadding = badgeStyle.getBadgeStartEndPadding(appearanceType)
+        setPadding(startEndPadding, topBottomPadding, startEndPadding, topBottomPadding)
+        setTextAppearance(badgeStyle.getTextStyle(appearanceType))
+    }
+
+    enum class BadgeStyleType(val style: (Context) -> BadgeStyle) {
+        GRAY(BadgeStyles.Gray),
+        ORANGE(BadgeStyles.Orange),
+        YELLOW(BadgeStyles.Yellow);
 
         companion object {
-            fun fromId(id: Int): BadgeStyle {
+            fun fromId(id: Int): BadgeStyleType {
                 values().forEach { if (it.ordinal == id) return it }
-                throw IllegalArgumentException("Please set badge style among \"orange, lemonade, light_gray\".")
+                throw IllegalArgumentException("Please set badge style among \"gray, orange, yellow\".")
             }
         }
     }
 
-    enum class BadgeSize(val height: Int, val textStyle: Int, val topBottomPaddingSize: Int, val startEndPaddingSize: Int) {
-        MEDIUM(28, R.style.T04Label12MediumCenterBlack, 6, 8),
-        SMALL(20, R.style.T05Tiny10MediumCenterBlack, 2, 6);
+    enum class BadgeAppearanceType {
+        MEDIUM,
+        SMALL;
 
         companion object {
-            fun fromId(id: Int): BadgeSize {
+            fun fromId(id: Int): BadgeAppearanceType {
                 values().forEach { if (it.ordinal == id) return it }
                 throw IllegalArgumentException("Please set badge size among \"medium, small\".")
             }

@@ -1430,6 +1430,13 @@
         <item name="android:textColor">@color/latte</item>
     </style>
 
+    <style name="T05Tiny9MediumCenterBlack">
+        <item name="android:fontFamily">@font/notosans_medium_hestia</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">9dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <!-- Selector -->
 
     <style name="T02H216BoldCenterOrangeWhite">
