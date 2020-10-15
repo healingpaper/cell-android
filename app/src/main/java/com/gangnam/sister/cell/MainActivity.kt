@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             list.add(Item("CellButton"))
             list.add(Item("CellBadge"))
             list.add(Item("CellTextField"))
+            list.add(Item("CellTextArea"))
             list.add(Header("Component"))
             setData(list)
             setOnClickListener { navigateToActivity(it) }
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             "CellButton" -> ButtonActivity::class.java
             "CellBadge" -> BadgeActivity::class.java
             "CellTextField" -> TextFieldActivity::class.java
+            "CellTextArea" -> TextAreaActivity::class.java
             else -> ButtonActivity::class.java
         }
         val intent = Intent(this, cls)
