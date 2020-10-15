@@ -208,35 +208,4 @@
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
-    <com.gangnam.sister.cell.element.badge.CellBadgeStack
-        android:id="@+id/firstBadgeStack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/tiny"
-        app:hasCellBadgeStackRipple="true" />
-
-    <com.gangnam.sister.cell.element.badge.CellBadgeStack
-        android:id="@+id/secondBadgeStack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/tiny" />
-
-    <com.gangnam.sister.cell.element.badge.CellBadgeStack
-        android:id="@+id/thirdBadgeStack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/tiny"
-        app:cellBadgeStackStyle="orange"
-        app:cellBadgeStackViewType="horizontal" />
-
-    <com.gangnam.sister.cell.element.badge.CellBadgeStack
-        android:id="@+id/fourthBadgeStack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/tiny"
-        app:cellBadgeStackDrawableEnd="@drawable/ic_etc_hashtag"
-        app:cellBadgeStackDrawableStart="@drawable/ic_etc_hashtag"
-        app:cellBadgeStackStyle="yellow"
-        app:cellBadgeStackViewType="horizontal" />
-
 </LinearLayout>
