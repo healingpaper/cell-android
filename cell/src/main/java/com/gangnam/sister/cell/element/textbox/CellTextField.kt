@@ -54,7 +54,7 @@ class CellTextField @JvmOverloads constructor(
                     } else {
                         setPadding(paddingStart, paddingTop, paddingEnd, paddingBottom)
                     }
-                    height = dp52
+                    minHeight = dp52
 
                     style = TextBoxStyle.createFromAttribute(context, it, style)
                     applyStyle(style)
