@@ -203,9 +203,61 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/tiny"
+                android:weightSum="3">
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/customLargeBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Custom"
+                    app:cellButtonBackgroundColor="@color/lemonade"
+                    app:cellButtonBorderColor="@color/black"
+                    app:cellButtonBorderWidth="1dp"
+                    app:cellButtonStyle="primary"
+                    app:cellButtonTextColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/customMediumBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/tiny"
+                    android:layout_weight="1"
+                    android:text="Custom 🎃"
+                    app:cellButtonAppearance="medium"
+                    app:cellButtonBackgroundColor="@color/black"
+                    app:cellButtonStyle="secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.gangnam.sister.cell.element.button.CellButton
+                    android:id="@+id/customSmallBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Custom"
+                    app:cellButtonAppearance="small"
+                    app:cellButtonBackgroundColor="@color/latte"
+                    app:cellButtonBorderColor="@color/warm_yellow"
+                    app:cellButtonBorderWidth="3dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
             <com.gangnam.sister.cell.element.button.CellButton
                 android:id="@+id/fourthBtn"
-                android:layout_width="86dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/tiny"
                 android:layout_marginTop="@dimen/tiny"

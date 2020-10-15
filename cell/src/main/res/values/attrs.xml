@@ -36,6 +36,10 @@
             <enum name="small" value="2" />
         </attr>
         <attr name="cellButtonEnabled" format="boolean" />
+        <attr name="cellButtonBackgroundColor" format="color" />
+        <attr name="cellButtonTextColor" format="color" />
+        <attr name="cellButtonBorderColor" format="color" />
+        <attr name="cellButtonBorderWidth" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="CellButtonStack">

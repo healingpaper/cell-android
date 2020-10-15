@@ -1,6 +1,7 @@
 package com.gangnam.sister.cell.element.button
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -22,9 +23,12 @@ class ButtonStyle(
     @Px private val borderWidth: Int,
     @Px private val radius: Int
 ) {
-    private val smallHeight = DisplayManager.dpToPx(context, 32)
-    private val mediumHeight = DisplayManager.dpToPx(context, 36)
-    private val largeHeight = DisplayManager.dpToPx(context, 52)
+    private val smallMinHeight = DisplayManager.dpToPx(context, 32)
+    private val mediumMinHeight = DisplayManager.dpToPx(context, 36)
+    private val largeMinHeight = DisplayManager.dpToPx(context, 52)
+    private val smallMinWidth = DisplayManager.dpToPx(context, 64)
+    private val mediumMinWidth = DisplayManager.dpToPx(context, 76)
+    private val largeMinWidth = DisplayManager.dpToPx(context, 148)
 
     fun getTextColor(enabled: Boolean): Int {
         return if (enabled) textColor else disabledTextColor
@@ -62,16 +66,28 @@ class ButtonStyle(
         }
     }
 
-    fun getButtonHeight(appearanceType: CellButton.ButtonAppearanceType): Int {
+    fun getButtonMinHeight(appearanceType: CellButton.ButtonAppearanceType): Int {
         return when (appearanceType) {
-            CellButton.ButtonAppearanceType.LARGE -> largeHeight
-            CellButton.ButtonAppearanceType.MEDIUM -> mediumHeight
-            CellButton.ButtonAppearanceType.SMALL -> smallHeight
+            CellButton.ButtonAppearanceType.LARGE -> largeMinHeight
+            CellButton.ButtonAppearanceType.MEDIUM -> mediumMinHeight
+            CellButton.ButtonAppearanceType.SMALL -> smallMinHeight
         }
     }
 
-    fun getCellButtonTextStyle(enabled: Boolean, appearanceType: CellButton.ButtonAppearanceType): Int {
-        return if (enabled){
+    fun getButtonMinWidth(appearanceType: CellButton.ButtonAppearanceType): Int {
+        return when (appearanceType) {
+            CellButton.ButtonAppearanceType.LARGE -> largeMinWidth
+            CellButton.ButtonAppearanceType.MEDIUM -> mediumMinWidth
+            CellButton.ButtonAppearanceType.SMALL -> smallMinWidth
+        }
+    }
+
+
+    fun getCellButtonTextStyle(
+        enabled: Boolean,
+        appearanceType: CellButton.ButtonAppearanceType
+    ): Int {
+        return if (enabled) {
             when (appearanceType) {
                 CellButton.ButtonAppearanceType.LARGE -> R.style.T02H216BoldCenterBlack
                 CellButton.ButtonAppearanceType.MEDIUM -> R.style.T03Body14BoldCenterBlack
@@ -117,6 +133,34 @@ class ButtonStyle(
                 disabledTextColor = ContextCompat.getColor(context, disabledTextColorRes),
                 borderWidth = context.resources.getDimensionPixelSize(borderWidthRes),
                 radius = context.resources.getDimensionPixelSize(radiusRes)
+            )
+        }
+
+        fun createFromAttribute(
+            context: Context,
+            typedArray: TypedArray?,
+            originalStyle: ButtonStyle
+        ): ButtonStyle {
+            var backgroundColor = originalStyle.backgroundColor
+            var textColor = originalStyle.textColor
+            var borderColor = originalStyle.borderColor
+            var borderWidth = originalStyle.borderWidth
+            typedArray?.let {
+                backgroundColor = it.getColor(R.styleable.CellButton_cellButtonBackgroundColor, backgroundColor)
+                textColor = it.getColor(R.styleable.CellButton_cellButtonTextColor, textColor)
+                borderColor = it.getColor(R.styleable.CellButton_cellButtonBorderColor, borderColor)
+                borderWidth = it.getDimension(R.styleable.CellButton_cellButtonBorderWidth, borderWidth.toFloat()).toInt()
+            }
+            return ButtonStyle(
+                context = context,
+                style = originalStyle.style,
+                backgroundColor = backgroundColor,
+                textColor = textColor,
+                borderColor = borderColor,
+                disabledBackgroundColor = originalStyle.disabledBackgroundColor,
+                disabledTextColor = originalStyle.disabledTextColor,
+                borderWidth = borderWidth,
+                radius = originalStyle.radius
             )
         }
     }

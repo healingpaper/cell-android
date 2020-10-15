@@ -1,11 +1,13 @@
 package com.gangnam.sister.cell.element.button
 
 import android.content.Context
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.res.use
 import com.gangnam.sister.cell.R
+import com.gangnam.sister.cell.util.DisplayManager
 
 
 class CellButton @JvmOverloads constructor(
@@ -30,22 +32,37 @@ class CellButton @JvmOverloads constructor(
         }
 
     private var buttonStyle: ButtonStyle? = null
+    private val startEndPadding = DisplayManager.dpToPx(context, 16)
 
     init {
         initView(attrs, defStyleAttr)
     }
 
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
+        var style: ButtonStyle = styleType.style(context)
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellButton, defStyleAttr, 0)
             .use {
-                isButtonEnabled = it.getBoolean(R.styleable.CellButton_cellButtonEnabled, true)
-                appearanceType = ButtonAppearanceType.fromId(it.getInt(R.styleable.CellButton_cellButtonAppearance, 0))
-                styleType = ButtonStyleType.fromId(it.getInt(R.styleable.CellButton_cellButtonStyle, 0))
+                if (it.hasValue(R.styleable.CellButton_cellButtonEnabled)) {
+                    isButtonEnabled = it.getBoolean(R.styleable.CellButton_cellButtonEnabled, true)
+                }
+                if (it.hasValue(R.styleable.CellButton_cellButtonAppearance)){
+                    appearanceType = ButtonAppearanceType.fromId(it.getInt(R.styleable.CellButton_cellButtonAppearance, 0))
+                }
+                if (it.hasValue(R.styleable.CellButton_cellButtonStyle)){
+                    styleType = ButtonStyleType.fromId(it.getInt(R.styleable.CellButton_cellButtonStyle, 0))
+                    style = styleType.style(context)
+                }
+                maxLines = 1
+                ellipsize = TextUtils.TruncateAt.END
                 stateListAnimator = null
                 isClickable = true
                 isFocusable = true
+                isAllCaps = false
                 gravity = Gravity.CENTER
-                applyStyle(styleType.style(context))
+                setPadding(startEndPadding, 0, startEndPadding, 0)
+
+                style = ButtonStyle.createFromAttribute(context, it, style)
+                applyStyle(style)
             }
     }
 
@@ -56,7 +73,8 @@ class CellButton @JvmOverloads constructor(
 
     private fun update() {
         buttonStyle?.let {
-            height = it.getButtonHeight(appearanceType)
+            minHeight = it.getButtonMinHeight(appearanceType)
+            minWidth = it.getButtonMinWidth(appearanceType)
             background = it.getButtonBackground(isButtonEnabled)
             setTextAppearance(it.getCellButtonTextStyle(isButtonEnabled, appearanceType))
             setTextColor(it.getTextColor(isButtonEnabled))
