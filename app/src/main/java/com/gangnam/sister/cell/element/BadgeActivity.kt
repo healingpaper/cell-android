@@ -1,8 +1,9 @@
-package com.gangnam.sister.cell
+package com.gangnam.sister.cell.element
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.element.badge.CellBadge
 import com.gangnam.sister.cell.element.badge.CellBadgeStack
 import com.gangnam.sister.cell.listener.OnItemClickListener

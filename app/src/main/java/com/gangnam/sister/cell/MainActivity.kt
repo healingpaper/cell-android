@@ -2,26 +2,14 @@ package com.gangnam.sister.cell
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
-import com.gangnam.sister.cell.component.inputset.CellInputSet
 import com.gangnam.sister.cell.data.Header
 import com.gangnam.sister.cell.data.Item
-import com.gangnam.sister.cell.element.badge.CellBadge
-import com.gangnam.sister.cell.element.badge.CellBadgeStack
-import com.gangnam.sister.cell.element.button.ButtonStyle
-import com.gangnam.sister.cell.element.button.ButtonStyles
-import com.gangnam.sister.cell.element.divider.CellDivider
+import com.gangnam.sister.cell.element.BadgeActivity
+import com.gangnam.sister.cell.element.ButtonActivity
+import com.gangnam.sister.cell.element.TextAreaActivity
+import com.gangnam.sister.cell.element.TextFieldActivity
 import com.gangnam.sister.cell.element.divider.CellDividerItemDecoration
-import com.gangnam.sister.cell.listener.OnItemClickListener
-import com.gangnam.sister.cell.util.DisplayManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

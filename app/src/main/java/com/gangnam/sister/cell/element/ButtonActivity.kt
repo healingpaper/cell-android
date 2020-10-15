@@ -1,9 +1,10 @@
-package com.gangnam.sister.cell
+package com.gangnam.sister.cell.element
 
 import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import com.gangnam.sister.cell.R
 import kotlinx.android.synthetic.main.activity_button.*
 
 class ButtonActivity : AppCompatActivity() {

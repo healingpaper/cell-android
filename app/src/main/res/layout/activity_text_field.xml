@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/small"
-    tools:context=".TextFieldActivity">
+    tools:context=".element.TextFieldActivity">
 
     <com.gangnam.sister.cell.element.textbox.CellTextField
         android:layout_width="match_parent"
