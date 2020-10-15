@@ -1,4 +1,4 @@
-package com.gangnam.sister.cell.element.badge
+package com.gangnam.sister.cell.component.badge
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,6 +8,7 @@ import androidx.core.view.children
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
 import com.gangnam.sister.cell.R
+import com.gangnam.sister.cell.element.badge.CellBadge
 import com.gangnam.sister.cell.listener.OnItemClickListener
 import com.gangnam.sister.cell.util.DisplayManager
 import com.gangnam.sister.cell.util.OffsetDividerDecoration

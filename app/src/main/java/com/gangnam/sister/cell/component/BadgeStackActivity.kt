@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.element.badge.CellBadge
-import com.gangnam.sister.cell.element.badge.CellBadgeStack
+import com.gangnam.sister.cell.component.badge.CellBadgeStack
 import com.gangnam.sister.cell.listener.OnItemClickListener
 import kotlinx.android.synthetic.main.activity_badge_stack.*
 

@@ -8,20 +8,20 @@
     android:padding="@dimen/tiny"
     tools:context=".element.BadgeActivity">
 
-    <com.gangnam.sister.cell.element.badge.CellBadgeStack
+    <com.gangnam.sister.cell.component.badge.CellBadgeStack
         android:id="@+id/firstBadgeStack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tiny"
         app:hasCellBadgeStackRipple="true" />
 
-    <com.gangnam.sister.cell.element.badge.CellBadgeStack
+    <com.gangnam.sister.cell.component.badge.CellBadgeStack
         android:id="@+id/secondBadgeStack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tiny" />
 
-    <com.gangnam.sister.cell.element.badge.CellBadgeStack
+    <com.gangnam.sister.cell.component.badge.CellBadgeStack
         android:id="@+id/thirdBadgeStack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         app:cellBadgeStackStyle="orange"
         app:cellBadgeStackViewType="horizontal" />
 
-    <com.gangnam.sister.cell.element.badge.CellBadgeStack
+    <com.gangnam.sister.cell.component.badge.CellBadgeStack
         android:id="@+id/fourthBadgeStack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

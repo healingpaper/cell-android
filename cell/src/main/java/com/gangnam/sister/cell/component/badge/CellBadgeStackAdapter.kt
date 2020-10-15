@@ -1,7 +1,8 @@
-package com.gangnam.sister.cell.element.badge
+package com.gangnam.sister.cell.component.badge
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.gangnam.sister.cell.element.badge.CellBadge
 import com.gangnam.sister.cell.listener.OnItemClickListener
 
 internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) :
