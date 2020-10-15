@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.use
 import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.util.DisplayManager
@@ -26,6 +25,7 @@ class CellTextField @JvmOverloads constructor(
             filters = arrayOf<InputFilter>(InputFilter.LengthFilter(value))
         }
 
+    private var textBoxStyle: TextBoxStyle? = null
     private val dp16 = DisplayManager.dpToPx(context, 16)
     private val dp52 = DisplayManager.dpToPx(context, 52)
 
@@ -34,6 +34,7 @@ class CellTextField @JvmOverloads constructor(
     }
 
     private fun initView(attrs: AttributeSet?) {
+        var style: TextBoxStyle = TextBoxStyles.Base(context)
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellTextField, 0, 0)
                 .use {
                     val padding = it.getDimensionPixelSize(R.styleable.CellTextField_android_padding, 0)
@@ -48,16 +49,27 @@ class CellTextField @JvmOverloads constructor(
                     maxLines = 1
                     setLines(1)
                     setTextAppearance(R.style.T03Body14RegularLeftBlack)
-                    setTextColor(ContextCompat.getColorStateList(context, R.color.selector_text_box))
-                    setHintTextColor(ContextCompat.getColorStateList(context, R.color.selector_text_box_hint))
-                    setBackgroundResource(R.drawable.selector_text_box)
                     if (padding > 0) {
                         setPadding(padding, padding, padding, padding)
                     } else {
                         setPadding(paddingStart, paddingTop, paddingEnd, paddingBottom)
                     }
                     height = dp52
+
+                    style = TextBoxStyle.createFromAttribute(context, it, style)
+                    applyStyle(style)
                 }
+    }
+
+    private fun applyStyle(style: TextBoxStyle) {
+        this.textBoxStyle = style
+        update(style)
+    }
+
+    private fun update(style: TextBoxStyle) {
+        setTextColor(style.getTextColorStateList())
+        setHintTextColor(style.getHintColorStateList())
+        background = style.getBackground()
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {

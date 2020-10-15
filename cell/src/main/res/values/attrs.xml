@@ -74,6 +74,9 @@
     <declare-styleable name="CellRadioButton"></declare-styleable>
 
     <declare-styleable name="CellTextField">
+        <attr name="cellTextFieldBackground" format="reference" />
+        <attr name="cellTextFieldTextColor" format="color" />
+        <attr name="cellTextFieldHintColor" format="color" />
         <attr name="android:gravity" />
         <attr name="android:padding" />
         <attr name="android:paddingStart" />
@@ -85,6 +88,9 @@
     </declare-styleable>
 
     <declare-styleable name="CellTextArea">
+        <attr name="cellTextAreaBackground" format="reference" />
+        <attr name="cellTextAreaTextColor" format="color" />
+        <attr name="cellTextAreaHintColor" format="color" />
         <attr name="android:gravity" />
         <attr name="android:padding" />
         <attr name="android:paddingStart" />
