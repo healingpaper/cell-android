@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             val list = arrayListOf<Any>()
             list.add(Header("Element"))
             list.add(Item("CellButton"))
+            list.add(Item("CellBadge"))
             list.add(Header("Component"))
             setData(list)
             setOnClickListener { navigateToActivity(it) }
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToActivity(text: String) {
         val cls = when (text) {
             "CellButton" -> ButtonActivity::class.java
+            "CellBadge" -> BadgeActivity::class.java
             else -> ButtonActivity::class.java
         }
         val intent = Intent(this, cls)

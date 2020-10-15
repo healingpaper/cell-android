@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/tiny"
+    tools:context=".BadgeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/grayMediumBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/grayMediumLeftIconBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:drawableStart="@drawable/ic_etc_hashtag"
+            android:text="Second"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/grayMediumRightIconBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:drawableEnd="@drawable/ic_etc_hashtag"
+            android:text="Thrid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/graySmallBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:text="Small"
+            app:cellBadgeAppearance="small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny"
+        android:orientation="horizontal">
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/orangeMediumBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First"
+            app:cellBadgeStyle="orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/orangeMediumLeftIconBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:drawableStart="@drawable/ic_etc_hashtag"
+            android:text="Second"
+            app:cellBadgeStyle="orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/orangeMediumRightIconBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:drawableEnd="@drawable/ic_etc_hashtag"
+            android:text="Thrid"
+            app:cellBadgeStyle="orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/orangeSmallBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:text="Small"
+            app:cellBadgeAppearance="small"
+            app:cellBadgeStyle="orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny"
+        android:orientation="horizontal">
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/yellowMediumBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First"
+            app:cellBadgeStyle="yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/yellowMediumLeftIconBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:drawableStart="@drawable/ic_etc_hashtag"
+            android:text="Second"
+            app:cellBadgeStyle="yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/yellowMediumRightIconBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:drawableEnd="@drawable/ic_etc_hashtag"
+            android:text="Thrid"
+            app:cellBadgeStyle="yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/yellowSmallBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:text="Small"
+            app:cellBadgeAppearance="small"
+            app:cellBadgeStyle="yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny"
+        android:orientation="horizontal">
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/customMediumBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First"
+            app:cellBadgeBackgroundColor="@color/black"
+            app:cellBadgeStyle="yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/customMediumLeftIconBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:drawableStart="@drawable/ic_etc_hashtag"
+            android:text="Second"
+            app:cellBadgeBackgroundColor="@color/confident_orange"
+            app:cellBadgeBorderColor="@color/black"
+            app:cellBadgeBorderWidth="1dp"
+            app:cellBadgeStyle="yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/customMediumRightIconBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:drawableEnd="@drawable/ic_etc_hashtag"
+            android:text="Thrid"
+            app:cellBadgeBackgroundColor="@color/white"
+            app:cellBadgeBorderColor="@color/latte"
+            app:cellBadgeBorderWidth="1dp"
+            app:cellBadgeStyle="yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gangnam.sister.cell.element.badge.CellBadge
+            android:id="@+id/customSmallBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:text="Small"
+            app:cellBadgeAppearance="small"
+            app:cellBadgeBackgroundColor="@color/gray"
+            app:cellBadgeStyle="yellow"
+            app:cellBadgeTextColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <com.gangnam.sister.cell.element.badge.CellBadgeStack
+        android:id="@+id/firstBadgeStack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny"
+        app:hasCellBadgeStackRipple="true" />
+
+    <com.gangnam.sister.cell.element.badge.CellBadgeStack
+        android:id="@+id/secondBadgeStack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny" />
+
+    <com.gangnam.sister.cell.element.badge.CellBadgeStack
+        android:id="@+id/thirdBadgeStack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny"
+        app:cellBadgeStackStyle="orange"
+        app:cellBadgeStackViewType="horizontal" />
+
+    <com.gangnam.sister.cell.element.badge.CellBadgeStack
+        android:id="@+id/fourthBadgeStack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny"
+        app:cellBadgeStackDrawableEnd="@drawable/ic_etc_hashtag"
+        app:cellBadgeStackDrawableStart="@drawable/ic_etc_hashtag"
+        app:cellBadgeStackStyle="yellow"
+        app:cellBadgeStackViewType="horizontal" />
+
+</LinearLayout>
