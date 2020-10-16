@@ -4,6 +4,15 @@
     <attr name="itemNameArray" format="reference" />
     <attr name="selectedIndex" format="integer" />
     <attr name="hasError" format="boolean" />
+    <attr name="errorText" format="string" />
+    <attr name="errorEnabled" format="boolean" />
+    <attr name="showDrawableEnd" format="boolean" />
+    <attr name="titleTextStyle" format="reference" />
+    <attr name="state" format="enum" >
+        <enum name="normal" value="0" />
+        <enum name="correct" value="1" />
+        <enum name="error" value="2" />
+    </attr>
 
     <declare-styleable name="CellSpacing">
         <attr name="spacingType" format="enum">
@@ -151,28 +160,30 @@
         <attr name="android:text" />
         <attr name="android:hint" />
         <attr name="android:inputType" />
+        <attr name="android:enabled" />
         <attr name="titleText" />
-        <attr name="titleTextStyle" format="reference" />
-        <attr name="errorText" format="string" />
-        <attr name="errorEnabled" format="boolean" />
-        <attr name="showDrawableEnd" format="boolean" />
-        <attr name="state" format="enum">
-            <enum name="normal" value="0" />
-            <enum name="correct" value="1" />
-            <enum name="error" value="2" />
-        </attr>
+        <attr name="titleTextStyle" />
+        <attr name="errorText" />
+        <attr name="errorEnabled" />
+        <attr name="showDrawableEnd" />
+        <attr name="state" />
         <attr name="normalDrawableEnd" format="reference"/>
         <attr name="correctDrawableEnd" format="reference"/>
         <attr name="errorDrawableEnd" format="reference"/>
     </declare-styleable>
 
-    <declare-styleable name="CellBigTextBoxInputSet">
+    <declare-styleable name="CellTextAreaComponent">
+        <attr name="errorText" />
+        <attr name="errorEnabled" />
+        <attr name="state" />
         <attr name="android:text" />
         <attr name="android:hint" />
         <attr name="android:inputType" />
         <attr name="android:maxLength" />
+        <attr name="android:enabled" />
         <attr name="textBoxHeight" format="dimension" />
         <attr name="titleText" />
+        <attr name="titleTextStyle" />
     </declare-styleable>
 
     <declare-styleable name="CellViewMoreCheckSet">

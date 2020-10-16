@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/tiny">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".component.TextAreaComponentActivity">
+
+        <com.gangnam.sister.cell.component.textbox.CellTextAreaComponent
+            android:id="@+id/firstTextArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Please enter content."
+            android:inputType="textMultiLine"
+            app:errorEnabled="true"
+            app:errorText="This has error!"
+            app:titleText="Title"
+            tools:state="correct" />
+
+        <com.gangnam.sister.cell.component.textbox.CellTextAreaComponent
+            android:id="@+id/secondTextArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny"
+            android:enabled="false"
+            android:hint="Please enter content."
+            app:titleText="Title"
+            app:titleTextStyle="@style/T05Tiny9MediumCenterBlack" />
+
+        <com.gangnam.sister.cell.component.textbox.CellTextAreaComponent
+            android:id="@+id/thirdTextArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny"
+            android:hint="Please enter content."
+            android:maxLength="10"
+            app:hasError="true" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

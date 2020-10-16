@@ -114,6 +114,9 @@ class CellTextFieldComponent @JvmOverloads constructor(
                 if (it.hasValue(R.styleable.CellTextFieldComponent_android_hint)) {
                     hint = it.getString(R.styleable.CellTextFieldComponent_android_hint)
                 }
+                if (it.hasValue(R.styleable.CellTextFieldComponent_android_enabled)) {
+                    mainInput.isEnabled = it.getBoolean(R.styleable.CellTextFieldComponent_android_enabled, true)
+                }
                 if (it.hasValue(R.styleable.CellTextFieldComponent_errorText)) {
                     errorText = it.getString(R.styleable.CellTextFieldComponent_errorText)
                 }
@@ -189,7 +192,7 @@ class CellTextFieldComponent @JvmOverloads constructor(
         companion object {
             fun fromId(id: Int): State {
                 values().forEach { if (it.ordinal == id) return it }
-                throw IllegalArgumentException("Please set InputSetState among \"normal, correct, error\".")
+                throw IllegalArgumentException("Please set State among \"normal, correct, error\".")
             }
         }
     }

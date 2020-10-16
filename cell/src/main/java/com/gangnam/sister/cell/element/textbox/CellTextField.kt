@@ -2,6 +2,7 @@ package com.gangnam.sister.cell.element.textbox
 
 import android.content.Context
 import android.text.InputFilter
+import android.text.InputType
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
@@ -46,6 +47,7 @@ class CellTextField @JvmOverloads constructor(
                     maxLength = it.getInt(R.styleable.CellTextField_android_maxLength, Int.MAX_VALUE)
                     gravity = it.getInt(R.styleable.CellTextField_android_gravity, Gravity.CENTER_VERTICAL)
                     compoundDrawablePadding = dp16
+                    isSingleLine = true
                     maxLines = 1
                     setLines(1)
                     setTextAppearance(R.style.T03Body14RegularLeftBlack)

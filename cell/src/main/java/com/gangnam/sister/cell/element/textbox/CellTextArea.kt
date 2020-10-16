@@ -1,11 +1,14 @@
 package com.gangnam.sister.cell.element.textbox
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.text.InputFilter
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.Gravity
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.use
@@ -27,8 +30,22 @@ class CellTextArea @JvmOverloads constructor(
         }
 
     private var textBoxStyle: TextBoxStyle? = null
+    private val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     private val dp16 = DisplayManager.dpToPx(context, 16)
     private val dp180 = DisplayManager.dpToPx(context, 180)
+    @SuppressLint("ClickableViewAccessibility")
+    private val textBoxTouchListener = OnTouchListener { v, event ->
+        if (v.hasFocus()) {
+            v.parent.requestDisallowInterceptTouchEvent(true)
+            when (event.action and MotionEvent.ACTION_MASK) {
+                MotionEvent.ACTION_SCROLL -> {
+                    v.parent.requestDisallowInterceptTouchEvent(false)
+                    return@OnTouchListener true
+                }
+            }
+        } else inputMethodManager.hideSoftInputFromWindow(v.windowToken, 0)
+        false
+    }
 
     init {
         initView(attrs)
@@ -49,16 +66,18 @@ class CellTextArea @JvmOverloads constructor(
                 compoundDrawablePadding = dp16
                 isVerticalScrollBarEnabled = true
                 inputType = InputType.TYPE_TEXT_FLAG_MULTI_LINE
+                isSingleLine = false
                 setTextAppearance(R.style.T03Body14RegularLeftBlack)
                 setTextColor(ContextCompat.getColorStateList(context, R.color.selector_text_box))
                 setHintTextColor(ContextCompat.getColorStateList(context, R.color.selector_text_box_hint))
                 setBackgroundResource(R.drawable.selector_text_box)
+                setOnTouchListener(textBoxTouchListener)
                 if (padding > 0) {
                     setPadding(padding, padding, padding, padding)
                 } else {
                     setPadding(paddingStart, paddingTop, paddingEnd, paddingBottom)
                 }
-                minHeight = dp180
+                height = dp180
 
                 style = TextBoxStyle.createFromAttribute(context, it, style)
                 applyStyle(style)
