@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.gangnam.sister.cell.component.BadgeStackActivity
 import com.gangnam.sister.cell.component.ButtonStackActivity
+import com.gangnam.sister.cell.component.TextFieldComponentActivity
 import com.gangnam.sister.cell.data.Header
 import com.gangnam.sister.cell.data.Item
 import com.gangnam.sister.cell.element.BadgeActivity
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             list.add(Header("Component"))
             list.add(Item("CellButtonStack"))
             list.add(Item("CellBadgeStack"))
+            list.add(Item("CellTextFieldComponent"))
             setData(list)
             setOnClickListener { navigateToActivity(it) }
         }
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             "CellTextArea" -> TextAreaActivity::class.java
             "CellButtonStack" -> ButtonStackActivity::class.java
             "CellBadgeStack" -> BadgeStackActivity::class.java
+            "CellTextFieldComponent" -> TextFieldComponentActivity::class.java
             else -> ButtonActivity::class.java
         }
         val intent = Intent(this, cls)
