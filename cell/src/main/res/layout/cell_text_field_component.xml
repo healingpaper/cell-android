@@ -13,11 +13,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/tiny"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/mainInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="제목을 입력해주세요." />
+        tools:text="제목을 입력해주세요."
+        tools:visibility="visible" />
 
     <com.gangnam.sister.cell.element.textbox.CellTextField
         android:id="@+id/mainInput"
@@ -38,8 +40,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/tiny"
-        android:paddingBottom="@dimen/small"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

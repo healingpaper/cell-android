@@ -147,11 +147,12 @@
         <attr name="boxSelected" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="CellInputSet">
+    <declare-styleable name="CellTextFieldComponent">
         <attr name="android:text" />
         <attr name="android:hint" />
         <attr name="android:inputType" />
         <attr name="titleText" />
+        <attr name="titleTextStyle" format="reference" />
         <attr name="errorText" format="string" />
         <attr name="errorEnabled" format="boolean" />
         <attr name="showDrawableEnd" format="boolean" />
@@ -160,6 +161,9 @@
             <enum name="correct" value="1" />
             <enum name="error" value="2" />
         </attr>
+        <attr name="normalDrawableEnd" format="reference"/>
+        <attr name="correctDrawableEnd" format="reference"/>
+        <attr name="errorDrawableEnd" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="CellBigTextBoxInputSet">
