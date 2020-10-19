@@ -8,7 +8,7 @@
     <attr name="errorEnabled" format="boolean" />
     <attr name="showDrawableEnd" format="boolean" />
     <attr name="titleTextStyle" format="reference" />
-    <attr name="state" format="enum" >
+    <attr name="state" format="enum">
         <enum name="normal" value="0" />
         <enum name="correct" value="1" />
         <enum name="error" value="2" />
@@ -167,9 +167,9 @@
         <attr name="errorEnabled" />
         <attr name="showDrawableEnd" />
         <attr name="state" />
-        <attr name="normalDrawableEnd" format="reference"/>
-        <attr name="correctDrawableEnd" format="reference"/>
-        <attr name="errorDrawableEnd" format="reference"/>
+        <attr name="normalDrawableEnd" format="reference" />
+        <attr name="correctDrawableEnd" format="reference" />
+        <attr name="errorDrawableEnd" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="CellTextAreaComponent">
@@ -208,5 +208,16 @@
         <attr name="itemNameArray" />
         <attr name="titleText" />
         <attr name="selectedIndex" />
+    </declare-styleable>
+
+    <declare-styleable name="CellHeader">
+        <attr name="menu" />
+        <attr name="navigationIcon" />
+        <attr name="logo" />
+        <attr name="layout_collapseMode" />
+        <attr name="showNavigationIcon" format="boolean" />
+        <attr name="showShadow" format="boolean" />
+        <attr name="isCloseMode" format="boolean" />
+        <attr name="toolbarTitle" format="string" />
     </declare-styleable>
 </resources>
