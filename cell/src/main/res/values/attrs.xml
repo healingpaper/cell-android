@@ -125,7 +125,7 @@
             <enum name="medium" value="0" />
             <enum name="small" value="1" />
         </attr>
-        <attr name="hasCellBadgeRipple" format="boolean" />
+        <attr name="isCellBadgeClickable" format="boolean" />
         <attr name="cellBadgeBackgroundColor" format="color" />
         <attr name="cellBadgeTextColor" format="color" />
         <attr name="cellBadgeBorderColor" format="color" />
@@ -148,7 +148,7 @@
         </attr>
         <attr name="cellBadgeStackDrawableStart" format="reference" />
         <attr name="cellBadgeStackDrawableEnd" format="reference" />
-        <attr name="hasCellBadgeStackRipple" format="boolean" />
+        <attr name="isCellBadgeStackClickable" format="boolean" />
         <attr name="badges" format="reference" />
         <attr name="dividerSize" format="dimension" />
     </declare-styleable>

@@ -32,8 +32,8 @@ class BadgeStyle(
         return if (enabled) textColor else disabledTextColor
     }
 
-    fun getBadgeBackground(enabled: Boolean, hasRipple: Boolean): Drawable {
-        return if (hasRipple) {
+    fun getBadgeBackground(enabled: Boolean, clickable: Boolean): Drawable {
+        return if (clickable) {
             getBadgeRippleBackground(enabled)
         } else getBadgeBackground(enabled)
     }

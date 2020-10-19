@@ -3,10 +3,13 @@ package com.gangnam.sister.cell.component
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.element.badge.CellBadge
 import com.gangnam.sister.cell.component.badge.CellBadgeStack
+import com.gangnam.sister.cell.element.badge.OnDrawableClickListener
 import com.gangnam.sister.cell.listener.OnItemClickListener
+import com.gangnam.sister.cell.listener.OnItemDrawableClickListener
 import kotlinx.android.synthetic.main.activity_badge_stack.*
 
 class BadgeStackActivity : AppCompatActivity() {
@@ -29,7 +32,7 @@ class BadgeStackActivity : AppCompatActivity() {
         badges.add("여성전문의가")
         firstBadgeStack.setDataWithItem(badges.mapIndexed { index: Int, text: String ->
             val color =
-                if (index % 2 == 0) CellBadge.BadgeStyleType.YELLOW else CellBadge.BadgeStyleType.GRAY
+                    if (index % 2 == 0) CellBadge.BadgeStyleType.YELLOW else CellBadge.BadgeStyleType.GRAY
             val drawableStart = if (index % 2 == 0) R.drawable.ic_etc_hashtag else 0
             val drawableEnd = if (index % 2 == 1) R.drawable.ic_etc_hashtag else 0
             CellBadgeStack.Item(text, color, drawableStart, drawableEnd)
@@ -43,5 +46,10 @@ class BadgeStackActivity : AppCompatActivity() {
         secondBadgeStack.setData(badges)
         thirdBadgeStack.setData(badges)
         fourthBadgeStack.setData(badges)
+        fourthBadgeStack.setOnItemDrawableClickListener(object : OnItemDrawableClickListener {
+            override fun onItemClick(position: Int, drawablePosition: OnDrawableClickListener.DrawablePosition) {
+                Toast.makeText(this@BadgeStackActivity, "$position $drawablePosition", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
