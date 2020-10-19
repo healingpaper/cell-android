@@ -2,6 +2,7 @@ package com.gangnam.sister.cell.element.button
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -20,6 +21,7 @@ class ButtonStyle(
     @ColorInt private val borderColor: Int,
     @ColorInt private val disabledBackgroundColor: Int,
     @ColorInt private val disabledTextColor: Int,
+    @ColorInt private val rippleColor: Int,
     @Px private val borderWidth: Int,
     @Px private val radius: Int
 ) {
@@ -38,7 +40,7 @@ class ButtonStyle(
         return if (enabled) {
             DrawableManager.rippleDrawable(
                 mask = DrawableManager.roundRectDrawable(
-                    color = ContextCompat.getColor(context, R.color.black_30_percent),
+                    color = Color.WHITE,
                     radius = radius
                 ),
                 content = DrawableManager.roundRectDrawable(
@@ -47,21 +49,14 @@ class ButtonStyle(
                     borderWidth = borderWidth,
                     radius = radius
                 ),
-                rippleColor = ContextCompat.getColor(context, R.color.black_30_percent)
+                rippleColor = rippleColor
             )
         } else {
-            DrawableManager.rippleDrawable(
-                mask = DrawableManager.roundRectDrawable(
-                    color = ContextCompat.getColor(context, R.color.black_30_percent),
-                    radius = radius
-                ),
-                content = DrawableManager.roundRectDrawable(
-                    color = disabledBackgroundColor,
-                    borderColor = borderColor,
-                    borderWidth = borderWidth,
-                    radius = radius
-                ),
-                rippleColor = ContextCompat.getColor(context, R.color.black_30_percent)
+            DrawableManager.roundRectDrawable(
+                color = disabledBackgroundColor,
+                borderColor = borderColor,
+                borderWidth = borderWidth,
+                radius = radius
             )
         }
     }
@@ -117,6 +112,7 @@ class ButtonStyle(
             @ColorRes borderColorRes: Int = android.R.color.transparent,
             @ColorRes disabledBackgroundColorRes: Int,
             @ColorRes disabledTextColorRes: Int,
+            @ColorRes rippleColorRes: Int = android.R.color.transparent,
             @DimenRes borderWidthRes: Int = R.dimen.zero,
             @DimenRes radiusRes: Int = R.dimen.tiny
         ): ButtonStyle {
@@ -131,6 +127,7 @@ class ButtonStyle(
                     disabledBackgroundColorRes
                 ),
                 disabledTextColor = ContextCompat.getColor(context, disabledTextColorRes),
+                rippleColor = ContextCompat.getColor(context, rippleColorRes),
                 borderWidth = context.resources.getDimensionPixelSize(borderWidthRes),
                 radius = context.resources.getDimensionPixelSize(radiusRes)
             )
@@ -145,9 +142,11 @@ class ButtonStyle(
             var textColor = originalStyle.textColor
             var borderColor = originalStyle.borderColor
             var borderWidth = originalStyle.borderWidth
+            var rippleColor = originalStyle.rippleColor
             typedArray?.let {
                 backgroundColor = it.getColor(R.styleable.CellButton_cellButtonBackgroundColor, backgroundColor)
                 textColor = it.getColor(R.styleable.CellButton_cellButtonTextColor, textColor)
+                rippleColor = it.getColor(R.styleable.CellButton_cellButtonRippleColor, rippleColor)
                 borderColor = it.getColor(R.styleable.CellButton_cellButtonBorderColor, borderColor)
                 borderWidth = it.getDimension(R.styleable.CellButton_cellButtonBorderWidth, borderWidth.toFloat()).toInt()
             }
@@ -159,6 +158,7 @@ class ButtonStyle(
                 borderColor = borderColor,
                 disabledBackgroundColor = originalStyle.disabledBackgroundColor,
                 disabledTextColor = originalStyle.disabledTextColor,
+                rippleColor = originalStyle.rippleColor,
                 borderWidth = borderWidth,
                 radius = originalStyle.radius
             )

@@ -16,7 +16,10 @@
     <color name="poppy_red_5_percent">#0ce03131</color>
     <color name="ginger">#ebb450</color>
     <color name="very_light_pink">#ffede3</color>
+    <color name="black_10_percent">#19000000</color>
     <color name="black_30_percent">#4c000000</color>
+    <color name="white_25_percent">#40ffffff</color>
+    <color name="orange_15_percent">#2eff540f</color>
 
     <!-- Deprecated -->
 
