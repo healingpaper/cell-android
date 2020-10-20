@@ -56,8 +56,8 @@ class CellSegmentController @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellSegmentController, 0, 0)
                 .use {
-                    if (it.hasValue(R.styleable.CellSegmentController_titleText)) {
-                        text = it.getString(R.styleable.CellSegmentController_titleText)
+                    if (it.hasValue(R.styleable.CellSegmentController_cellTitleText)) {
+                        text = it.getString(R.styleable.CellSegmentController_cellTitleText)
                     }
                     if (it.hasValue(R.styleable.CellSegmentController_selectedIndex)) {
                         selectedIndex = it.getInt(R.styleable.CellSegmentController_selectedIndex, 0)

@@ -80,7 +80,7 @@ class CellDivider @JvmOverloads constructor(
     }
 
     enum class DividerType(@ColorRes val colorResId: Int) {
-        LIST(R.color.gray), SECTION(R.color.light_gray);
+        LIST(R.color.cell_color_gray_400), SECTION(R.color.cell_color_gray_200);
 
         companion object {
             fun fromId(id: Int): DividerType {

@@ -3,43 +3,43 @@
     <item android:state_enabled="false">
         <shape>
             <corners android:radius="6dp" />
-            <solid android:color="@color/light_gray" />
-            <stroke android:width="1dp" android:color="@color/gray" />
+            <solid android:color="@color/cell_color_gray_200" />
+            <stroke android:width="1dp" android:color="@color/cell_color_gray_400" />
         </shape>
     </item>
     <item android:state_enabled="true" android:state_focused="true" cell_input_state:state_error_cell="true">
         <shape>
             <corners android:radius="6dp" />
-            <solid android:color="@color/poppy_red_5_percent" />
-            <stroke android:width="1dp" android:color="@color/poppy_red" />
+            <solid android:color="@color/cell_color_status_ban_5_percent" />
+            <stroke android:width="1dp" android:color="@color/cell_color_status_ban" />
         </shape>
     </item>
     <item android:state_enabled="true" android:state_focused="true" cell_input_state:state_error_cell="false">
         <shape>
             <corners android:radius="6dp" />
-            <solid android:color="@color/white" />
-            <stroke android:width="1dp" android:color="@color/charcoal" />
+            <solid android:color="@color/cell_color_white" />
+            <stroke android:width="1dp" android:color="@color/cell_color_gray_800" />
         </shape>
     </item>
     <item android:state_enabled="true" android:state_focused="false" cell_input_state:state_error_cell="false">
         <shape>
             <corners android:radius="6dp" />
-            <solid android:color="@color/white" />
-            <stroke android:width="1dp" android:color="@color/gray" />
+            <solid android:color="@color/cell_color_white" />
+            <stroke android:width="1dp" android:color="@color/cell_color_gray_400" />
         </shape>
     </item>
     <item android:state_enabled="true" android:state_focused="false" cell_input_state:state_error_cell="true">
         <shape>
             <corners android:radius="6dp" />
-            <solid android:color="@color/poppy_red_5_percent" />
-            <stroke android:width="1dp" android:color="@color/poppy_red" />
+            <solid android:color="@color/cell_color_status_ban_5_percent" />
+            <stroke android:width="1dp" android:color="@color/cell_color_status_ban" />
         </shape>
     </item>
     <item>
         <shape>
             <corners android:radius="6dp" />
-            <solid android:color="@color/white" />
-            <stroke android:width="1dp" android:color="@color/gray" />
+            <solid android:color="@color/cell_color_white" />
+            <stroke android:width="1dp" android:color="@color/cell_color_gray_400" />
         </shape>
     </item>
 </selector>

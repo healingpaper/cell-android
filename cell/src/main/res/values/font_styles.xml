@@ -1,45 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="CellTitle1Primary26BoldBlackLarge">
+        <item name="android:textSize">26dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+        <item name="android:textColor">@color/cell_color_black</item>
+    </style>
+
+    <style name="CellTitle2Secondary20BoldBlackHeader">
+        <item name="android:textSize">20dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+        <item name="android:textColor">@color/cell_color_black</item>
+    </style>
+
+    <style name="CellTitle3Tertiary16BoldBlack">
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+        <item name="android:textColor">@color/cell_color_black</item>
+    </style>
+
+    <style name="CellTitle4Quaternary14BoldBlack">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+        <item name="android:textColor">@color/cell_color_black</item>
+    </style>
+
+    <style name="CellDescription1Primary14RegularBlack">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+        <item name="android:textColor">@color/cell_color_black</item>
+    </style>
+
+    <style name="CellEvaluation2Secondary14RegularCharcoal">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
+    </style>
+
+    <style name="CellDescription2Secondary14RegularCharcoal">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
+    </style>
+
+    <style name="CellEvaluation1Primary14RegularBlack">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">10dp</item>
+        <item name="android:textColor">@color/cell_color_black</item>
+    </style>
+
+    <style name="CellCaption12MediumCharcoal">
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
+    </style>
+
+    <!-- Legacy -->
+
     <!-- H1 Text -->
     <style name="T01H120LeftWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">20dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T01H120LeftBlack">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">20dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T01H120RightWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">20dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T01H120CenterWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">20dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T01H120RightBlack">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">20dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T01H120CenterBlack">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">20dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
 
@@ -50,14 +106,14 @@
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T02H216BoldCenterWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T02H216BoldLeftSalmon">
@@ -69,14 +125,14 @@
     <style name="T02H216BoldLeftAsh">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T02H216BoldCenterBlack">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T02H216BoldRightSalmon">
@@ -90,40 +146,40 @@
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T02H216BoldRightAsh">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T02H216BoldRightBlack">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T02H216BoldLeftWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T02H216BoldRightCharcoal">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T02H216BoldLeftBlack">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T02H216BoldRightFrenchblue">
@@ -136,7 +192,7 @@
     <style name="T02H216BoldLeftCharcoal">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T02H216BoldLeftFrenchblue">
@@ -149,74 +205,74 @@
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T02H216BoldCenterOrange">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T02H216BoldRightLatte">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T02H216BoldCenterLatte">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T02H216BoldRightOrange">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T02H216BoldLeftOrange">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T02H216BoldLeftLatte">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T03Body14BoldCenterOrange">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T03Body14BoldLeftLatte">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T03Body14BoldRightLatte">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T03Body14BoldCenterLatte">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <!-- H2 Regular Text -->
@@ -239,7 +295,7 @@
     <style name="T02H216RegularLeftAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T02H216RegularLeftFrenchblue">
@@ -252,47 +308,47 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T02H216RegularLeftWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T02H216RegularRightAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T02H216RegularRightBlack">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T02H216RegularCenterWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T02H216RegularLeftCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T02H216RegularCenterBlack">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T02H216RegularCenterSalmon">
@@ -306,14 +362,14 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T02H216RegularRightWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T02H216RegularLeftSalmon">
@@ -332,54 +388,54 @@
     <style name="T02H216RegularLeftBlack">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T02H216RegularCenterCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T02H216RegularCenterOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T02H216RegularRightLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T02H216RegularLeftOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T02H216RegularLeftLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T02H216RegularCenterLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T02H216RegularRightOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/small</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <!-- Body Bold Text -->
@@ -389,87 +445,87 @@
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T03Body14BoldCenterPoppyred">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T03Body14BoldLeftPoppyred">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T03Body14BoldLeftCharcoal">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T03Body14BoldCenterBlack">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T03Body14BoldCenterWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T03Body14BoldRightWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T03Body14BoldCenterCharcoal">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T03Body14BoldRightBlack">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T03Body14BoldRightCharcoal">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T03Body14BoldLeftBlack">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T03Body14BoldLeftWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T03Body14BoldCenterAsh">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T03Body14BoldRightFrenchblue">
@@ -483,7 +539,7 @@
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T03Body14BoldRightSalmon">
@@ -496,7 +552,7 @@
     <style name="T03Body14BoldLeftAsh">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T03Body14BoldLeftFrenchblue">
@@ -508,14 +564,14 @@
     <style name="T03Body14BoldLeftOrange">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T03Body14BoldRightOrange">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <!-- Body Regular Text -->
@@ -525,27 +581,27 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T03Body14RegularCenterPoppyred">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T03Body14RegularLeftPoppyred">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T03Body14RegularCenterAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T03Body14RegularCenterSalmon">
@@ -571,7 +627,7 @@
     <style name="T03Body14RegularLeftCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T03Body14RegularLeftBlackBodyExclusive">
@@ -579,7 +635,7 @@
         <item name="android:textSize">14dp</item>
         <item name="android:letterSpacing">0.01</item>
         <item name="android:lineSpacingExtra">5dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T03Body14RegularCenterFrenchblue">
@@ -593,33 +649,33 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T03Body14RegularRightAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T03Body14RegularLeftBlack">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T03Body14RegularRightWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T03Body14RegularLeftAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T03Body14RegularRightFrenchblue">
@@ -633,74 +689,74 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T03Body14RegularRightCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T03Body14RegularLeftWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T03Body14RegularCenterBlack">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T03Body14RegularCenterCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T03Body14RegularCenterOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T03Body14RegularLeftLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T03Body14RegularCenterLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T03Body14RegularRightLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T03Body14RegularLeftOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T03Body14RegularRightOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">14dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
 
@@ -711,34 +767,34 @@
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T04Label12MediumCenterPoppyred">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T04Label12MediumLeftPoppyred">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T04Label12MediumCenterAsh">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T04Label12MediumRightAsh">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T04Label12MediumLeftFrenchblue">
@@ -751,9 +807,9 @@
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
-    
+
     <style name="T04Label12MediumLeftSalmon">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">12dp</item>
@@ -764,45 +820,45 @@
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T04Label12MediumLeftAsh">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T04Label12MediumLeftWhite">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T04Label12MediumCenterWhite">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T04Label12MediumCenterBlack">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T04Label12MediumLeftCharcoal">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T04Label12MediumLeftBlack">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T04Label12MediumRightSalmon">
@@ -816,14 +872,14 @@
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T04Label12MediumRightBlack">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T04Label12MediumRightFrenchblue">
@@ -836,41 +892,41 @@
     <style name="T04Label12MediumLeftLatte">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T04Label12MediumCenterOrange">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T04Label12MediumRightLatte">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T04Label12MediumRightOrange">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T04Label12MediumCenterLatte">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T04Label12MediumLeftOrange">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <!-- Label Regular Text -->
@@ -880,27 +936,27 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T04Label12RegularCenterPoppyred">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T04Label12RegularLeftPoppyred">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T04Label12RegularRightCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T04Label12RegularRightFrenchblue">
@@ -914,32 +970,32 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T04Label12RegularCenterAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T04Label12RegularLeftWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T04Label12RegularLeftCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T04Label12RegularLeftAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T04Label12RegularLeftFrenchblue">
@@ -952,7 +1008,7 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T04Label12RegularCenterFrenchblue">
@@ -966,14 +1022,14 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T04Label12RegularCenterBlack">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T04Label12RegularRightSalmon">
@@ -987,7 +1043,7 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T04Label12RegularCenterSalmon">
@@ -1001,59 +1057,66 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T04Label12RegularLeftBlack">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T04Label12RegularCenterLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T04Label12RegularRightLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T04Label12RegularRightOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T04Label12RegularCenterOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T04Label12RegularLeftLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T04Label12RegularLeftOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T04Label12BoldLeftOrange">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
+    </style>
+
+    <style name="T04Label12BoldCenterBlack">
+        <item name="android:fontFamily">@font/notosans_bold_hestia</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
 
@@ -1064,20 +1127,20 @@
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T05Tiny10MediumCenterPoppyred">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T05Tiny10MediumLeftPoppyred">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T05Tiny10MediumLeftSalmon">
@@ -1104,27 +1167,27 @@
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T05Tiny10MediumCenterWhite">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T05Tiny10MediumRightAsh">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T05Tiny10MediumLeftWhite">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T05Tiny10MediumRightFrenchblue">
@@ -1137,47 +1200,47 @@
     <style name="T05Tiny10MediumLeftBlack">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T05Tiny10MediumRightCharcoal">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T05Tiny10MediumLeftCharcoal">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T05Tiny10MediumCenterAsh">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T05Tiny10MediumRightWhite">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T05Tiny10MediumRightBlack">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T05Tiny10MediumLeftAsh">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T05Tiny10MediumCenterSalmon">
@@ -1197,47 +1260,47 @@
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T05Tiny10MediumRightLatte">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T05Tiny10MediumCenterLatte">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T05Tiny10MediumLeftLatte">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T05Tiny10MediumLeftOrange">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T05Tiny10MediumCenterOrange">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T05Tiny10MediumRightOrange">
         <item name="android:fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <!-- Tiny Regular Text -->
@@ -1247,20 +1310,20 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T05Tiny10RegularCenterPoppyred">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T05Tiny10RegularLeftPoppyred">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/poppy_red</item>
+        <item name="android:textColor">@color/cell_color_status_ban</item>
     </style>
 
     <style name="T05Tiny10RegularLeftSalmon">
@@ -1272,41 +1335,41 @@
     <style name="T05Tiny10RegularLeftCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T05Tiny10RegularLeftWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T05Tiny10RegularCenterCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T05Tiny10RegularCenterBlack">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T05Tiny10RegularRightAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T05Tiny10RegularRightCharcoal">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/charcoal</item>
+        <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="T05Tiny10RegularCenterSalmon">
@@ -1326,7 +1389,7 @@
     <style name="T05Tiny10RegularLeftBlack">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T05Tiny10RegularRightSalmon">
@@ -1340,14 +1403,14 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T05Tiny10RegularCenterWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/cell_color_white</item>
     </style>
 
     <style name="T05Tiny10RegularRightFrenchblue">
@@ -1367,60 +1430,67 @@
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="T05Tiny10RegularLeftAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T05Tiny10RegularCenterAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/ash</item>
+        <item name="android:textColor">@color/cell_color_gray_700</item>
     </style>
 
     <style name="T05Tiny10RegularCenterLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T05Tiny10RegularLeftOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T05Tiny10RegularRightLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
     </style>
 
     <style name="T05Tiny10RegularRightOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">end</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T05Tiny10RegularCenterOrange">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/confident_orange</item>
+        <item name="android:textColor">@color/cell_color_orange</item>
     </style>
 
     <style name="T05Tiny10RegularLeftLatte">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">10dp</item>
-        <item name="android:textColor">@color/latte</item>
+        <item name="android:textColor">@color/cell_color_latte</item>
+    </style>
+
+    <style name="T05Tiny9MediumCenterBlack">
+        <item name="android:fontFamily">@font/notosans_medium_hestia</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">9dp</item>
+        <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <!-- Selector -->
@@ -1428,56 +1498,56 @@
     <style name="T02H216BoldCenterOrangeWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
         <item name="android:textColor">@color/selector_cell_color_orange_white</item>
     </style>
 
     <style name="T02H216BoldCenterBlackWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
         <item name="android:textColor">@color/selector_cell_color_black_white</item>
     </style>
 
     <style name="T03Body14BoldCenterOrangeWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:textColor">@color/selector_cell_color_orange_white</item>
     </style>
 
     <style name="T03Body14RegularCenterOrangeAsh">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:textColor">@color/selector_cell_color_orange_ash</item>
     </style>
 
     <style name="T03Body14BoldCenterBlackWhite">
         <item name="android:fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:textColor">@color/selector_cell_color_black_white</item>
     </style>
 
     <style name="T04Label12RegularCenterOrangeWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
         <item name="android:textColor">@color/selector_cell_color_orange_white</item>
     </style>
 
     <style name="T04Label12RegularCenterBlackWhite">
         <item name="android:fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
         <item name="android:textColor">@color/selector_cell_color_black_white</item>
     </style>
 

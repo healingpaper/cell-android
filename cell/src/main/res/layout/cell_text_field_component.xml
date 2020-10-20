@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/small"
+    android:paddingEnd="@dimen/small">
+
+    <TextView
+        android:id="@+id/titleTxt"
+        style="@style/T03Body14BoldLeftBlack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/tiny"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/mainInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="제목을 입력해주세요."
+        tools:visibility="visible" />
+
+    <com.gangnam.sister.cell.element.textbox.CellTextField
+        android:id="@+id/mainInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:inputType="text"
+        android:textCursorDrawable="@drawable/cursor_default"
+        app:layout_constraintBottom_toTopOf="@id/errorTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTxt"
+        tools:hint="내용을 입력해주세요." />
+
+    <TextView
+        android:id="@+id/errorTxt"
+        style="@style/T04Label12RegularLeftPoppyred"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/tiny"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainInput"
+        tools:text="올바른 형식으로 입력해주세요." />
+</androidx.constraintlayout.widget.ConstraintLayout>

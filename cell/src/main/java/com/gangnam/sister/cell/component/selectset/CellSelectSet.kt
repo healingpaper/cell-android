@@ -44,8 +44,8 @@ class CellSelectSet @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellSelectSet, 0, 0)
                 .use {
-                    if (it.hasValue(R.styleable.CellSelectSet_titleText)) {
-                        text = it.getString(R.styleable.CellSelectSet_titleText)
+                    if (it.hasValue(R.styleable.CellSelectSet_cellTitleText)) {
+                        text = it.getString(R.styleable.CellSelectSet_cellTitleText)
                     }
                     if (it.hasValue(R.styleable.CellSelectSet_selectedIndex)) {
                         selectedIndex = it.getInt(R.styleable.CellSelectSet_selectedIndex, 0)
