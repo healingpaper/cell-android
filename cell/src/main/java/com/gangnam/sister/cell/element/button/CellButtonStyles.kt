@@ -8,11 +8,11 @@ sealed class CellButtonStyles : (Context) -> CellButtonStyle {
         override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Primary,
-            backgroundColorRes = R.color.confident_orange,
-            textColorRes = R.color.white,
-            disabledBackgroundColorRes = R.color.light_gray,
-            disabledTextColorRes = R.color.silver,
-            rippleColorRes = R.color.white_25_percent
+            backgroundColorRes = R.color.cell_color_orange,
+            textColorRes = R.color.cell_color_white,
+            disabledBackgroundColorRes = R.color.cell_color_gray_200,
+            disabledTextColorRes = R.color.cell_color_gray_500,
+            rippleColorRes = R.color.cell_color_white_25_percent
         )
     }
 
@@ -20,11 +20,11 @@ sealed class CellButtonStyles : (Context) -> CellButtonStyle {
         override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Secondary,
-            backgroundColorRes = R.color.very_light_pink,
-            textColorRes = R.color.confident_orange,
-            disabledBackgroundColorRes = R.color.light_gray,
-            disabledTextColorRes = R.color.silver,
-            rippleColorRes = R.color.orange_15_percent
+            backgroundColorRes = R.color.cell_color_light_orange,
+            textColorRes = R.color.cell_color_orange,
+            disabledBackgroundColorRes = R.color.cell_color_gray_200,
+            disabledTextColorRes = R.color.cell_color_gray_500,
+            rippleColorRes = R.color.cell_color_orange_15_percent
         )
     }
 
@@ -32,11 +32,11 @@ sealed class CellButtonStyles : (Context) -> CellButtonStyle {
         override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Tertiary,
-            backgroundColorRes = R.color.light_gray,
-            textColorRes = R.color.black,
-            disabledBackgroundColorRes = R.color.light_gray,
-            disabledTextColorRes = R.color.silver,
-            rippleColorRes = R.color.black_10_percent
+            backgroundColorRes = R.color.cell_color_gray_200,
+            textColorRes = R.color.cell_color_black,
+            disabledBackgroundColorRes = R.color.cell_color_gray_200,
+            disabledTextColorRes = R.color.cell_color_gray_500,
+            rippleColorRes = R.color.cell_color_black_10_percent
         )
     }
 
@@ -44,12 +44,12 @@ sealed class CellButtonStyles : (Context) -> CellButtonStyle {
         override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Action,
-            backgroundColorRes = R.color.white,
-            textColorRes = R.color.black,
-            borderColorRes = R.color.gray,
+            backgroundColorRes = R.color.cell_color_white,
+            textColorRes = R.color.cell_color_black,
+            borderColorRes = R.color.cell_color_gray_400,
             borderWidthRes = R.dimen.one,
-            disabledBackgroundColorRes = R.color.light_gray,
-            disabledTextColorRes = R.color.silver
+            disabledBackgroundColorRes = R.color.cell_color_gray_200,
+            disabledTextColorRes = R.color.cell_color_gray_500
         )
     }
 
@@ -57,12 +57,12 @@ sealed class CellButtonStyles : (Context) -> CellButtonStyle {
         override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Action,
-            backgroundColorRes = R.color.confident_orange,
-            textColorRes = R.color.white,
-            disabledBackgroundColorRes = R.color.light_gray,
-            disabledTextColorRes = R.color.silver,
+            backgroundColorRes = R.color.cell_color_orange,
+            textColorRes = R.color.cell_color_white,
+            disabledBackgroundColorRes = R.color.cell_color_gray_200,
+            disabledTextColorRes = R.color.cell_color_gray_500,
             radiusRes = R.dimen.zero,
-            rippleColorRes = R.color.white_25_percent
+            rippleColorRes = R.color.cell_color_white_25_percent
         )
     }
 }

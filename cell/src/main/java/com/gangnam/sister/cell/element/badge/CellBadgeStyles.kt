@@ -7,29 +7,29 @@ sealed class CellBadgeStyles: (Context) -> CellBadgeStyle {
     object Gray : CellBadgeStyles() {
         override fun invoke(context: Context): CellBadgeStyle = CellBadgeStyle.create(
             context = context,
-            backgroundColorRes = R.color.light_gray,
-            textColorRes = R.color.black,
-            disabledBackgroundColorRes = R.color.light_gray,
-            disabledTextColorRes = R.color.silver
+            backgroundColorRes = R.color.cell_color_gray_200,
+            textColorRes = R.color.cell_color_black,
+            disabledBackgroundColorRes = R.color.cell_color_gray_200,
+            disabledTextColorRes = R.color.cell_color_gray_500
         )
     }
 
     object Orange : CellBadgeStyles() {
         override fun invoke(context: Context): CellBadgeStyle = CellBadgeStyle.create(
             context = context,
-            backgroundColorRes = R.color.very_light_pink,
-            textColorRes = R.color.confident_orange,
-            disabledBackgroundColorRes = R.color.light_gray,
-            disabledTextColorRes = R.color.silver
+            backgroundColorRes = R.color.cell_color_light_orange,
+            textColorRes = R.color.cell_color_orange,
+            disabledBackgroundColorRes = R.color.cell_color_gray_200,
+            disabledTextColorRes = R.color.cell_color_gray_500
         )
     }
     object Yellow : CellBadgeStyles() {
         override fun invoke(context: Context): CellBadgeStyle = CellBadgeStyle.create(
             context = context,
-            backgroundColorRes = R.color.lemonade,
-            textColorRes = R.color.latte,
-            disabledBackgroundColorRes = R.color.light_gray,
-            disabledTextColorRes = R.color.silver
+            backgroundColorRes = R.color.cell_color_light_yellow,
+            textColorRes = R.color.cell_color_latte,
+            disabledBackgroundColorRes = R.color.cell_color_gray_200,
+            disabledTextColorRes = R.color.cell_color_gray_500
         )
     }
 }

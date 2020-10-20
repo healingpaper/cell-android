@@ -42,7 +42,7 @@ class CellBadgeStyle(
         return if (enabled) {
             DrawableManager.rippleDrawable(
                 mask = DrawableManager.roundRectDrawable(
-                    color = ContextCompat.getColor(context, R.color.black_30_percent),
+                    color = ContextCompat.getColor(context, R.color.cell_color_black_30_percent),
                     radius = radius
                 ),
                 content = DrawableManager.roundRectDrawable(
@@ -51,12 +51,12 @@ class CellBadgeStyle(
                     borderWidth = borderWidth,
                     radius = radius
                 ),
-                rippleColor = ContextCompat.getColor(context, R.color.black_30_percent)
+                rippleColor = ContextCompat.getColor(context, R.color.cell_color_black_30_percent)
             )
         } else {
             DrawableManager.rippleDrawable(
                 mask = DrawableManager.roundRectDrawable(
-                    color = ContextCompat.getColor(context, R.color.black_30_percent),
+                    color = ContextCompat.getColor(context, R.color.cell_color_black_30_percent),
                     radius = radius
                 ),
                 content = DrawableManager.roundRectDrawable(
@@ -65,7 +65,7 @@ class CellBadgeStyle(
                     borderWidth = borderWidth,
                     radius = radius
                 ),
-                rippleColor = ContextCompat.getColor(context, R.color.black_30_percent)
+                rippleColor = ContextCompat.getColor(context, R.color.cell_color_black_30_percent)
             )
         }
     }

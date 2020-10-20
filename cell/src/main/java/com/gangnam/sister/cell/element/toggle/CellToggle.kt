@@ -24,15 +24,15 @@ class CellToggle @JvmOverloads constructor(
 
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellToggle, defStyleAttr, 0).use {
             val thumbColorStateList = ColorStateList(arrayOf(intArrayOf(-android.R.attr.state_enabled), intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
-                    ContextCompat.getColor(context, R.color.ash),
-                    ContextCompat.getColor(context, R.color.confident_orange),
-                    ContextCompat.getColor(context, R.color.ash)
+                    ContextCompat.getColor(context, R.color.cell_color_gray_700),
+                    ContextCompat.getColor(context, R.color.cell_color_orange),
+                    ContextCompat.getColor(context, R.color.cell_color_gray_700)
             ))
 
             val trackColorStateList = ColorStateList(arrayOf(intArrayOf(-android.R.attr.state_enabled), intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(
-                    ContextCompat.getColor(context, R.color.gray),
-                    ContextCompat.getColor(context, R.color.confident_orange_alpha_50),
-                    ContextCompat.getColor(context, R.color.gray)
+                    ContextCompat.getColor(context, R.color.cell_color_gray_400),
+                    ContextCompat.getColor(context, R.color.cell_color_orange_50_percent),
+                    ContextCompat.getColor(context, R.color.cell_color_gray_400)
             ))
             thumbTintList = thumbColorStateList
             trackTintList = trackColorStateList

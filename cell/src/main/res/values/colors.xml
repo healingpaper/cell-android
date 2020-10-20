@@ -1,25 +1,27 @@
 <resources>
-    <color name="confident_orange">#ff540f</color>
-    <color name="confident_orange_alpha_50">#80FF540F</color>
-    <color name="warm_yellow">#ffd267</color>
-    <color name="lemonade">#fff7e0</color>
-    <color name="latte">#bf8650</color>
-    <color name="black">#000000</color>
-    <color name="text_black">#4c4c4c</color>
-    <color name="charcoal">#666666</color>
-    <color name="ash">#999999</color>
-    <color name="gray">#d6d6d6</color>
-    <color name="light_gray">#f5f5f5</color>
-    <color name="silver">#bcbcbc</color>
-    <color name="white">#ffffff</color>
-    <color name="poppy_red">#e03131</color>
-    <color name="poppy_red_5_percent">#0ce03131</color>
-    <color name="ginger">#ebb450</color>
-    <color name="very_light_pink">#ffede3</color>
-    <color name="black_10_percent">#19000000</color>
-    <color name="black_30_percent">#4c000000</color>
-    <color name="white_25_percent">#40ffffff</color>
-    <color name="orange_15_percent">#2eff540f</color>
+    <color name="cell_color_orange">#ff540f</color>
+    <color name="cell_color_light_orange">#ffede3</color>
+    <color name="cell_color_latte">#bf8650</color>
+    <color name="cell_color_yellow">#ffd267</color>
+    <color name="cell_color_light_yellow">#fff7e0</color>
+    <color name="cell_color_black">#000000</color>
+    <color name="cell_color_gray_800">#666666</color>
+    <color name="cell_color_gray_700">#999999</color>
+    <color name="cell_color_gray_500">#bcbcbc</color>
+    <color name="cell_color_gray_400">#d6d6d6</color>
+    <color name="cell_color_gray_200">#f5f5f5</color>
+    <color name="cell_color_white">#ffffff</color>
+    <color name="cell_color_gray_icon_black">#4c4c4c</color>
+    <color name="cell_color_status_ban">#e03131</color>
+    <color name="cell_color_style_button_pressed_overlay">#29000000</color>
+    <color name="cell_color_style_dimmed">#99000000</color>
+
+    <color name="cell_color_status_ban_5_percent">#0ce03131</color>
+    <color name="cell_color_black_10_percent">#19000000</color>
+    <color name="cell_color_black_30_percent">#4c000000</color>
+    <color name="cell_color_white_25_percent">#40ffffff</color>
+    <color name="cell_color_orange_15_percent">#2eff540f</color>
+    <color name="cell_color_orange_50_percent">#80FF540F</color>
 
     <!-- Deprecated -->
 
