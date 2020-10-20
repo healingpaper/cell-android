@@ -127,7 +127,7 @@ class CellBadge @JvmOverloads constructor(
             val bounds = drawableEnd.bounds
             val horizontalSensitivity = 12
             val verticalSensitivity = 60
-            var x = width - actionX
+            var x = width - bounds.right - actionX
             var y = actionY
             if (x <= 0) x = actionX
             if (bounds.containsWithSensitivity(x, y, horizontalSensitivity, verticalSensitivity)) {

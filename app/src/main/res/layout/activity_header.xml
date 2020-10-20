@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/cell_white"
+    android:background="@color/cell_color_white"
     tools:context=".component.HeaderActivity">
 
     <com.gangnam.sister.cell.component.header.CellHeader
