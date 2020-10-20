@@ -13,17 +13,17 @@ import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.util.DisplayManager
 import com.gangnam.sister.cell.util.DrawableManager
 
-class ButtonStyle(
-    private val context: Context,
-    private val style: ButtonStyles,
-    @ColorInt private val backgroundColor: Int,
-    @ColorInt private val textColor: Int,
-    @ColorInt private val borderColor: Int,
-    @ColorInt private val disabledBackgroundColor: Int,
-    @ColorInt private val disabledTextColor: Int,
-    @ColorInt private val rippleColor: Int,
-    @Px private val borderWidth: Int,
-    @Px private val radius: Int
+class CellButtonStyle(
+        private val context: Context,
+        private val style: CellButtonStyles,
+        @ColorInt private val backgroundColor: Int,
+        @ColorInt private val textColor: Int,
+        @ColorInt private val borderColor: Int,
+        @ColorInt private val disabledBackgroundColor: Int,
+        @ColorInt private val disabledTextColor: Int,
+        @ColorInt private val rippleColor: Int,
+        @Px private val borderWidth: Int,
+        @Px private val radius: Int
 ) {
     private val smallMinHeight = DisplayManager.dpToPx(context, 32)
     private val mediumMinHeight = DisplayManager.dpToPx(context, 36)
@@ -88,7 +88,7 @@ class ButtonStyle(
                 CellButton.ButtonAppearanceType.MEDIUM -> R.style.T03Body14BoldCenterBlack
                 CellButton.ButtonAppearanceType.SMALL -> {
                     when (style) {
-                        ButtonStyles.Primary, ButtonStyles.Secondary -> R.style.T04Label12BoldCenterBlack
+                        CellButtonStyles.Primary, CellButtonStyles.Secondary -> R.style.T04Label12BoldCenterBlack
                         else -> R.style.T04Label12MediumCenterBlack
                     }
                 }
@@ -105,18 +105,18 @@ class ButtonStyle(
     companion object {
 
         fun create(
-            context: Context,
-            style: ButtonStyles,
-            @ColorRes backgroundColorRes: Int,
-            @ColorRes textColorRes: Int,
-            @ColorRes borderColorRes: Int = android.R.color.transparent,
-            @ColorRes disabledBackgroundColorRes: Int,
-            @ColorRes disabledTextColorRes: Int,
-            @ColorRes rippleColorRes: Int = android.R.color.transparent,
-            @DimenRes borderWidthRes: Int = R.dimen.zero,
-            @DimenRes radiusRes: Int = R.dimen.tiny
-        ): ButtonStyle {
-            return ButtonStyle(
+                context: Context,
+                style: CellButtonStyles,
+                @ColorRes backgroundColorRes: Int,
+                @ColorRes textColorRes: Int,
+                @ColorRes borderColorRes: Int = android.R.color.transparent,
+                @ColorRes disabledBackgroundColorRes: Int,
+                @ColorRes disabledTextColorRes: Int,
+                @ColorRes rippleColorRes: Int = android.R.color.transparent,
+                @DimenRes borderWidthRes: Int = R.dimen.zero,
+                @DimenRes radiusRes: Int = R.dimen.tiny
+        ): CellButtonStyle {
+            return CellButtonStyle(
                 context = context,
                 style = style,
                 backgroundColor = ContextCompat.getColor(context, backgroundColorRes),
@@ -136,8 +136,8 @@ class ButtonStyle(
         fun createFromAttribute(
             context: Context,
             typedArray: TypedArray?,
-            originalStyle: ButtonStyle
-        ): ButtonStyle {
+            originalStyle: CellButtonStyle
+        ): CellButtonStyle {
             var backgroundColor = originalStyle.backgroundColor
             var textColor = originalStyle.textColor
             var borderColor = originalStyle.borderColor
@@ -150,7 +150,7 @@ class ButtonStyle(
                 borderColor = it.getColor(R.styleable.CellButton_cellButtonBorderColor, borderColor)
                 borderWidth = it.getDimension(R.styleable.CellButton_cellButtonBorderWidth, borderWidth.toFloat()).toInt()
             }
-            return ButtonStyle(
+            return CellButtonStyle(
                 context = context,
                 style = originalStyle.style,
                 backgroundColor = backgroundColor,

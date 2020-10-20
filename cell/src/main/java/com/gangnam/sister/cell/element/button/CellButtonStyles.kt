@@ -3,9 +3,9 @@ package com.gangnam.sister.cell.element.button
 import android.content.Context
 import com.gangnam.sister.cell.R
 
-sealed class ButtonStyles : (Context) -> ButtonStyle {
-    object Primary : ButtonStyles() {
-        override fun invoke(context: Context): ButtonStyle = ButtonStyle.create(
+sealed class CellButtonStyles : (Context) -> CellButtonStyle {
+    object Primary : CellButtonStyles() {
+        override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Primary,
             backgroundColorRes = R.color.confident_orange,
@@ -16,8 +16,8 @@ sealed class ButtonStyles : (Context) -> ButtonStyle {
         )
     }
 
-    object Secondary : ButtonStyles() {
-        override fun invoke(context: Context): ButtonStyle = ButtonStyle.create(
+    object Secondary : CellButtonStyles() {
+        override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Secondary,
             backgroundColorRes = R.color.very_light_pink,
@@ -28,8 +28,8 @@ sealed class ButtonStyles : (Context) -> ButtonStyle {
         )
     }
 
-    object Tertiary : ButtonStyles() {
-        override fun invoke(context: Context): ButtonStyle = ButtonStyle.create(
+    object Tertiary : CellButtonStyles() {
+        override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Tertiary,
             backgroundColorRes = R.color.light_gray,
@@ -40,8 +40,8 @@ sealed class ButtonStyles : (Context) -> ButtonStyle {
         )
     }
 
-    object Action : ButtonStyles() {
-        override fun invoke(context: Context): ButtonStyle = ButtonStyle.create(
+    object Action : CellButtonStyles() {
+        override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Action,
             backgroundColorRes = R.color.white,
@@ -53,8 +53,8 @@ sealed class ButtonStyles : (Context) -> ButtonStyle {
         )
     }
 
-    object AboveKeyboard : ButtonStyles() {
-        override fun invoke(context: Context): ButtonStyle = ButtonStyle.create(
+    object AboveKeyboard : CellButtonStyles() {
+        override fun invoke(context: Context): CellButtonStyle = CellButtonStyle.create(
             context = context,
             style = Action,
             backgroundColorRes = R.color.confident_orange,

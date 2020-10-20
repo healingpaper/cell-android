@@ -3,9 +3,9 @@ package com.gangnam.sister.cell.element.badge
 import android.content.Context
 import com.gangnam.sister.cell.R
 
-sealed class BadgeStyles: (Context) -> BadgeStyle {
-    object Gray : BadgeStyles() {
-        override fun invoke(context: Context): BadgeStyle = BadgeStyle.create(
+sealed class CellBadgeStyles: (Context) -> CellBadgeStyle {
+    object Gray : CellBadgeStyles() {
+        override fun invoke(context: Context): CellBadgeStyle = CellBadgeStyle.create(
             context = context,
             backgroundColorRes = R.color.light_gray,
             textColorRes = R.color.black,
@@ -14,8 +14,8 @@ sealed class BadgeStyles: (Context) -> BadgeStyle {
         )
     }
 
-    object Orange : BadgeStyles() {
-        override fun invoke(context: Context): BadgeStyle = BadgeStyle.create(
+    object Orange : CellBadgeStyles() {
+        override fun invoke(context: Context): CellBadgeStyle = CellBadgeStyle.create(
             context = context,
             backgroundColorRes = R.color.very_light_pink,
             textColorRes = R.color.confident_orange,
@@ -23,8 +23,8 @@ sealed class BadgeStyles: (Context) -> BadgeStyle {
             disabledTextColorRes = R.color.silver
         )
     }
-    object Yellow : BadgeStyles() {
-        override fun invoke(context: Context): BadgeStyle = BadgeStyle.create(
+    object Yellow : CellBadgeStyles() {
+        override fun invoke(context: Context): CellBadgeStyle = CellBadgeStyle.create(
             context = context,
             backgroundColorRes = R.color.lemonade,
             textColorRes = R.color.latte,

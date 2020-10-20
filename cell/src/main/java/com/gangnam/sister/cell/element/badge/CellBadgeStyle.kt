@@ -13,7 +13,7 @@ import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.util.DisplayManager
 import com.gangnam.sister.cell.util.DrawableManager
 
-class BadgeStyle(
+class CellBadgeStyle(
     private val context: Context,
     @ColorInt private val backgroundColor: Int,
     @ColorInt private val textColor: Int,
@@ -120,8 +120,8 @@ class BadgeStyle(
             @ColorRes disabledTextColorRes: Int,
             @DimenRes borderWidthRes: Int = R.dimen.zero,
             @DimenRes radiusRes: Int = R.dimen.badgeRadius
-        ): BadgeStyle {
-            return BadgeStyle(
+        ): CellBadgeStyle {
+            return CellBadgeStyle(
                 context = context,
                 backgroundColor = ContextCompat.getColor(context, backgroundColorRes),
                 textColor = ContextCompat.getColor(context, textColorRes),
@@ -139,8 +139,8 @@ class BadgeStyle(
         fun createFromAttribute(
             context: Context,
             typedArray: TypedArray?,
-            originalStyle: BadgeStyle
-        ): BadgeStyle {
+            originalStyle: CellBadgeStyle
+        ): CellBadgeStyle {
             var backgroundColor = originalStyle.backgroundColor
             var textColor = originalStyle.textColor
             var borderColor = originalStyle.borderColor
@@ -155,7 +155,7 @@ class BadgeStyle(
                     borderWidth.toFloat()
                 ).toInt()
             }
-            return BadgeStyle(
+            return CellBadgeStyle(
                 context = context,
                 backgroundColor = backgroundColor,
                 textColor = textColor,

@@ -29,7 +29,7 @@ class CellTextArea @JvmOverloads constructor(
             filters = arrayOf<InputFilter>(InputFilter.LengthFilter(value))
         }
 
-    private var textBoxStyle: TextBoxStyle? = null
+    private var textBoxStyle: CellTextBoxStyle? = null
     private val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     private val dp16 = DisplayManager.dpToPx(context, 16)
     private val dp180 = DisplayManager.dpToPx(context, 180)
@@ -52,7 +52,7 @@ class CellTextArea @JvmOverloads constructor(
     }
 
     private fun initView(attrs: AttributeSet?) {
-        var style: TextBoxStyle = TextBoxStyles.Base(context)
+        var style: CellTextBoxStyle = CellTextBoxStyles.Base(context)
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellTextArea, 0, 0)
             .use {
                 val padding = it.getDimensionPixelSize(R.styleable.CellTextArea_android_padding, 0)
@@ -79,17 +79,17 @@ class CellTextArea @JvmOverloads constructor(
                 }
                 height = dp180
 
-                style = TextBoxStyle.createFromAttribute(context, it, style)
+                style = CellTextBoxStyle.createFromAttribute(context, it, style)
                 applyStyle(style)
             }
     }
 
-    private fun applyStyle(style: TextBoxStyle) {
+    private fun applyStyle(style: CellTextBoxStyle) {
         this.textBoxStyle = style
         update(style)
     }
 
-    private fun update(style: TextBoxStyle) {
+    private fun update(style: CellTextBoxStyle) {
         setTextColor(style.getTextColorStateList())
         setHintTextColor(style.getHintColorStateList())
         background = style.getBackground()

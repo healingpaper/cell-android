@@ -8,7 +8,7 @@ import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import com.gangnam.sister.cell.R
 
-class TextBoxStyle(
+class CellTextBoxStyle(
     private val context: Context,
     private val background: Drawable?,
     private val textColorStateList: ColorStateList?,
@@ -25,8 +25,8 @@ class TextBoxStyle(
             backgroundRes: Int,
             @ColorRes textColorStateListRes: Int,
             @ColorRes hintColoStateListRes: Int
-        ): TextBoxStyle {
-            return TextBoxStyle(
+        ): CellTextBoxStyle {
+            return CellTextBoxStyle(
                 context = context,
                 background = ContextCompat.getDrawable(context, backgroundRes),
                 textColorStateList = ContextCompat.getColorStateList(
@@ -38,12 +38,12 @@ class TextBoxStyle(
         }
 
         fun createFromAttribute(
-            context: Context,
-            typedArray: TypedArray?,
-            originalStyle: TextBoxStyle,
-            isMultiLine: Boolean = false
-        ): TextBoxStyle {
-            return TextBoxStyle(
+                context: Context,
+                typedArray: TypedArray?,
+                originalStyle: CellTextBoxStyle,
+                isMultiLine: Boolean = false
+        ): CellTextBoxStyle {
+            return CellTextBoxStyle(
                 context = context,
                 background = getBackgroundAttribute(originalStyle, typedArray, isMultiLine),
                 textColorStateList = getTextColorStateListAttribute(
@@ -60,9 +60,9 @@ class TextBoxStyle(
         }
 
         private fun getBackgroundAttribute(
-            originalStyle: TextBoxStyle,
-            typedArray: TypedArray?,
-            multiLine: Boolean
+                originalStyle: CellTextBoxStyle,
+                typedArray: TypedArray?,
+                multiLine: Boolean
         ): Drawable? {
             if (typedArray == null) return originalStyle.background
             return if (multiLine) {
@@ -77,9 +77,9 @@ class TextBoxStyle(
         }
 
         private fun getTextColorStateListAttribute(
-            originalStyle: TextBoxStyle,
-            typedArray: TypedArray?,
-            multiLine: Boolean
+                originalStyle: CellTextBoxStyle,
+                typedArray: TypedArray?,
+                multiLine: Boolean
         ): ColorStateList? {
             if (typedArray == null) return originalStyle.textColorStateList
             return if (multiLine) {
@@ -92,9 +92,9 @@ class TextBoxStyle(
         }
 
         private fun getHintColorStateListAttribute(
-            originalStyle: TextBoxStyle,
-            typedArray: TypedArray?,
-            multiLine: Boolean
+                originalStyle: CellTextBoxStyle,
+                typedArray: TypedArray?,
+                multiLine: Boolean
         ): ColorStateList? {
             if (typedArray == null) return originalStyle.hintColorStateList
             return if (multiLine) {

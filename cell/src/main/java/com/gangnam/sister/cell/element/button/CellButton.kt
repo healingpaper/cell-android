@@ -31,7 +31,7 @@ class CellButton @JvmOverloads constructor(
             update()
         }
 
-    private var buttonStyle: ButtonStyle? = null
+    private var buttonStyle: CellButtonStyle? = null
     private val startEndPadding = DisplayManager.dpToPx(context, 16)
 
     init {
@@ -39,7 +39,7 @@ class CellButton @JvmOverloads constructor(
     }
 
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
-        var style: ButtonStyle = styleType.style(context)
+        var style: CellButtonStyle = styleType.style(context)
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellButton, defStyleAttr, 0)
             .use {
                 if (it.hasValue(R.styleable.CellButton_cellButtonEnabled)) {
@@ -61,12 +61,12 @@ class CellButton @JvmOverloads constructor(
                 gravity = Gravity.CENTER
                 setPadding(startEndPadding, 0, startEndPadding, 0)
 
-                style = ButtonStyle.createFromAttribute(context, it, style)
+                style = CellButtonStyle.createFromAttribute(context, it, style)
                 applyStyle(style)
             }
     }
 
-    fun applyStyle(style: ButtonStyle) {
+    fun applyStyle(style: CellButtonStyle) {
         this.buttonStyle = style
         update()
     }
@@ -84,12 +84,12 @@ class CellButton @JvmOverloads constructor(
     override fun setEnabled(enabled: Boolean) =
         throw IllegalAccessException("enabled cannot be set in this element.")
 
-    enum class ButtonStyleType(val style: (Context) -> ButtonStyle) {
-        PRIMARY(ButtonStyles.Primary),
-        SECONDARY(ButtonStyles.Secondary),
-        TERTIARY(ButtonStyles.Tertiary),
-        ACTION(ButtonStyles.Action),
-        ABOVE_KEYBOARD(ButtonStyles.AboveKeyboard); // Use Only with ButtonStack
+    enum class ButtonStyleType(val style: (Context) -> CellButtonStyle) {
+        PRIMARY(CellButtonStyles.Primary),
+        SECONDARY(CellButtonStyles.Secondary),
+        TERTIARY(CellButtonStyles.Tertiary),
+        ACTION(CellButtonStyles.Action),
+        ABOVE_KEYBOARD(CellButtonStyles.AboveKeyboard); // Use Only with ButtonStack
 
         companion object {
             fun fromId(id: Int): ButtonStyleType {

@@ -38,7 +38,7 @@ class CellBadge @JvmOverloads constructor(
             updateBadgeStyle(styleType.style(context), isEnabled, isBadgeClickable)
         }
 
-    private var badgeStyle: BadgeStyle? = null
+    private var badgeStyle: CellBadgeStyle? = null
     private var drawableClickListener: OnDrawableClickListener? = null
     private val dp4 = DisplayManager.dpToPx(context, 4)
 
@@ -47,7 +47,7 @@ class CellBadge @JvmOverloads constructor(
     }
 
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
-        var style: BadgeStyle
+        var style: CellBadgeStyle
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadge, defStyleAttr, 0)
                 .use {
                     if (it.hasValue(R.styleable.CellBadge_isCellBadgeClickable)) {
@@ -71,19 +71,19 @@ class CellBadge @JvmOverloads constructor(
                     gravity = Gravity.CENTER
                     compoundDrawablePadding = dp4
 
-                    style = BadgeStyle.createFromAttribute(context, it, styleType.style(context))
+                    style = CellBadgeStyle.createFromAttribute(context, it, styleType.style(context))
                     applyStyle(style)
                 }
     }
 
-    private fun applyStyle(style: BadgeStyle) {
+    private fun applyStyle(style: CellBadgeStyle) {
         this.badgeStyle = style
         updateBadgeSize(style, appearanceType)
         updateBadgeStyle(style, isEnabled, isBadgeClickable)
     }
 
     private fun updateBadgeStyle(
-            badgeStyle: BadgeStyle,
+            badgeStyle: CellBadgeStyle,
             isEnabled: Boolean,
             isBadgeClickable: Boolean
     ) {
@@ -91,7 +91,7 @@ class CellBadge @JvmOverloads constructor(
         setTextColor(badgeStyle.getTextColor(isEnabled))
     }
 
-    private fun updateBadgeSize(badgeStyle: BadgeStyle, appearanceType: BadgeAppearanceType) {
+    private fun updateBadgeSize(badgeStyle: CellBadgeStyle, appearanceType: BadgeAppearanceType) {
         val topBottomPadding = badgeStyle.getBadgeTopBottomPadding(appearanceType)
         val startEndPadding = badgeStyle.getBadgeStartEndPadding(appearanceType)
         setPadding(startEndPadding, topBottomPadding, startEndPadding, topBottomPadding)
@@ -143,10 +143,10 @@ class CellBadge @JvmOverloads constructor(
         this.drawableClickListener = listener
     }
 
-    enum class BadgeStyleType(val style: (Context) -> BadgeStyle) {
-        GRAY(BadgeStyles.Gray),
-        ORANGE(BadgeStyles.Orange),
-        YELLOW(BadgeStyles.Yellow);
+    enum class BadgeStyleType(val style: (Context) -> CellBadgeStyle) {
+        GRAY(CellBadgeStyles.Gray),
+        ORANGE(CellBadgeStyles.Orange),
+        YELLOW(CellBadgeStyles.Yellow);
 
         companion object {
             fun fromId(id: Int): BadgeStyleType {
