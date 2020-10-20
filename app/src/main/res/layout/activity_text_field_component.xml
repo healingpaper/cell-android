@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,13 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Please enter content."
-        app:correctDrawableEnd="@drawable/ic_validation_success"
-        app:errorDrawableEnd="@drawable/ic_validation_error"
-        app:errorEnabled="true"
-        app:errorText="This has error!"
-        app:showDrawableEnd="true"
-        app:titleText="Title"
-        tools:state="correct" />
+        app:cellErrorDrawableEnd="@drawable/ic_validation_error"
+        app:cellErrorEnabled="true"
+        app:cellErrorText="This has error!"
+        app:cellShowDrawableEnd="true"
+        app:cellTitleText="Title"
+        app:cellCorrectDrawableEnd="@drawable/ic_validation_success"
+        tools:cellState="correct" />
 
     <com.gangnam.sister.cell.component.textbox.CellTextFieldComponent
         android:id="@+id/secondTextField"
@@ -28,8 +29,8 @@
         android:layout_marginTop="@dimen/tiny"
         android:enabled="false"
         android:hint="Please enter content."
-        app:titleText="Title"
-        app:titleTextStyle="@style/T05Tiny9MediumCenterBlack" />
+        app:cellTitleText="Title"
+        app:cellTitleTextStyle="@style/T05Tiny9MediumCenterBlack" />
 
     <com.gangnam.sister.cell.component.textbox.CellTextFieldComponent
         android:id="@+id/thirdTextField"
@@ -37,6 +38,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tiny"
         android:hint="Please enter content."
-        app:hasError="true" />
+        app:cellHasError="true" />
 
 </LinearLayout>

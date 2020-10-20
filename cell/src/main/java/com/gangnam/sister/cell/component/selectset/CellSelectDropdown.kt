@@ -60,8 +60,8 @@ class CellSelectDropdown @JvmOverloads constructor(
                     if (it.hasValue(R.styleable.CellSelectDropdown_android_inputType)) {
                         inputType = it.getInt(R.styleable.CellSelectDropdown_android_inputType, InputType.TYPE_TEXT_VARIATION_NORMAL)
                     }
-                    if (it.hasValue(R.styleable.CellSelectDropdown_titleText)) {
-                        titleText = it.getString(R.styleable.CellSelectDropdown_titleText)
+                    if (it.hasValue(R.styleable.CellSelectDropdown_cellTitleText)) {
+                        titleText = it.getString(R.styleable.CellSelectDropdown_cellTitleText)
                     }
                 }
     }

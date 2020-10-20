@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="titleText" format="string" />
+    <attr name="cellTitleText" format="string" />
     <attr name="itemNameArray" format="reference" />
     <attr name="selectedIndex" format="integer" />
-    <attr name="hasError" format="boolean" />
-    <attr name="errorText" format="string" />
-    <attr name="errorEnabled" format="boolean" />
-    <attr name="showDrawableEnd" format="boolean" />
-    <attr name="titleTextStyle" format="reference" />
-    <attr name="state" format="enum">
+    <attr name="cellHasError" format="boolean" />
+    <attr name="cellErrorText" format="string" />
+    <attr name="cellErrorEnabled" format="boolean" />
+    <attr name="cellShowDrawableEnd" format="boolean" />
+    <attr name="cellTitleTextStyle" format="reference" />
+    <attr name="cellState" format="enum">
         <enum name="normal" value="0" />
         <enum name="correct" value="1" />
         <enum name="error" value="2" />
     </attr>
+
+    <!-- Element -->
 
     <declare-styleable name="CellSpacing">
         <attr name="spacingType" format="enum">
@@ -52,69 +54,6 @@
         <attr name="cellButtonBorderWidth" format="dimension" />
     </declare-styleable>
 
-    <declare-styleable name="CellButtonStack">
-        <attr name="firstButtonStyle" format="enum">
-            <enum name="primary" value="0" />
-            <enum name="secondary" value="1" />
-            <enum name="tertiary" value="2" />
-            <enum name="action" value="3" />
-        </attr>
-        <attr name="secondButtonStyle" format="enum">
-            <enum name="primary" value="0" />
-            <enum name="secondary" value="1" />
-            <enum name="tertiary" value="2" />
-            <enum name="action" value="3" />
-        </attr>
-        <attr name="thirdButtonStyle" format="enum">
-            <enum name="primary" value="0" />
-            <enum name="secondary" value="1" />
-            <enum name="tertiary" value="2" />
-            <enum name="action" value="3" />
-        </attr>
-        <attr name="firstButtonText" format="string" />
-        <attr name="secondButtonText" format="string" />
-        <attr name="thirdButtonText" format="string" />
-        <attr name="buttonCount" format="integer" />
-    </declare-styleable>
-
-    <declare-styleable name="CellToggle"></declare-styleable>
-
-    <declare-styleable name="CellCheckBox"></declare-styleable>
-
-    <declare-styleable name="CellRadioButton"></declare-styleable>
-
-    <declare-styleable name="CellTextField">
-        <attr name="cellTextFieldBackground" format="reference" />
-        <attr name="cellTextFieldTextColor" format="color" />
-        <attr name="cellTextFieldHintColor" format="color" />
-        <attr name="android:gravity" />
-        <attr name="android:padding" />
-        <attr name="android:paddingStart" />
-        <attr name="android:paddingEnd" />
-        <attr name="android:paddingTop" />
-        <attr name="android:paddingBottom" />
-        <attr name="android:maxLength" />
-        <attr name="hasError" />
-    </declare-styleable>
-
-    <declare-styleable name="CellTextArea">
-        <attr name="cellTextAreaBackground" format="reference" />
-        <attr name="cellTextAreaTextColor" format="color" />
-        <attr name="cellTextAreaHintColor" format="color" />
-        <attr name="android:gravity" />
-        <attr name="android:padding" />
-        <attr name="android:paddingStart" />
-        <attr name="android:paddingEnd" />
-        <attr name="android:paddingTop" />
-        <attr name="android:paddingBottom" />
-        <attr name="android:maxLength" />
-        <attr name="hasError" />
-    </declare-styleable>
-
-    <declare-styleable name="TextBoxState">
-        <attr name="state_error_cell" format="boolean" />
-    </declare-styleable>
-
     <declare-styleable name="CellBadge">
         <attr name="cellBadgeStyle" format="enum">
             <enum name="gray" value="0" />
@@ -125,11 +64,80 @@
             <enum name="medium" value="0" />
             <enum name="small" value="1" />
         </attr>
-        <attr name="isCellBadgeClickable" format="boolean" />
+        <attr name="cellBadgeClickable" format="boolean" />
         <attr name="cellBadgeBackgroundColor" format="color" />
         <attr name="cellBadgeTextColor" format="color" />
         <attr name="cellBadgeBorderColor" format="color" />
         <attr name="cellBadgeBorderWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CellTextField">
+        <attr name="cellTextFieldBackground" format="reference" />
+        <attr name="cellTextFieldTextColor" format="color" />
+        <attr name="cellTextFieldHintColor" format="color" />
+        <attr name="cellHasError" />
+        <attr name="android:gravity" />
+        <attr name="android:padding" />
+        <attr name="android:paddingStart" />
+        <attr name="android:paddingEnd" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingBottom" />
+        <attr name="android:maxLength" />
+    </declare-styleable>
+
+    <declare-styleable name="CellTextArea">
+        <attr name="cellTextAreaBackground" format="reference" />
+        <attr name="cellTextAreaTextColor" format="color" />
+        <attr name="cellTextAreaHintColor" format="color" />
+        <attr name="cellHasError" />
+        <attr name="android:gravity" />
+        <attr name="android:padding" />
+        <attr name="android:paddingStart" />
+        <attr name="android:paddingEnd" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingBottom" />
+        <attr name="android:maxLength" />
+    </declare-styleable>
+
+    <declare-styleable name="TextBoxState">
+        <attr name="state_error_cell" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CellSelectBox">
+        <attr name="boxSelected" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CellToggle"></declare-styleable>
+
+    <declare-styleable name="CellCheckBox"></declare-styleable>
+
+    <declare-styleable name="CellRadioButton"></declare-styleable>
+
+    <!-- Component -->
+
+    <declare-styleable name="CellButtonStack">
+        <attr name="cellFirstButtonStyle" format="enum">
+            <enum name="primary" value="0" />
+            <enum name="secondary" value="1" />
+            <enum name="tertiary" value="2" />
+            <enum name="action" value="3" />
+        </attr>
+        <attr name="cellSecondButtonStyle" format="enum">
+            <enum name="primary" value="0" />
+            <enum name="secondary" value="1" />
+            <enum name="tertiary" value="2" />
+            <enum name="action" value="3" />
+        </attr>
+        <attr name="cellThirdButtonStyle" format="enum">
+            <enum name="primary" value="0" />
+            <enum name="secondary" value="1" />
+            <enum name="tertiary" value="2" />
+            <enum name="action" value="3" />
+        </attr>
+        <attr name="cellFirstButtonText" format="string" />
+        <attr name="cellSecondButtonText" format="string" />
+        <attr name="cellThirdButtonText" format="string" />
+        <attr name="cellButtonCount" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="CellBadgeStack">
@@ -148,13 +156,9 @@
         </attr>
         <attr name="cellBadgeStackDrawableStart" format="reference" />
         <attr name="cellBadgeStackDrawableEnd" format="reference" />
-        <attr name="isCellBadgeStackClickable" format="boolean" />
-        <attr name="badges" format="reference" />
-        <attr name="dividerSize" format="dimension" />
-    </declare-styleable>
-
-    <declare-styleable name="CellSelectBox">
-        <attr name="boxSelected" format="boolean" />
+        <attr name="cellBadgeStackClickable" format="boolean" />
+        <attr name="cellBadges" format="reference" />
+        <attr name="cellDividerSize" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="CellTextFieldComponent">
@@ -162,53 +166,29 @@
         <attr name="android:hint" />
         <attr name="android:inputType" />
         <attr name="android:enabled" />
-        <attr name="titleText" />
-        <attr name="titleTextStyle" />
-        <attr name="errorText" />
-        <attr name="errorEnabled" />
-        <attr name="showDrawableEnd" />
-        <attr name="state" />
-        <attr name="normalDrawableEnd" format="reference" />
-        <attr name="correctDrawableEnd" format="reference" />
-        <attr name="errorDrawableEnd" format="reference" />
+        <attr name="cellTitleText" />
+        <attr name="cellTitleTextStyle" />
+        <attr name="cellErrorText" />
+        <attr name="cellErrorEnabled" />
+        <attr name="cellShowDrawableEnd" />
+        <attr name="cellState" />
+        <attr name="cellNormalDrawableEnd" format="reference" />
+        <attr name="cellCorrectDrawableEnd" format="reference" />
+        <attr name="cellErrorDrawableEnd" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="CellTextAreaComponent">
-        <attr name="errorText" />
-        <attr name="errorEnabled" />
-        <attr name="state" />
+        <attr name="cellErrorText" />
+        <attr name="cellErrorEnabled" />
+        <attr name="cellTitleText" />
+        <attr name="cellTitleTextStyle" />
+        <attr name="cellState" />
+        <attr name="cellTextBoxHeight" format="dimension" />
         <attr name="android:text" />
         <attr name="android:hint" />
         <attr name="android:inputType" />
         <attr name="android:maxLength" />
         <attr name="android:enabled" />
-        <attr name="textBoxHeight" format="dimension" />
-        <attr name="titleText" />
-        <attr name="titleTextStyle" />
-    </declare-styleable>
-
-    <declare-styleable name="CellViewMoreCheckSet">
-        <attr name="android:text" />
-        <attr name="android:checked" />
-    </declare-styleable>
-
-    <declare-styleable name="CellSelectDropdown">
-        <attr name="android:text" />
-        <attr name="android:hint" />
-        <attr name="android:inputType" />
-        <attr name="titleText" />
-    </declare-styleable>
-
-    <declare-styleable name="CellSelectSet">
-        <attr name="itemNameArray" />
-        <attr name="titleText" />
-        <attr name="selectedIndex" />
-    </declare-styleable>
-
-    <declare-styleable name="CellSegmentController">
-        <attr name="itemNameArray" />
-        <attr name="titleText" />
-        <attr name="selectedIndex" />
     </declare-styleable>
 
     <declare-styleable name="CellHeader">
@@ -220,5 +200,29 @@
         <attr name="showShadow" format="boolean" />
         <attr name="isCloseMode" format="boolean" />
         <attr name="toolbarTitle" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CellViewMoreCheckSet">
+        <attr name="android:text" />
+        <attr name="android:checked" />
+    </declare-styleable>
+
+    <declare-styleable name="CellSelectDropdown">
+        <attr name="android:text" />
+        <attr name="android:hint" />
+        <attr name="android:inputType" />
+        <attr name="cellTitleText" />
+    </declare-styleable>
+
+    <declare-styleable name="CellSelectSet">
+        <attr name="itemNameArray" />
+        <attr name="cellTitleText" />
+        <attr name="selectedIndex" />
+    </declare-styleable>
+
+    <declare-styleable name="CellSegmentController">
+        <attr name="itemNameArray" />
+        <attr name="cellTitleText" />
+        <attr name="selectedIndex" />
     </declare-styleable>
 </resources>

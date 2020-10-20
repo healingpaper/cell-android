@@ -18,10 +18,10 @@
             android:layout_height="wrap_content"
             android:hint="Please enter content."
             android:inputType="textMultiLine"
-            app:errorEnabled="true"
-            app:errorText="This has error!"
-            app:titleText="Title"
-            tools:state="correct" />
+            app:cellErrorEnabled="true"
+            app:cellErrorText="This has error!"
+            app:cellTitleText="Title"
+            tools:cellState="correct" />
 
         <com.gangnam.sister.cell.component.textbox.CellTextAreaComponent
             android:id="@+id/secondTextArea"
@@ -30,8 +30,8 @@
             android:layout_marginTop="@dimen/tiny"
             android:enabled="false"
             android:hint="Please enter content."
-            app:titleText="Title"
-            app:titleTextStyle="@style/T05Tiny9MediumCenterBlack" />
+            app:cellTitleText="Title"
+            app:cellTitleTextStyle="@style/T05Tiny9MediumCenterBlack" />
 
         <com.gangnam.sister.cell.component.textbox.CellTextAreaComponent
             android:id="@+id/thirdTextArea"
@@ -40,7 +40,7 @@
             android:layout_marginTop="@dimen/tiny"
             android:hint="Please enter content."
             android:maxLength="10"
-            app:hasError="true" />
+            app:cellHasError="true" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

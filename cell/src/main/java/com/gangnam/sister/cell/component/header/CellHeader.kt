@@ -48,12 +48,12 @@ class CellHeader @JvmOverloads constructor(
             field = value
             showNavigationIcon = if (value) {
                 inflateMenu(R.menu.menu_right_x)
-                setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener {
+                setOnMenuItemClickListener {
                     (context as Activity).onBackPressed()
                     true
-                })
-                true
-            } else false
+                }
+                false
+            } else true
         }
     var showShadow = true
         set(value) {
@@ -104,7 +104,7 @@ class CellHeader @JvmOverloads constructor(
                     toolbar.logo = it.getDrawable(R.styleable.CellHeader_logo)
                 }
                 if (it.hasValue(R.styleable.CellHeader_showShadow)) {
-                    showShadow = it.getBoolean(R.styleable.CellHeader_showShadow, false)
+                    showShadow = it.getBoolean(R.styleable.CellHeader_showShadow, true)
                 }
                 if (it.hasValue(R.styleable.CellHeader_layout_collapseMode)) {
                     layoutCollapseMode = it.getInt(R.styleable.CellHeader_layout_collapseMode, 0)

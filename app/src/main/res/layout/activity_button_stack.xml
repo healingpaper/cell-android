@@ -27,26 +27,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/tiny"
-                app:firstButtonText="First"
-                app:secondButtonText="Second"
-                app:thirdButtonText="Third" />
+                app:cellFirstButtonText="First"
+                app:cellSecondButtonText="Second"
+                app:cellThirdButtonText="Third" />
 
             <com.gangnam.sister.cell.component.button.CellButtonStack
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/tiny"
-                app:buttonCount="2"
-                app:firstButtonText="First"
-                app:secondButtonText="Second" />
+                app:cellButtonCount="2"
+                app:cellFirstButtonText="First"
+                app:cellSecondButtonText="Second" />
 
             <com.gangnam.sister.cell.component.button.CellButtonStack
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/tiny"
-                app:buttonCount="2"
-                app:firstButtonStyle="tertiary"
-                app:firstButtonText="First"
-                app:secondButtonText="Second" />
+                app:cellButtonCount="2"
+                app:cellFirstButtonStyle="tertiary"
+                app:cellFirstButtonText="First"
+                app:cellSecondButtonText="Second" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -56,8 +56,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tiny"
-        app:buttonCount="1"
-        app:firstButtonText="First"
+        app:cellButtonCount="1"
+        app:cellFirstButtonText="First"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

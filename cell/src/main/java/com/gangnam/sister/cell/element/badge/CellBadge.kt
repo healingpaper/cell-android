@@ -50,9 +50,9 @@ class CellBadge @JvmOverloads constructor(
         var style: CellBadgeStyle
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadge, defStyleAttr, 0)
                 .use {
-                    if (it.hasValue(R.styleable.CellBadge_isCellBadgeClickable)) {
+                    if (it.hasValue(R.styleable.CellBadge_cellBadgeClickable)) {
                         isBadgeClickable =
-                                it.getBoolean(R.styleable.CellBadge_isCellBadgeClickable, false)
+                                it.getBoolean(R.styleable.CellBadge_cellBadgeClickable, false)
                     }
                     if (it.hasValue(R.styleable.CellBadge_cellBadgeAppearance)) {
                         appearanceType = BadgeAppearanceType.fromId(

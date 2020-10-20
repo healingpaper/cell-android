@@ -81,17 +81,17 @@ class CellTextFieldComponent @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellTextFieldComponent, 0, 0)
             .use {
-                if (it.hasValue(R.styleable.CellTextFieldComponent_errorEnabled)) {
+                if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorEnabled)) {
                     errorEnabled =
-                        it.getBoolean(R.styleable.CellTextFieldComponent_errorEnabled, true)
+                        it.getBoolean(R.styleable.CellTextFieldComponent_cellErrorEnabled, true)
                 }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_showDrawableEnd)) {
+                if (it.hasValue(R.styleable.CellTextFieldComponent_cellShowDrawableEnd)) {
                     showDrawableEnd =
-                        it.getBoolean(R.styleable.CellTextFieldComponent_showDrawableEnd, true)
+                        it.getBoolean(R.styleable.CellTextFieldComponent_cellShowDrawableEnd, true)
                 }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_state)) {
+                if (it.hasValue(R.styleable.CellTextFieldComponent_cellState)) {
                     state =
-                        State.fromId(it.getInt(R.styleable.CellTextFieldComponent_state, 0))
+                        State.fromId(it.getInt(R.styleable.CellTextFieldComponent_cellState, 0))
                 }
                 if (it.hasValue(R.styleable.CellTextFieldComponent_android_inputType)) {
                     inputType = it.getInt(
@@ -99,12 +99,12 @@ class CellTextFieldComponent @JvmOverloads constructor(
                         InputType.TYPE_TEXT_VARIATION_NORMAL
                     )
                 }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_titleText)) {
-                    titleText = it.getString(R.styleable.CellTextFieldComponent_titleText)
+                if (it.hasValue(R.styleable.CellTextFieldComponent_cellTitleText)) {
+                    titleText = it.getString(R.styleable.CellTextFieldComponent_cellTitleText)
                 }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_titleTextStyle)) {
+                if (it.hasValue(R.styleable.CellTextFieldComponent_cellTitleTextStyle)) {
                     titleTextStyle = it.getResourceId(
-                        R.styleable.CellTextFieldComponent_titleTextStyle,
+                        R.styleable.CellTextFieldComponent_cellTitleTextStyle,
                         R.style.T03Body14BoldLeftBlack
                     )
                 }
@@ -117,20 +117,20 @@ class CellTextFieldComponent @JvmOverloads constructor(
                 if (it.hasValue(R.styleable.CellTextFieldComponent_android_enabled)) {
                     mainInput.isEnabled = it.getBoolean(R.styleable.CellTextFieldComponent_android_enabled, true)
                 }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_errorText)) {
-                    errorText = it.getString(R.styleable.CellTextFieldComponent_errorText)
+                if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorText)) {
+                    errorText = it.getString(R.styleable.CellTextFieldComponent_cellErrorText)
                 }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_normalDrawableEnd)) {
+                if (it.hasValue(R.styleable.CellTextFieldComponent_cellNormalDrawableEnd)) {
                     normalStateDrawable =
-                        it.getResourceId(R.styleable.CellTextFieldComponent_normalDrawableEnd, 0)
+                        it.getResourceId(R.styleable.CellTextFieldComponent_cellNormalDrawableEnd, 0)
                 }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_correctDrawableEnd)) {
+                if (it.hasValue(R.styleable.CellTextFieldComponent_cellCorrectDrawableEnd)) {
                     correctStateDrawable =
-                        it.getResourceId(R.styleable.CellTextFieldComponent_correctDrawableEnd, 0)
+                        it.getResourceId(R.styleable.CellTextFieldComponent_cellCorrectDrawableEnd, 0)
                 }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_errorDrawableEnd)) {
+                if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorDrawableEnd)) {
                     errorStateDrawable =
-                        it.getResourceId(R.styleable.CellTextFieldComponent_errorDrawableEnd, 0)
+                        it.getResourceId(R.styleable.CellTextFieldComponent_cellErrorDrawableEnd, 0)
                 }
             }
     }

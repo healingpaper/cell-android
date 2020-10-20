@@ -72,16 +72,16 @@ class CellTextAreaComponent @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellTextAreaComponent, 0, 0)
                 .use {
-                    if (it.hasValue(R.styleable.CellTextAreaComponent_errorEnabled)) {
+                    if (it.hasValue(R.styleable.CellTextAreaComponent_cellErrorEnabled)) {
                         errorEnabled =
-                            it.getBoolean(R.styleable.CellTextAreaComponent_errorEnabled, true)
+                            it.getBoolean(R.styleable.CellTextAreaComponent_cellErrorEnabled, true)
                     }
-                    if (it.hasValue(R.styleable.CellTextAreaComponent_errorText)) {
-                        errorText = it.getString(R.styleable.CellTextAreaComponent_errorText)
+                    if (it.hasValue(R.styleable.CellTextAreaComponent_cellErrorText)) {
+                        errorText = it.getString(R.styleable.CellTextAreaComponent_cellErrorText)
                     }
-                    if (it.hasValue(R.styleable.CellTextAreaComponent_state)) {
+                    if (it.hasValue(R.styleable.CellTextAreaComponent_cellState)) {
                         state =
-                            State.fromId(it.getInt(R.styleable.CellTextAreaComponent_state, 0))
+                            State.fromId(it.getInt(R.styleable.CellTextAreaComponent_cellState, 0))
                     }
                     if (it.hasValue(R.styleable.CellTextAreaComponent_android_text)) {
                         text = it.getString(R.styleable.CellTextAreaComponent_android_text)
@@ -92,12 +92,12 @@ class CellTextAreaComponent @JvmOverloads constructor(
                     if (it.hasValue(R.styleable.CellTextAreaComponent_android_enabled)) {
                         mainInput.isEnabled = it.getBoolean(R.styleable.CellTextAreaComponent_android_enabled, true)
                     }
-                    if (it.hasValue(R.styleable.CellTextAreaComponent_titleText)) {
-                        titleText = it.getString(R.styleable.CellTextAreaComponent_titleText)
+                    if (it.hasValue(R.styleable.CellTextAreaComponent_cellTitleText)) {
+                        titleText = it.getString(R.styleable.CellTextAreaComponent_cellTitleText)
                     }
-                    if (it.hasValue(R.styleable.CellTextAreaComponent_titleTextStyle)) {
+                    if (it.hasValue(R.styleable.CellTextAreaComponent_cellTitleTextStyle)) {
                         titleTextStyle = it.getResourceId(
-                            R.styleable.CellTextAreaComponent_titleTextStyle,
+                            R.styleable.CellTextAreaComponent_cellTitleTextStyle,
                             R.style.T03Body14BoldLeftBlack
                         )
                     }
@@ -110,7 +110,7 @@ class CellTextAreaComponent @JvmOverloads constructor(
     private fun setTextBox(typedArray: TypedArray) {
         with(mainInput) {
             layoutParams = layoutParams.apply {
-                height = typedArray.getDimensionPixelSize(R.styleable.CellTextAreaComponent_textBoxHeight, DisplayManager.dpToPx(context, 180))
+                height = typedArray.getDimensionPixelSize(R.styleable.CellTextAreaComponent_cellTextBoxHeight, DisplayManager.dpToPx(context, 180))
             }
             maxLength = typedArray.getInt(R.styleable.CellTextAreaComponent_android_maxLength, 500)
             addTextChangedListener(afterTextChanged = {

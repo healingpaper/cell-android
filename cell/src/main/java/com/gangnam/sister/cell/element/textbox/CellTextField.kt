@@ -42,7 +42,7 @@ class CellTextField @JvmOverloads constructor(
                     val paddingEnd = it.getDimensionPixelSize(R.styleable.CellTextField_android_paddingEnd, dp16)
                     val paddingTop = it.getDimensionPixelSize(R.styleable.CellTextField_android_paddingTop, 0)
                     val paddingBottom = it.getDimensionPixelSize(R.styleable.CellTextField_android_paddingBottom, 0)
-                    hasError = it.getBoolean(R.styleable.CellTextField_hasError, false)
+                    hasError = it.getBoolean(R.styleable.CellTextField_cellHasError, false)
                     maxLength = it.getInt(R.styleable.CellTextField_android_maxLength, Int.MAX_VALUE)
                     gravity = it.getInt(R.styleable.CellTextField_android_gravity, Gravity.CENTER_VERTICAL)
                     compoundDrawablePadding = dp16

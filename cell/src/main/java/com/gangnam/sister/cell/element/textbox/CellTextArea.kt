@@ -60,7 +60,7 @@ class CellTextArea @JvmOverloads constructor(
                 val paddingEnd = it.getDimensionPixelSize(R.styleable.CellTextArea_android_paddingEnd, dp16)
                 val paddingTop = it.getDimensionPixelSize(R.styleable.CellTextArea_android_paddingTop, dp16)
                 val paddingBottom = it.getDimensionPixelSize(R.styleable.CellTextArea_android_paddingBottom, dp16)
-                hasError = it.getBoolean(R.styleable.CellTextArea_hasError, false)
+                hasError = it.getBoolean(R.styleable.CellTextArea_cellHasError, false)
                 maxLength = it.getInt(R.styleable.CellTextArea_android_maxLength, Int.MAX_VALUE)
                 gravity = it.getInt(R.styleable.CellTextArea_android_gravity, Gravity.TOP)
                 compoundDrawablePadding = dp16

@@ -56,8 +56,8 @@ class CellBadgeStack @JvmOverloads constructor(
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadgeStack, defStyleAttr, 0)
                 .use {
-                    if (it.hasValue(R.styleable.CellBadgeStack_isCellBadgeStackClickable)) {
-                        hasBadgeRipple = it.getBoolean(R.styleable.CellBadgeStack_isCellBadgeStackClickable, false)
+                    if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackClickable)) {
+                        hasBadgeRipple = it.getBoolean(R.styleable.CellBadgeStack_cellBadgeStackClickable, false)
                     }
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackDrawableStart)) {
                         drawableStart = it.getResourceId(R.styleable.CellBadgeStack_cellBadgeStackDrawableStart, 0)
@@ -65,8 +65,8 @@ class CellBadgeStack @JvmOverloads constructor(
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackDrawableEnd)) {
                         drawableEnd = it.getResourceId(R.styleable.CellBadgeStack_cellBadgeStackDrawableEnd, 0)
                     }
-                    if (it.hasValue(R.styleable.CellBadgeStack_isCellBadgeStackClickable)) {
-                        hasBadgeRipple = it.getBoolean(R.styleable.CellBadgeStack_isCellBadgeStackClickable, false)
+                    if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackClickable)) {
+                        hasBadgeRipple = it.getBoolean(R.styleable.CellBadgeStack_cellBadgeStackClickable, false)
                     }
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackStyle)) {
                         styleType = CellBadge.BadgeStyleType.fromId(it.getInt(R.styleable.CellBadgeStack_cellBadgeStackStyle, 0))
@@ -74,15 +74,15 @@ class CellBadgeStack @JvmOverloads constructor(
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackAppearance)) {
                         appearanceType = CellBadge.BadgeAppearanceType.fromId(it.getInt(R.styleable.CellBadgeStack_cellBadgeStackAppearance, 0))
                     }
-                    val dividerSize = it.getDimensionPixelSize(R.styleable.CellBadgeStack_dividerSize, DisplayManager.dpToPx(context, 8))
+                    val dividerSize = it.getDimensionPixelSize(R.styleable.CellBadgeStack_cellDividerSize, DisplayManager.dpToPx(context, 8))
                     badgeStackViewType = BadgeStackViewType.fromId(it.getInt(R.styleable.CellBadgeStack_cellBadgeStackViewType, 0))
                     adapter = badgeStackAdapter
                     layoutManager = NonScrollFlexboxLayoutManager(context)
                     isNestedScrollingEnabled = false
                     setPadding(0, 0, 0, -dividerSize)
                     addItemDecoration(OffsetDividerDecoration(0, 0, dividerSize, dividerSize))
-                    if (it.hasValue(R.styleable.CellBadgeStack_badges)) {
-                        val badges = it.getTextArray(R.styleable.CellBadgeStack_badges)
+                    if (it.hasValue(R.styleable.CellBadgeStack_cellBadges)) {
+                        val badges = it.getTextArray(R.styleable.CellBadgeStack_cellBadges)
                         setData(badges.map { charSequence -> charSequence.toString() }.distinct())
                     }
                 }
