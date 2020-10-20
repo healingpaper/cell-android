@@ -10,11 +10,12 @@ import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.use
 import com.gangnam.sister.cell.R
+import com.gangnam.sister.cell.extension.containsWithSensitivity
 import com.gangnam.sister.cell.util.DisplayManager
 
 // TODO: CompoundDrawable Tint 및 Size 먹이기
 class CellBadge @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
     var styleType: BadgeStyleType = BadgeStyleType.GRAY
         set(value) {
@@ -48,31 +49,31 @@ class CellBadge @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
         var style: BadgeStyle
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadge, defStyleAttr, 0)
-            .use {
-                if (it.hasValue(R.styleable.CellBadge_isCellBadgeClickable)) {
-                    isBadgeClickable =
-                        it.getBoolean(R.styleable.CellBadge_isCellBadgeClickable, false)
-                }
-                if (it.hasValue(R.styleable.CellBadge_cellBadgeAppearance)) {
-                    appearanceType = BadgeAppearanceType.fromId(
-                        it.getInt(
-                            R.styleable.CellBadge_cellBadgeAppearance,
-                            0
+                .use {
+                    if (it.hasValue(R.styleable.CellBadge_isCellBadgeClickable)) {
+                        isBadgeClickable =
+                                it.getBoolean(R.styleable.CellBadge_isCellBadgeClickable, false)
+                    }
+                    if (it.hasValue(R.styleable.CellBadge_cellBadgeAppearance)) {
+                        appearanceType = BadgeAppearanceType.fromId(
+                                it.getInt(
+                                        R.styleable.CellBadge_cellBadgeAppearance,
+                                        0
+                                )
                         )
-                    )
-                }
-                if (it.hasValue(R.styleable.CellBadge_cellBadgeStyle)) {
-                    styleType =
-                        BadgeStyleType.fromId(it.getInt(R.styleable.CellBadge_cellBadgeStyle, 0))
-                }
-                maxLines = 1
-                ellipsize = TextUtils.TruncateAt.END
-                gravity = Gravity.CENTER
-                compoundDrawablePadding = dp4
+                    }
+                    if (it.hasValue(R.styleable.CellBadge_cellBadgeStyle)) {
+                        styleType =
+                                BadgeStyleType.fromId(it.getInt(R.styleable.CellBadge_cellBadgeStyle, 0))
+                    }
+                    maxLines = 1
+                    ellipsize = TextUtils.TruncateAt.END
+                    gravity = Gravity.CENTER
+                    compoundDrawablePadding = dp4
 
-                style = BadgeStyle.createFromAttribute(context, it, styleType.style(context))
-                applyStyle(style)
-            }
+                    style = BadgeStyle.createFromAttribute(context, it, styleType.style(context))
+                    applyStyle(style)
+                }
     }
 
     private fun applyStyle(style: BadgeStyle) {
@@ -82,9 +83,9 @@ class CellBadge @JvmOverloads constructor(
     }
 
     private fun updateBadgeStyle(
-        badgeStyle: BadgeStyle,
-        isEnabled: Boolean,
-        isBadgeClickable: Boolean
+            badgeStyle: BadgeStyle,
+            isEnabled: Boolean,
+            isBadgeClickable: Boolean
     ) {
         background = badgeStyle.getBadgeBackground(isEnabled, isBadgeClickable)
         setTextColor(badgeStyle.getTextColor(isEnabled))
@@ -111,13 +112,12 @@ class CellBadge @JvmOverloads constructor(
         val drawableEnd: Drawable? = compoundDrawables[2]
         drawableStart?.let {
             val bounds = drawableStart.bounds
-            val extraTabArea = (12 * resources.displayMetrics.density + 0.5).toInt()
-            var x = actionX - extraTabArea
-            var y = actionY - extraTabArea
+            val horizontalSensitivity = 12
+            val verticalSensitivity = 60
+            var x = actionX - bounds.right
+            var y = actionY
             if (x <= 0) x = actionX
-            if (y <= 0) y = actionY
-            if (x < y) y = x
-            if (bounds.contains(x, y)) {
+            if (bounds.containsWithSensitivity(x, y, horizontalSensitivity, verticalSensitivity)) {
                 drawableClickListener?.onClick(OnDrawableClickListener.DrawablePosition.START)
                 event.action = MotionEvent.ACTION_CANCEL
                 return false
@@ -125,13 +125,12 @@ class CellBadge @JvmOverloads constructor(
         }
         drawableEnd?.let {
             val bounds = drawableEnd.bounds
-            val extraTabArea = 24
-            var x = actionX + extraTabArea
-            var y = actionY - extraTabArea
-            x = width - x
-            if (x <= 0) x += extraTabArea
-            if (y <= 0) y = actionY
-            if (bounds.contains(x, y)) {
+            val horizontalSensitivity = 12
+            val verticalSensitivity = 60
+            var x = width - actionX
+            var y = actionY
+            if (x <= 0) x = actionX
+            if (bounds.containsWithSensitivity(x, y, horizontalSensitivity, verticalSensitivity)) {
                 drawableClickListener?.onClick(OnDrawableClickListener.DrawablePosition.END)
                 event.action = MotionEvent.ACTION_CANCEL
                 return false

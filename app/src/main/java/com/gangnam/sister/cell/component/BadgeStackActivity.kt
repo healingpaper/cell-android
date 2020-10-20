@@ -31,8 +31,7 @@ class BadgeStackActivity : AppCompatActivity() {
         badges.add("의료의료")
         badges.add("여성전문의가")
         firstBadgeStack.setDataWithItem(badges.mapIndexed { index: Int, text: String ->
-            val color =
-                    if (index % 2 == 0) CellBadge.BadgeStyleType.YELLOW else CellBadge.BadgeStyleType.GRAY
+            val color = if (index % 2 == 0) CellBadge.BadgeStyleType.YELLOW else CellBadge.BadgeStyleType.GRAY
             val drawableStart = if (index % 2 == 0) R.drawable.ic_etc_hashtag else 0
             val drawableEnd = if (index % 2 == 1) R.drawable.ic_etc_hashtag else 0
             CellBadgeStack.Item(text, color, drawableStart, drawableEnd)
