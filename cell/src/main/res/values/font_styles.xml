@@ -2,54 +2,63 @@
 <resources>
 
     <style name="CellTitle1Primary26BoldBlackLarge">
+        <item name="fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">26dp</item>
         <item name="android:lineSpacingExtra">8dp</item>
         <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="CellTitle2Secondary20BoldBlackHeader">
+        <item name="fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">20dp</item>
         <item name="android:lineSpacingExtra">8dp</item>
         <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="CellTitle3Tertiary16BoldBlack">
+        <item name="fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">16dp</item>
         <item name="android:lineSpacingExtra">8dp</item>
         <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="CellTitle4Quaternary14BoldBlack">
+        <item name="fontFamily">@font/notosans_bold_hestia</item>
         <item name="android:textSize">14dp</item>
         <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="CellDescription1Primary14RegularBlack">
+        <item name="fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
         <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="CellEvaluation2Secondary14RegularCharcoal">
+        <item name="fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
         <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="CellDescription2Secondary14RegularCharcoal">
+        <item name="fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
         <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:textColor">@color/cell_color_gray_800</item>
     </style>
 
     <style name="CellEvaluation1Primary14RegularBlack">
+        <item name="fontFamily">@font/notosans_regular_hestia</item>
         <item name="android:textSize">14dp</item>
         <item name="android:lineSpacingExtra">10dp</item>
         <item name="android:textColor">@color/cell_color_black</item>
     </style>
 
     <style name="CellCaption12MediumCharcoal">
+        <item name="fontFamily">@font/notosans_medium_hestia</item>
         <item name="android:textSize">12dp</item>
         <item name="android:lineSpacingExtra">4dp</item>
         <item name="android:textColor">@color/cell_color_gray_800</item>

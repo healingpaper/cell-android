@@ -36,27 +36,28 @@ class CellButtonStyle(
         return if (enabled) textColor else disabledTextColor
     }
 
-    fun getButtonBackground(enabled: Boolean): Drawable {
+    fun getButtonBackground(enabled: Boolean, aboveKeyboard: Boolean): Drawable {
+        val radiusInner = if (aboveKeyboard) 0 else radius
         return if (enabled) {
             DrawableManager.rippleDrawable(
-                mask = DrawableManager.roundRectDrawable(
-                    color = Color.WHITE,
-                    radius = radius
-                ),
-                content = DrawableManager.roundRectDrawable(
-                    color = backgroundColor,
-                    borderColor = borderColor,
-                    borderWidth = borderWidth,
-                    radius = radius
-                ),
-                rippleColor = rippleColor
+                    mask = DrawableManager.roundRectDrawable(
+                            color = Color.WHITE,
+                            radius = radiusInner
+                    ),
+                    content = DrawableManager.roundRectDrawable(
+                            color = backgroundColor,
+                            borderColor = borderColor,
+                            borderWidth = borderWidth,
+                            radius = radiusInner
+                    ),
+                    rippleColor = rippleColor
             )
         } else {
             DrawableManager.roundRectDrawable(
-                color = disabledBackgroundColor,
-                borderColor = borderColor,
-                borderWidth = borderWidth,
-                radius = radius
+                    color = disabledBackgroundColor,
+                    borderColor = borderColor,
+                    borderWidth = borderWidth,
+                    radius = radiusInner
             )
         }
     }
@@ -79,8 +80,8 @@ class CellButtonStyle(
 
 
     fun getCellButtonTextStyle(
-        enabled: Boolean,
-        appearanceType: CellButton.ButtonAppearanceType
+            enabled: Boolean,
+            appearanceType: CellButton.ButtonAppearanceType
     ): Int {
         return if (enabled) {
             when (appearanceType) {
@@ -117,26 +118,23 @@ class CellButtonStyle(
                 @DimenRes radiusRes: Int = R.dimen.tiny
         ): CellButtonStyle {
             return CellButtonStyle(
-                context = context,
-                style = style,
-                backgroundColor = ContextCompat.getColor(context, backgroundColorRes),
-                textColor = ContextCompat.getColor(context, textColorRes),
-                borderColor = ContextCompat.getColor(context, borderColorRes),
-                disabledBackgroundColor = ContextCompat.getColor(
-                    context,
-                    disabledBackgroundColorRes
-                ),
-                disabledTextColor = ContextCompat.getColor(context, disabledTextColorRes),
-                rippleColor = ContextCompat.getColor(context, rippleColorRes),
-                borderWidth = context.resources.getDimensionPixelSize(borderWidthRes),
-                radius = context.resources.getDimensionPixelSize(radiusRes)
+                    context = context,
+                    style = style,
+                    backgroundColor = ContextCompat.getColor(context, backgroundColorRes),
+                    textColor = ContextCompat.getColor(context, textColorRes),
+                    borderColor = ContextCompat.getColor(context, borderColorRes),
+                    disabledBackgroundColor = ContextCompat.getColor(context, disabledBackgroundColorRes),
+                    disabledTextColor = ContextCompat.getColor(context, disabledTextColorRes),
+                    rippleColor = ContextCompat.getColor(context, rippleColorRes),
+                    borderWidth = context.resources.getDimensionPixelSize(borderWidthRes),
+                    radius = context.resources.getDimensionPixelSize(radiusRes)
             )
         }
 
         fun createFromAttribute(
-            context: Context,
-            typedArray: TypedArray?,
-            originalStyle: CellButtonStyle
+                context: Context,
+                typedArray: TypedArray?,
+                originalStyle: CellButtonStyle
         ): CellButtonStyle {
             var backgroundColor = originalStyle.backgroundColor
             var textColor = originalStyle.textColor
@@ -151,16 +149,16 @@ class CellButtonStyle(
                 borderWidth = it.getDimension(R.styleable.CellButton_cellButtonBorderWidth, borderWidth.toFloat()).toInt()
             }
             return CellButtonStyle(
-                context = context,
-                style = originalStyle.style,
-                backgroundColor = backgroundColor,
-                textColor = textColor,
-                borderColor = borderColor,
-                disabledBackgroundColor = originalStyle.disabledBackgroundColor,
-                disabledTextColor = originalStyle.disabledTextColor,
-                rippleColor = originalStyle.rippleColor,
-                borderWidth = borderWidth,
-                radius = originalStyle.radius
+                    context = context,
+                    style = originalStyle.style,
+                    backgroundColor = backgroundColor,
+                    textColor = textColor,
+                    borderColor = borderColor,
+                    disabledBackgroundColor = originalStyle.disabledBackgroundColor,
+                    disabledTextColor = originalStyle.disabledTextColor,
+                    rippleColor = originalStyle.rippleColor,
+                    borderWidth = borderWidth,
+                    radius = originalStyle.radius
             )
         }
     }

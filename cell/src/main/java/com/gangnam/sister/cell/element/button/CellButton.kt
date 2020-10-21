@@ -31,6 +31,12 @@ class CellButton @JvmOverloads constructor(
             update()
         }
 
+    var isAboveKeyboard: Boolean = false
+        set(value) {
+            field = value
+            update()
+        }
+
     private var buttonStyle: CellButtonStyle? = null
     private val startEndPadding = DisplayManager.dpToPx(context, 16)
 
@@ -75,7 +81,7 @@ class CellButton @JvmOverloads constructor(
         buttonStyle?.let {
             minHeight = it.getButtonMinHeight(appearanceType)
             minWidth = it.getButtonMinWidth(appearanceType)
-            background = it.getButtonBackground(isButtonEnabled)
+            background = it.getButtonBackground(isButtonEnabled, isAboveKeyboard)
             setTextAppearance(it.getCellButtonTextStyle(isButtonEnabled, appearanceType))
             setTextColor(it.getTextColor(isButtonEnabled))
         }
