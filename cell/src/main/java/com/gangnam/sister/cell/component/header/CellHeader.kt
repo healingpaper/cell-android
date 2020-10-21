@@ -18,7 +18,7 @@ import com.gangnam.sister.cell.R
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import kotlinx.android.synthetic.main.cell_header.view.*
 
-class CellHeader @JvmOverloads constructor(
+open class CellHeader @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
     var menu: Int = 0
