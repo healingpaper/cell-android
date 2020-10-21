@@ -91,15 +91,33 @@ class CellButtonStack @JvmOverloads constructor(
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellButtonStack, defStyleAttr, 0)
                 .use {
-                    firstButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellFirstButtonStyle, 0))
-                    secondButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellSecondButtonStyle, 1))
-                    thirdButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellThirdButtonStyle, 2))
-                    firstButtonText = it.getString(R.styleable.CellButtonStack_cellFirstButtonText)
-                    secondButtonText = it.getString(R.styleable.CellButtonStack_cellSecondButtonText)
-                    thirdButtonText = it.getString(R.styleable.CellButtonStack_cellThirdButtonText)
-                    firstButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellFirstButtonVisibility, 0))
-                    secondButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellSecondButtonVisibility, 0))
-                    thirdButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellThirdButtonVisibility, 0))
+                    if (it.hasValue(R.styleable.CellButtonStack_cellFirstButtonStyle)) {
+                        firstButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellFirstButtonStyle, 0))
+                    }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellSecondButtonStyle)) {
+                        secondButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellSecondButtonStyle, 1))
+                    }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellThirdButtonStyle)) {
+                        thirdButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellThirdButtonStyle, 2))
+                    }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellFirstButtonText)) {
+                        firstButtonText = it.getString(R.styleable.CellButtonStack_cellFirstButtonText)
+                    }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellSecondButtonText)) {
+                        secondButtonText = it.getString(R.styleable.CellButtonStack_cellSecondButtonText)
+                    }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellThirdButtonText)) {
+                        thirdButtonText = it.getString(R.styleable.CellButtonStack_cellThirdButtonText)
+                    }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellFirstButtonVisibility)) {
+                        firstButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellFirstButtonVisibility, 0))
+                    }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellSecondButtonVisibility)) {
+                        secondButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellSecondButtonVisibility, 0))
+                    }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellThirdButtonVisibility)) {
+                        thirdButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellThirdButtonVisibility, 0))
+                    }
                     setBackgroundColor(Color.WHITE)
                 }
     }
@@ -140,15 +158,36 @@ class CellButtonStack @JvmOverloads constructor(
 
     private fun checkAndUpdateMargin() {
         val buttons = getVisibleButtons(firstBtn, secondBtn, thirdBtn)
-        if (buttons.size != 1) return
-        val layoutParams: LayoutParams = buttons.single().layoutParams as LayoutParams
-        buttons.single().layoutParams = layoutParams.apply {
-            marginStart = 0
-            marginEnd = 0
+        when (buttons.size) {
+            3 -> {
+                updateButtonMargin(buttons[0], 0, 0)
+                updateButtonMargin(buttons[1], dp8, dp8)
+                updateButtonMargin(buttons[2], 0, 0)
+            }
+            2 -> {
+                updateButtonMargin(buttons[0], 0, dp8)
+                updateButtonMargin(buttons[1], 0, 0)
+            }
+            1 -> {
+                updateButtonMargin(buttons[0], 0, 0)
+            }
+        }
+
+    }
+
+    private fun updateButtonMargin(button: CellButton, startMarginDp: Int, endMarginDp: Int) {
+        val layoutParams: LayoutParams = button.layoutParams as LayoutParams
+        button.layoutParams = layoutParams.apply {
+            marginStart = startMarginDp
+            marginEnd = endMarginDp
         }
     }
 
-    fun getVisibleButtons(firstBtn: CellButton, secondBtn: CellButton, thirdBtn: CellButton): List<CellButton> {
+    fun getVisibleButtons(
+            firstBtn: CellButton,
+            secondBtn: CellButton,
+            thirdBtn: CellButton
+    ): List<CellButton> {
         val list = arrayListOf<CellButton>()
         if (firstBtn.visibility == View.VISIBLE) list.add(firstBtn)
         if (secondBtn.visibility == View.VISIBLE) list.add(secondBtn)

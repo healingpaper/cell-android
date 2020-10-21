@@ -3,6 +3,7 @@ package com.gangnam.sister.cell.component
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.gangnam.sister.cell.R
 import kotlinx.android.synthetic.main.activity_button_stack.*
@@ -29,5 +30,8 @@ class ButtonStackActivity : AppCompatActivity() {
                 bigBlock.isAboveKeyboard = false
             }
         }
+        buttonStack.firstButtonVisibility = View.VISIBLE
+        buttonStack.secondButtonVisibility = View.VISIBLE
+        buttonStack.thirdButtonVisibility = View.VISIBLE
     }
 }

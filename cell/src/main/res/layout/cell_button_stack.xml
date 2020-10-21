@@ -33,7 +33,6 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@id/firstBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginEnd="0dp"
         tools:text="@string/button" />
 
     <com.gangnam.sister.cell.element.button.CellButton
