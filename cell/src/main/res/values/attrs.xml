@@ -137,7 +137,21 @@
         <attr name="cellFirstButtonText" format="string" />
         <attr name="cellSecondButtonText" format="string" />
         <attr name="cellThirdButtonText" format="string" />
-        <attr name="cellButtonCount" format="integer" />
+        <attr name="cellFirstButtonVisibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+            <enum name="gone" value="2" />
+        </attr>
+        <attr name="cellSecondButtonVisibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+            <enum name="gone" value="2" />
+        </attr>
+        <attr name="cellThirdButtonVisibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+            <enum name="gone" value="2" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="CellBadgeStack">

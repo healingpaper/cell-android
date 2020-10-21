@@ -14,7 +14,7 @@ import com.gangnam.sister.cell.util.DisplayManager
 import kotlinx.android.synthetic.main.cell_button_stack.view.*
 
 class CellButtonStack @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
     var firstButtonStyle = CellButton.ButtonStyleType.PRIMARY
         set(value) {
@@ -38,36 +38,37 @@ class CellButtonStack @JvmOverloads constructor(
     var firstButtonText: String? = null
         set(value) {
             field = value
-            if (firstBtn != null) firstBtn.text = value
+            firstBtn?.text = value
         }
     var secondButtonText: String? = null
         set(value) {
             field = value
-            if (secondBtn != null) secondBtn.text = value
+            secondBtn?.text = value
         }
     var thirdButtonText: String? = null
         set(value) {
             field = value
-            if (thirdBtn != null) thirdBtn.text = value
+            thirdBtn?.text = value
         }
-
-    var buttonCount = 3
+    var firstButtonVisibility: Int = View.VISIBLE
         set(value) {
             field = value
-            if (buttonCount > 3) throw IllegalArgumentException("buttonCount must be lower or same with 3.")
-            updateButtonVisibility(value)
-            when (buttonCount) {
-                2 -> {
-                    updateFirstButton(CellButton.ButtonStyleType.SECONDARY)
-                    updateSecondButton(CellButton.ButtonStyleType.PRIMARY)
-                }
-            }
+            firstBtn?.visibility = value
+        }
+    var secondButtonVisibility: Int = View.VISIBLE
+        set(value) {
+            field = value
+            secondBtn?.visibility = value
+        }
+    var thirdButtonVisibility: Int = View.VISIBLE
+        set(value) {
+            field = value
+            thirdBtn?.visibility = value
         }
 
     var isAboveKeyboard = false
         set(value) {
             field = value
-            if (buttonCount > 1) throw IllegalArgumentException("isAboveKeyboard can be set only with buttonCount == 1.")
             updateAboveKeyboardMode(value)
         }
 
@@ -75,23 +76,36 @@ class CellButtonStack @JvmOverloads constructor(
 
     init {
         LayoutInflater.from(context).inflate(R.layout.cell_button_stack, this, true)
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         initView(attrs, defStyleAttr)
     }
 
 
     private fun initView(attrs: AttributeSet?, defStyleAttr: Int) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellButtonStack, defStyleAttr, 0)
-            .use {
-                buttonCount = it.getInt(R.styleable.CellButtonStack_cellButtonCount, 3)
-                firstButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellFirstButtonStyle, 0))
-                secondButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellSecondButtonStyle, 1))
-                thirdButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellThirdButtonStyle, 2))
-                firstButtonText = it.getString(R.styleable.CellButtonStack_cellFirstButtonText)
-                secondButtonText = it.getString(R.styleable.CellButtonStack_cellSecondButtonText)
-                thirdButtonText = it.getString(R.styleable.CellButtonStack_cellThirdButtonText)
-                setBackgroundColor(Color.WHITE)
-            }
+                .use {
+                    firstButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellFirstButtonStyle, 0))
+                    secondButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellSecondButtonStyle, 1))
+                    thirdButtonStyle = CellButton.ButtonStyleType.fromId(it.getInt(R.styleable.CellButtonStack_cellThirdButtonStyle, 2))
+                    firstButtonText = it.getString(R.styleable.CellButtonStack_cellFirstButtonText)
+                    secondButtonText = it.getString(R.styleable.CellButtonStack_cellSecondButtonText)
+                    thirdButtonText = it.getString(R.styleable.CellButtonStack_cellThirdButtonText)
+                    firstButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellFirstButtonVisibility, 0))
+                    secondButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellSecondButtonVisibility, 0))
+                    thirdButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellThirdButtonVisibility, 0))
+                    setBackgroundColor(Color.WHITE)
+                }
+    }
+
+    private fun getButtonVisibility(visibility: Int): Int {
+        return when (visibility) {
+            1 -> View.INVISIBLE
+            2 -> View.GONE
+            else -> View.VISIBLE
+        }
     }
 
     private fun updateFirstButton(styleType: CellButton.ButtonStyleType) {
@@ -106,20 +120,12 @@ class CellButtonStack @JvmOverloads constructor(
         thirdBtn.styleType = styleType
     }
 
-    private fun updateButtonVisibility(buttonCount: Int) {
-        firstBtn.visibility = View.VISIBLE
-        secondBtn.visibility = if (buttonCount >= 2) View.VISIBLE else View.GONE
-        thirdBtn.visibility = if (buttonCount >= 3) View.VISIBLE else View.GONE
-    }
-
     private fun updateAboveKeyboardMode(aboveKeyboard: Boolean) {
-        if (aboveKeyboard) {
-            firstBtn.styleType = CellButton.ButtonStyleType.ABOVE_KEYBOARD
-            root.setPadding(0, 0, 0, 0)
-        } else {
-            firstBtn.styleType = originalFirstButtonStyle
-            root.setPadding(dp8, dp8, dp8, dp8)
-        }
+        val padding = if (aboveKeyboard) 0 else dp8
+        root.setPadding(padding, padding, padding, padding)
+        firstBtn.isAboveKeyboard = aboveKeyboard
+        secondBtn.isAboveKeyboard = aboveKeyboard
+        thirdBtn.isAboveKeyboard = aboveKeyboard
     }
 
     fun setButtonItemClickListener(listener: (view: View, index: Int) -> Unit) {
