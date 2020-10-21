@@ -8,7 +8,7 @@
     android:background="@color/cell_color_white">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarLayout"
         android:layout_width="0dp"
         android:layout_height="?android:attr/actionBarSize"
         android:gravity="center_vertical"
@@ -42,5 +42,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

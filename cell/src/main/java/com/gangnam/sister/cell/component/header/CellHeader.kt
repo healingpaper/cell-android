@@ -13,7 +13,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.use
-import androidx.core.view.forEachIndexed
 import com.gangnam.sister.cell.R
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import kotlinx.android.synthetic.main.cell_header.view.*
@@ -41,7 +40,7 @@ open class CellHeader @JvmOverloads constructor(
     var navigationIcon: Drawable? = null
         set(value) {
             field = value
-            toolbar.navigationIcon = value
+            toolbarLayout.navigationIcon = value
         }
     var isCloseMode = false
         set(value) {
@@ -64,13 +63,13 @@ open class CellHeader @JvmOverloads constructor(
     var layoutCollapseMode: Int = CollapsingToolbarLayout.LayoutParams.COLLAPSE_MODE_OFF
         set(value) {
             field = value
-            val params = toolbar.layoutParams
+            val params = toolbarLayout.layoutParams
             val newParams = if (params is CollapsingToolbarLayout.LayoutParams) {
                 params
             } else CollapsingToolbarLayout.LayoutParams(params)
             newParams.collapseMode = value
-            toolbar.layoutParams = newParams
-            toolbar.requestLayout()
+            toolbarLayout.layoutParams = newParams
+            toolbarLayout.requestLayout()
         }
 
     init {
@@ -101,7 +100,7 @@ open class CellHeader @JvmOverloads constructor(
                     isCloseMode = it.getBoolean(R.styleable.CellHeader_isCloseMode, false)
                 }
                 if (it.hasValue(R.styleable.CellHeader_logo)) {
-                    toolbar.logo = it.getDrawable(R.styleable.CellHeader_logo)
+                    toolbarLayout.logo = it.getDrawable(R.styleable.CellHeader_logo)
                 }
                 if (it.hasValue(R.styleable.CellHeader_showShadow)) {
                     showShadow = it.getBoolean(R.styleable.CellHeader_showShadow, true)
@@ -121,12 +120,12 @@ open class CellHeader @JvmOverloads constructor(
 
     // toolbar right menu
     fun inflateMenu(resId: Int) {
-        toolbar.inflateMenu(resId)
-        toolbar.setNavigationOnClickListener { (context as Activity).onBackPressed() }
+        toolbarLayout.inflateMenu(resId)
+        toolbarLayout.setNavigationOnClickListener { (context as Activity).onBackPressed() }
     }
 
     fun getMenuItem(menuItemId: Int): MenuItem {
-        return toolbar.menu.findItem(menuItemId)
+        return toolbarLayout.menu.findItem(menuItemId)
     }
 
     /**
@@ -134,7 +133,7 @@ open class CellHeader @JvmOverloads constructor(
      */
 
     fun setOnMenuItemClickListener(listener: Toolbar.OnMenuItemClickListener) {
-        toolbar.setOnMenuItemClickListener(listener)
+        toolbarLayout.setOnMenuItemClickListener(listener)
     }
 
     /**
@@ -142,26 +141,28 @@ open class CellHeader @JvmOverloads constructor(
      * 필수 조건 inflate menu
      */
 
+    fun findMenuItem(menuId: Int) = toolbarLayout.menu.findItem(menuId)
+
     // toolbar 오른쪽 메뉴 텍스트 설정
     fun setRightMenuText(menuStr: String) {
-        toolbar.menu.findItem(R.id.rightMenuItem)?.let {
+        toolbarLayout.menu.findItem(R.id.rightMenuItem)?.let {
             it.actionView.findViewById<TextView>(R.id.menuTxt).text = menuStr
         }
     }
 
     // toolbar 오른쪽 메뉴 enable 설정
     fun setRightMenuEnabled(isEnabled: Boolean) {
-        toolbar.menu.findItem(R.id.rightMenuItem)?.let {
+        toolbarLayout.menu.findItem(R.id.rightMenuItem)?.let {
             it.actionView.findViewById<TextView>(R.id.menuTxt).isSelected = isEnabled
         }
     }
 
     fun setMenuVisibility(isVisible: Boolean) {
-        toolbar.menu.findItem(R.id.rightMenuItem).isVisible = isVisible
+        toolbarLayout.menu.findItem(R.id.rightMenuItem).isVisible = isVisible
     }
 
     fun setOnRightMenuItemClickListener(listener: () -> Unit) {
-        toolbar.menu.findItem(R.id.rightMenuItem)?.let {
+        toolbarLayout.menu.findItem(R.id.rightMenuItem)?.let {
             it.actionView.setOnClickListener { listener.invoke() }
         }
     }
