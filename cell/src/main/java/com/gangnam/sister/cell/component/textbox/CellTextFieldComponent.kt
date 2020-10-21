@@ -9,12 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.content.res.use
 import com.gangnam.sister.cell.R
+import com.gangnam.sister.cell.util.BigDotPasswordTransformationMethod
 import kotlinx.android.synthetic.main.cell_text_field_component.view.*
 
 class CellTextFieldComponent @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
     var titleText: String? = null
         set(value) {
@@ -27,7 +29,8 @@ class CellTextFieldComponent @JvmOverloads constructor(
             field = value
             titleTxt.setTextAppearance(value)
         }
-    var text: String? = null
+    var text: String = ""
+        get() = mainInput.text.toString()
         set(value) {
             field = value
             mainInput.setText(value)
@@ -37,11 +40,23 @@ class CellTextFieldComponent @JvmOverloads constructor(
             field = value
             mainInput.hint = value
         }
-    var inputType: Int = InputType.TYPE_TEXT_VARIATION_NORMAL
+    var inputType: Int
+        get() = mainInput.inputType
         set(value) {
-            field = value
-            mainInput.inputType = value
+            mainInput.inputType = when (value) {
+                0 -> InputType.TYPE_NULL
+                1 -> InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                2 -> InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                3 -> InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+                4 -> InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL
+                else -> value
+            }
+            if (value == 2) {
+                mainInput.typeface = ResourcesCompat.getFont(context, R.font.notosans_regular_hestia)
+                mainInput.transformationMethod = BigDotPasswordTransformationMethod()
+            }
         }
+
     var errorEnabled = true
         set(value) {
             field = value
@@ -72,82 +87,68 @@ class CellTextFieldComponent @JvmOverloads constructor(
 
     init {
         LayoutInflater.from(context).inflate(R.layout.cell_text_field_component, this, true)
-        layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
-        )
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         initView(attrs)
     }
 
     private fun initView(attrs: AttributeSet?) {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellTextFieldComponent, 0, 0)
-            .use {
-                if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorEnabled)) {
-                    errorEnabled =
-                        it.getBoolean(R.styleable.CellTextFieldComponent_cellErrorEnabled, true)
+                .use {
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorEnabled)) {
+                        errorEnabled = it.getBoolean(R.styleable.CellTextFieldComponent_cellErrorEnabled, true)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellShowDrawableEnd)) {
+                        showDrawableEnd = it.getBoolean(R.styleable.CellTextFieldComponent_cellShowDrawableEnd, true)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellState)) {
+                        state = State.fromId(it.getInt(R.styleable.CellTextFieldComponent_cellState, 0))
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellInputType)) {
+                        inputType = it.getInt(R.styleable.CellTextFieldComponent_cellInputType, 0)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellTitleText)) {
+                        titleText = it.getString(R.styleable.CellTextFieldComponent_cellTitleText)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellTitleTextStyle)) {
+                        titleTextStyle = it.getResourceId(R.styleable.CellTextFieldComponent_cellTitleTextStyle, R.style.T03Body14BoldLeftBlack)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_android_text)) {
+                        text = it.getString(R.styleable.CellTextFieldComponent_android_text) ?: ""
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_android_hint)) {
+                        hint = it.getString(R.styleable.CellTextFieldComponent_android_hint)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_android_enabled)) {
+                        mainInput.isEnabled = it.getBoolean(R.styleable.CellTextFieldComponent_android_enabled, true)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorText)) {
+                        errorText = it.getString(R.styleable.CellTextFieldComponent_cellErrorText)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellNormalDrawableEnd)) {
+                        normalStateDrawable = it.getResourceId(R.styleable.CellTextFieldComponent_cellNormalDrawableEnd, 0)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellCorrectDrawableEnd)) {
+                        correctStateDrawable = it.getResourceId(R.styleable.CellTextFieldComponent_cellCorrectDrawableEnd, 0)
+                    }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorDrawableEnd)) {
+                        errorStateDrawable = it.getResourceId(R.styleable.CellTextFieldComponent_cellErrorDrawableEnd, 0)
+                    }
                 }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_cellShowDrawableEnd)) {
-                    showDrawableEnd =
-                        it.getBoolean(R.styleable.CellTextFieldComponent_cellShowDrawableEnd, true)
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_cellState)) {
-                    state =
-                        State.fromId(it.getInt(R.styleable.CellTextFieldComponent_cellState, 0))
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_android_inputType)) {
-                    inputType = it.getInt(
-                        R.styleable.CellTextFieldComponent_android_inputType,
-                        InputType.TYPE_TEXT_VARIATION_NORMAL
-                    )
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_cellTitleText)) {
-                    titleText = it.getString(R.styleable.CellTextFieldComponent_cellTitleText)
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_cellTitleTextStyle)) {
-                    titleTextStyle = it.getResourceId(
-                        R.styleable.CellTextFieldComponent_cellTitleTextStyle,
-                        R.style.T03Body14BoldLeftBlack
-                    )
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_android_text)) {
-                    text = it.getString(R.styleable.CellTextFieldComponent_android_text)
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_android_hint)) {
-                    hint = it.getString(R.styleable.CellTextFieldComponent_android_hint)
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_android_enabled)) {
-                    mainInput.isEnabled = it.getBoolean(R.styleable.CellTextFieldComponent_android_enabled, true)
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorText)) {
-                    errorText = it.getString(R.styleable.CellTextFieldComponent_cellErrorText)
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_cellNormalDrawableEnd)) {
-                    normalStateDrawable =
-                        it.getResourceId(R.styleable.CellTextFieldComponent_cellNormalDrawableEnd, 0)
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_cellCorrectDrawableEnd)) {
-                    correctStateDrawable =
-                        it.getResourceId(R.styleable.CellTextFieldComponent_cellCorrectDrawableEnd, 0)
-                }
-                if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorDrawableEnd)) {
-                    errorStateDrawable =
-                        it.getResourceId(R.styleable.CellTextFieldComponent_cellErrorDrawableEnd, 0)
-                }
-            }
     }
 
     private fun updateState(
-        state: State,
-        errorEnabled: Boolean,
-        showDrawableEnd: Boolean
+            state: State,
+            errorEnabled: Boolean,
+            showDrawableEnd: Boolean
     ) {
         setErrorTextVisibility(errorEnabled, state)
         mainInput.apply {
             hasError = state.hasError
             if (showDrawableEnd) setCompoundDrawablesRelativeWithIntrinsicBounds(
-                0,
-                0,
-                getDrawableEnd(state),
-                0
+                    0,
+                    0,
+                    getDrawableEnd(state),
+                    0
             )
         }
     }

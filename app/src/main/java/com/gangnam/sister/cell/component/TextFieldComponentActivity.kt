@@ -1,9 +1,9 @@
 package com.gangnam.sister.cell.component
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.appcompat.app.AppCompatActivity
 import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.component.textbox.CellTextFieldComponent
 import kotlinx.android.synthetic.main.activity_text_field_component.*

@@ -49,7 +49,7 @@ class CellTextField @JvmOverloads constructor(
                     isSingleLine = true
                     maxLines = 1
                     setLines(1)
-                    setTextAppearance(R.style.T03Body14RegularLeftBlack)
+                    setTextAppearance(R.style.T03Body14RegularLeftBlack) // 변경시 CellTextFieldComponent InputType 부분 체크
                     if (padding > 0) {
                         setPadding(padding, padding, padding, padding)
                     } else {

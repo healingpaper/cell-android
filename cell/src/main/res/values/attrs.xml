@@ -189,6 +189,12 @@
         <attr name="cellNormalDrawableEnd" format="reference" />
         <attr name="cellCorrectDrawableEnd" format="reference" />
         <attr name="cellErrorDrawableEnd" format="reference" />
+        <attr name="cellInputType" format="enum">
+            <enum name="email" value="1" />
+            <enum name="password" value="2" />
+            <enum name="decimal" value="3" />
+            <enum name="text" value="4" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="CellTextAreaComponent">

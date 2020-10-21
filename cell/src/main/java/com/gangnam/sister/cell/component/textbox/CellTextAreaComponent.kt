@@ -33,7 +33,8 @@ class CellTextAreaComponent @JvmOverloads constructor(
             field = value
             titleTxt.setTextAppearance(value)
         }
-    var text: String? = null
+    var text: String = ""
+        get() = mainInput.text.toString()
         set(value) {
             field = value
             mainInput.setText(value)
@@ -84,7 +85,7 @@ class CellTextAreaComponent @JvmOverloads constructor(
                             State.fromId(it.getInt(R.styleable.CellTextAreaComponent_cellState, 0))
                     }
                     if (it.hasValue(R.styleable.CellTextAreaComponent_android_text)) {
-                        text = it.getString(R.styleable.CellTextAreaComponent_android_text)
+                        text = it.getString(R.styleable.CellTextAreaComponent_android_text) ?: ""
                     }
                     if (it.hasValue(R.styleable.CellTextAreaComponent_android_hint)) {
                         hint = it.getString(R.styleable.CellTextAreaComponent_android_hint)
