@@ -70,6 +70,14 @@ class CellButtonStack @JvmOverloads constructor(
             checkAndUpdateMargin()
         }
 
+    var isButtonEnabled = true
+        set(value) {
+            field = value
+            firstBtn.isButtonEnabled = value
+            secondBtn.isButtonEnabled = value
+            thirdBtn.isButtonEnabled = value
+        }
+
     var isAboveKeyboard = false
         set(value) {
             field = value
@@ -115,8 +123,14 @@ class CellButtonStack @JvmOverloads constructor(
                     if (it.hasValue(R.styleable.CellButtonStack_cellSecondButtonVisibility)) {
                         secondButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellSecondButtonVisibility, 0))
                     }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellSecondButtonVisibility)) {
+                        secondButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellSecondButtonVisibility, 0))
+                    }
                     if (it.hasValue(R.styleable.CellButtonStack_cellThirdButtonVisibility)) {
                         thirdButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellThirdButtonVisibility, 0))
+                    }
+                    if (it.hasValue(R.styleable.CellButtonStack_cellButtonEnabled)) {
+                        isButtonEnabled = it.getBoolean(R.styleable.CellButtonStack_cellButtonEnabled, true)
                     }
                     setBackgroundColor(Color.WHITE)
                 }

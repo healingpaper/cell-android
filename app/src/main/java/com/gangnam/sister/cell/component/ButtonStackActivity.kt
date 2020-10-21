@@ -20,6 +20,7 @@ class ButtonStackActivity : AppCompatActivity() {
                     getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
                 isKeyboardHidden = !isKeyboardHidden
+                bigBlock.isButtonEnabled = true
                 bigBlock.isAboveKeyboard = true
             } else {
                 val imm = getSystemService(
@@ -27,6 +28,7 @@ class ButtonStackActivity : AppCompatActivity() {
                 ) as InputMethodManager
                 imm.hideSoftInputFromWindow(bigBlock.windowToken, 0)
                 isKeyboardHidden = !isKeyboardHidden
+                bigBlock.isButtonEnabled = false
                 bigBlock.isAboveKeyboard = false
             }
         }

@@ -8,6 +8,7 @@
     <attr name="cellErrorEnabled" format="boolean" />
     <attr name="cellShowDrawableEnd" format="boolean" />
     <attr name="cellTitleTextStyle" format="reference" />
+    <attr name="cellButtonEnabled" format="boolean" />
     <attr name="cellState" format="enum">
         <enum name="normal" value="0" />
         <enum name="correct" value="1" />
@@ -46,7 +47,7 @@
             <enum name="medium" value="1" />
             <enum name="small" value="2" />
         </attr>
-        <attr name="cellButtonEnabled" format="boolean" />
+        <attr name="cellButtonEnabled" />
         <attr name="cellButtonBackgroundColor" format="color" />
         <attr name="cellButtonTextColor" format="color" />
         <attr name="cellButtonRippleColor" format="color" />
@@ -152,6 +153,7 @@
             <enum name="invisible" value="1" />
             <enum name="gone" value="2" />
         </attr>
+        <attr name="cellButtonEnabled" />
     </declare-styleable>
 
     <declare-styleable name="CellBadgeStack">
