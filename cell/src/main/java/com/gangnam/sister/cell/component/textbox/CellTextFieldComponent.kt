@@ -52,7 +52,7 @@ class CellTextFieldComponent @JvmOverloads constructor(
                 else -> value
             }
             if (value == 2) {
-                mainInput.typeface = ResourcesCompat.getFont(context, R.font.notosans_regular_hestia)
+                if (!isInEditMode) mainInput.typeface = ResourcesCompat.getFont(context, R.font.notosans_regular_hestia)
                 mainInput.transformationMethod = BigDotPasswordTransformationMethod()
             }
         }
