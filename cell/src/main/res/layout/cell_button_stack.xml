@@ -19,7 +19,6 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginEnd="0dp"
         tools:text="@string/button" />
 
     <com.gangnam.sister.cell.element.button.CellButton
@@ -47,7 +46,6 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@id/secondBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginStart="@dimen/tiny"
         tools:text="@string/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,16 +54,20 @@ class CellButtonStack @JvmOverloads constructor(
         set(value) {
             field = value
             firstBtn?.visibility = value
+            checkAndUpdateMargin()
         }
+
     var secondButtonVisibility: Int = View.VISIBLE
         set(value) {
             field = value
             secondBtn?.visibility = value
+            checkAndUpdateMargin()
         }
     var thirdButtonVisibility: Int = View.VISIBLE
         set(value) {
             field = value
             thirdBtn?.visibility = value
+            checkAndUpdateMargin()
         }
 
     var isAboveKeyboard = false
@@ -132,5 +136,23 @@ class CellButtonStack @JvmOverloads constructor(
         firstBtn.setOnClickListener { listener.invoke(firstBtn, 0) }
         secondBtn.setOnClickListener { listener.invoke(secondBtn, 1) }
         thirdBtn.setOnClickListener { listener.invoke(thirdBtn, 2) }
+    }
+
+    private fun checkAndUpdateMargin() {
+        val buttons = getVisibleButtons(firstBtn, secondBtn, thirdBtn)
+        if (buttons.size != 1) return
+        val layoutParams: LayoutParams = buttons.single().layoutParams as LayoutParams
+        buttons.single().layoutParams = layoutParams.apply {
+            marginStart = 0
+            marginEnd = 0
+        }
+    }
+
+    fun getVisibleButtons(firstBtn: CellButton, secondBtn: CellButton, thirdBtn: CellButton): List<CellButton> {
+        val list = arrayListOf<CellButton>()
+        if (firstBtn.visibility == View.VISIBLE) list.add(firstBtn)
+        if (secondBtn.visibility == View.VISIBLE) list.add(secondBtn)
+        if (thirdBtn.visibility == View.VISIBLE) list.add(thirdBtn)
+        return list
     }
 }

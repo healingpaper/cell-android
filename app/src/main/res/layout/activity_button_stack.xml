@@ -44,9 +44,58 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/tiny"
+                app:cellFirstButtonText="First"
+                app:cellFirstButtonVisibility="gone"
+                app:cellSecondButtonText="Second"
+                app:cellThirdButtonText="Third" />
+
+            <com.gangnam.sister.cell.component.button.CellButtonStack
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tiny"
+                app:cellFirstButtonText="First"
+                app:cellSecondButtonText="Second"
+                app:cellSecondButtonVisibility="gone"
+                app:cellThirdButtonText="Third" />
+
+            <com.gangnam.sister.cell.component.button.CellButtonStack
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tiny"
+                app:cellFirstButtonText="First"
+                app:cellFirstButtonVisibility="visible"
+                app:cellSecondButtonText="Second"
+                app:cellSecondButtonVisibility="gone"
+                app:cellThirdButtonVisibility="gone" />
+
+            <com.gangnam.sister.cell.component.button.CellButtonStack
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tiny"
+                app:cellFirstButtonText="First"
+                app:cellFirstButtonVisibility="gone"
+                app:cellSecondButtonText="Second"
+                app:cellSecondButtonVisibility="visible"
+                app:cellThirdButtonVisibility="gone" />
+
+            <com.gangnam.sister.cell.component.button.CellButtonStack
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tiny"
+                app:cellFirstButtonText="First"
+                app:cellFirstButtonVisibility="gone"
+                app:cellSecondButtonVisibility="gone"
+                app:cellThirdButtonText="Third"
+                app:cellThirdButtonVisibility="visible" />
+
+            <com.gangnam.sister.cell.component.button.CellButtonStack
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tiny"
                 app:cellFirstButtonStyle="tertiary"
                 app:cellFirstButtonText="First"
                 app:cellSecondButtonText="Second"
+                app:cellSecondButtonVisibility="gone"
                 app:cellThirdButtonVisibility="gone" />
 
         </LinearLayout>
