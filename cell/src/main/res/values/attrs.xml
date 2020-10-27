@@ -182,6 +182,7 @@
         <attr name="android:hint" />
         <attr name="android:inputType" />
         <attr name="android:enabled" />
+        <attr name="android:maxLength" />
         <attr name="cellTitleText" />
         <attr name="cellTitleTextStyle" />
         <attr name="cellErrorText" />

@@ -33,5 +33,6 @@ class TextAreaComponentActivity : AppCompatActivity() {
             }
 
         })
+        firstTextArea.maxLength = 100
     }
 }

@@ -33,5 +33,6 @@ class TextFieldComponentActivity : AppCompatActivity() {
             }
 
         })
+        firstTextField.maxLength = 15
     }
 }

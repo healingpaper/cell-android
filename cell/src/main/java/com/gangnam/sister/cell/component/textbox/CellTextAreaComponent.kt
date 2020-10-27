@@ -13,8 +13,6 @@ import androidx.core.content.res.use
 import androidx.core.widget.addTextChangedListener
 import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.util.DisplayManager
-import com.jakewharton.rxbinding3.InitialValueObservable
-import com.jakewharton.rxbinding3.widget.textChanges
 import kotlinx.android.synthetic.main.cell_text_area_component.view.*
 
 
@@ -43,6 +41,11 @@ class CellTextAreaComponent @JvmOverloads constructor(
         set(value) {
             field = value
             mainInput.hint = value
+        }
+    var maxLength = 500
+        set(value) {
+            field = value
+            setTextBox()
         }
     var errorEnabled = true
         set(value) {
@@ -75,14 +78,14 @@ class CellTextAreaComponent @JvmOverloads constructor(
                 .use {
                     if (it.hasValue(R.styleable.CellTextAreaComponent_cellErrorEnabled)) {
                         errorEnabled =
-                            it.getBoolean(R.styleable.CellTextAreaComponent_cellErrorEnabled, true)
+                                it.getBoolean(R.styleable.CellTextAreaComponent_cellErrorEnabled, true)
                     }
                     if (it.hasValue(R.styleable.CellTextAreaComponent_cellErrorText)) {
                         errorText = it.getString(R.styleable.CellTextAreaComponent_cellErrorText)
                     }
                     if (it.hasValue(R.styleable.CellTextAreaComponent_cellState)) {
                         state =
-                            State.fromId(it.getInt(R.styleable.CellTextAreaComponent_cellState, 0))
+                                State.fromId(it.getInt(R.styleable.CellTextAreaComponent_cellState, 0))
                     }
                     if (it.hasValue(R.styleable.CellTextAreaComponent_android_text)) {
                         text = it.getString(R.styleable.CellTextAreaComponent_android_text) ?: ""
@@ -98,17 +101,17 @@ class CellTextAreaComponent @JvmOverloads constructor(
                     }
                     if (it.hasValue(R.styleable.CellTextAreaComponent_cellTitleTextStyle)) {
                         titleTextStyle = it.getResourceId(
-                            R.styleable.CellTextAreaComponent_cellTitleTextStyle,
-                            R.style.T03Body14BoldLeftBlack
+                                R.styleable.CellTextAreaComponent_cellTitleTextStyle,
+                                R.style.T03Body14BoldLeftBlack
                         )
                     }
-                    setTextBox(it).run {
+                    setTextBoxFromTypedArray(it).run {
                         textCountTxt.text = String.format(context.getString(R.string.min_max_length_format), 0, mainInput.maxLength)
                     }
                 }
     }
 
-    private fun setTextBox(typedArray: TypedArray) {
+    private fun setTextBoxFromTypedArray(typedArray: TypedArray) {
         with(mainInput) {
             layoutParams = layoutParams.apply {
                 height = typedArray.getDimensionPixelSize(R.styleable.CellTextAreaComponent_cellTextBoxHeight, DisplayManager.dpToPx(context, 180))
@@ -120,9 +123,14 @@ class CellTextAreaComponent @JvmOverloads constructor(
         }
     }
 
+    private fun setTextBox() {
+        mainInput.maxLength = this@CellTextAreaComponent.maxLength
+        textCountTxt.text = String.format(context.getString(R.string.min_max_length_format), 0, mainInput.maxLength)
+    }
+
     private fun updateState(
-        state: State,
-        errorEnabled: Boolean
+            state: State,
+            errorEnabled: Boolean
     ) {
         setErrorTextVisibility(errorEnabled, state)
         mainInput.apply {
@@ -154,8 +162,10 @@ class CellTextAreaComponent @JvmOverloads constructor(
         })
     }
 
-    fun textChanges(): InitialValueObservable<CharSequence> {
-        return mainInput.textChanges()
+    override fun isEnabled() = mainInput.isEnabled
+
+    override fun setEnabled(enabled: Boolean) {
+        mainInput.isEnabled = enabled
     }
 
     enum class State(val hasError: Boolean) {

@@ -56,7 +56,11 @@ class CellTextFieldComponent @JvmOverloads constructor(
                 mainInput.transformationMethod = BigDotPasswordTransformationMethod()
             }
         }
-
+    var maxLength = Int.MAX_VALUE
+        set(value) {
+            field = value
+            mainInput.maxLength = value
+        }
     var errorEnabled = true
         set(value) {
             field = value
@@ -121,6 +125,9 @@ class CellTextFieldComponent @JvmOverloads constructor(
                     if (it.hasValue(R.styleable.CellTextFieldComponent_android_enabled)) {
                         mainInput.isEnabled = it.getBoolean(R.styleable.CellTextFieldComponent_android_enabled, true)
                     }
+                    if (it.hasValue(R.styleable.CellTextFieldComponent_android_maxLength)) {
+                        mainInput.maxLength = it.getInt(R.styleable.CellTextFieldComponent_android_maxLength, Int.MAX_VALUE)
+                    }
                     if (it.hasValue(R.styleable.CellTextFieldComponent_cellErrorText)) {
                         errorText = it.getString(R.styleable.CellTextFieldComponent_cellErrorText)
                     }
@@ -183,6 +190,12 @@ class CellTextFieldComponent @JvmOverloads constructor(
             }
 
         })
+    }
+
+    override fun isEnabled() = mainInput.isEnabled
+
+    override fun setEnabled(enabled: Boolean) {
+        mainInput.isEnabled = enabled
     }
 
     enum class State(val hasError: Boolean) {
