@@ -53,6 +53,7 @@ class CellBadgeStack @JvmOverloads constructor(
         }
 
     init {
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadgeStack, defStyleAttr, 0)
                 .use {
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackClickable)) {

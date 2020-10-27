@@ -53,5 +53,14 @@ class BadgeStackActivity : AppCompatActivity() {
                 Toast.makeText(this@BadgeStackActivity, "$position $drawablePosition", Toast.LENGTH_SHORT).show()
             }
         })
+
+        val badges2 = arrayListOf<String>()
+        badges2.add("눈")
+        badges2.add("코")
+        badges2.add("필러")
+        badges2.add("보톡스")
+        badges2.add("쁘띠")
+        badges2.add("입")
+        badgeStackView.setData(badges2)
     }
 }

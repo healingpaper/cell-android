@@ -66,6 +66,8 @@ class CellBadge @JvmOverloads constructor(
                         styleType =
                                 BadgeStyleType.fromId(it.getInt(R.styleable.CellBadge_cellBadgeStyle, 0))
                     }
+                    maxLines = 1
+                    ellipsize = TextUtils.TruncateAt.END
                     gravity = Gravity.CENTER
                     compoundDrawablePadding = dp4
 
