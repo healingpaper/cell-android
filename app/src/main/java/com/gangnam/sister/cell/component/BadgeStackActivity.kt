@@ -42,6 +42,9 @@ class BadgeStackActivity : AppCompatActivity() {
                 firstBadgeStack.removeView(position)
             }
         })
+        root.setOnClickListener {
+            Toast.makeText(this@BadgeStackActivity, "Parent!", Toast.LENGTH_SHORT).show()
+        }
         secondBadgeStack.setData(badges)
         thirdBadgeStack.setData(badges)
         fourthBadgeStack.setData(badges)

@@ -14,7 +14,6 @@ import com.gangnam.sister.cell.listener.OnItemDrawableClickListener
 import com.gangnam.sister.cell.util.DisplayManager
 import com.gangnam.sister.cell.util.NonScrollFlexboxLayoutManager
 import com.gangnam.sister.cell.util.OffsetDividerDecoration
-import java.lang.IllegalStateException
 
 // TODO: Horizontal ViewType 일 때 보이는 뷰 카운트 체크하기
 class CellBadgeStack @JvmOverloads constructor(
@@ -37,10 +36,10 @@ class CellBadgeStack @JvmOverloads constructor(
             field = value
             setBadgeStackViewHeight()
         }
-    var hasBadgeRipple: Boolean = true
+    var isBadgeStackClickable: Boolean = true
         set(value) {
             field = value
-            badgeStackAdapter.hasBadgeRipple = value
+            badgeStackAdapter.isBadgeStackClickable = value
         }
     var drawableStart: Int = 0
         set(value) {
@@ -57,16 +56,13 @@ class CellBadgeStack @JvmOverloads constructor(
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadgeStack, defStyleAttr, 0)
                 .use {
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackClickable)) {
-                        hasBadgeRipple = it.getBoolean(R.styleable.CellBadgeStack_cellBadgeStackClickable, false)
+                        isBadgeStackClickable = it.getBoolean(R.styleable.CellBadgeStack_cellBadgeStackClickable, true)
                     }
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackDrawableStart)) {
                         drawableStart = it.getResourceId(R.styleable.CellBadgeStack_cellBadgeStackDrawableStart, 0)
                     }
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackDrawableEnd)) {
                         drawableEnd = it.getResourceId(R.styleable.CellBadgeStack_cellBadgeStackDrawableEnd, 0)
-                    }
-                    if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackClickable)) {
-                        hasBadgeRipple = it.getBoolean(R.styleable.CellBadgeStack_cellBadgeStackClickable, false)
                     }
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackStyle)) {
                         styleType = CellBadge.BadgeStyleType.fromId(it.getInt(R.styleable.CellBadgeStack_cellBadgeStackStyle, 0))
@@ -129,7 +125,11 @@ class CellBadgeStack @JvmOverloads constructor(
     fun removeView(index: Int) = badgeStackAdapter.removeItem(index)
 
     override fun onInterceptTouchEvent(e: MotionEvent?): Boolean {
-        return false
+        return !isBadgeStackClickable
+    }
+
+    override fun onTouchEvent(e: MotionEvent?): Boolean {
+        return isBadgeStackClickable
     }
 
     override fun setAdapter(adapter: Adapter<*>?) {

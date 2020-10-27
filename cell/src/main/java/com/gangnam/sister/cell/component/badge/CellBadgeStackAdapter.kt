@@ -25,7 +25,7 @@ internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) :
             notifyDataSetChanged()
         }
 
-    internal var hasBadgeRipple: Boolean = false
+    internal var isBadgeStackClickable: Boolean = false
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -51,7 +51,7 @@ internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) :
         holder.badge.apply {
             val item = list[position]
             text = item.text
-            isBadgeClickable = this@CellBadgeStackAdapter.hasBadgeRipple
+            isBadgeClickable = this@CellBadgeStackAdapter.isBadgeStackClickable
             appearanceType = this@CellBadgeStackAdapter.appearanceType
             styleType = item.style ?: this@CellBadgeStackAdapter.styleType
             setCompoundDrawablesRelativeWithIntrinsicBounds(

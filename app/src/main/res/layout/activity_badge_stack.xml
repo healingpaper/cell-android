@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -22,13 +23,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tiny" />
 
-    <com.gangnam.sister.cell.component.badge.CellBadgeStack
-        android:id="@+id/thirdBadgeStack"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/tiny"
-        app:cellBadgeStackStyle="orange"
-        app:cellBadgeStackViewType="horizontal" />
+        android:layout_height="wrap_content">
+
+        <com.gangnam.sister.cell.component.badge.CellBadgeStack
+            android:id="@+id/thirdBadgeStack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny"
+            app:cellBadgeStackClickable="false"
+            app:cellBadgeStackStyle="orange"
+            app:cellBadgeStackViewType="horizontal" />
+
+    </FrameLayout>
 
     <com.gangnam.sister.cell.component.badge.CellBadgeStack
         android:id="@+id/fourthBadgeStack"
