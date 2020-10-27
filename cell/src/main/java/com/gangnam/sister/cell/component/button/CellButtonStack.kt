@@ -129,6 +129,7 @@ class CellButtonStack @JvmOverloads constructor(
                     if (it.hasValue(R.styleable.CellButtonStack_cellButtonEnabled)) {
                         isButtonEnabled = it.getBoolean(R.styleable.CellButtonStack_cellButtonEnabled, true)
                     }
+                    checkAndUpdateMargin()
                     setBackgroundColor(Color.WHITE)
                 }
     }
