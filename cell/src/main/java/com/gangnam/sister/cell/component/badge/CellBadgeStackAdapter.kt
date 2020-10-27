@@ -51,6 +51,7 @@ internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) :
         holder.badge.apply {
             val item = list[position]
             text = item.text
+            layoutParams = RecyclerView.LayoutParams(RecyclerView.LayoutParams.WRAP_CONTENT, RecyclerView.LayoutParams.WRAP_CONTENT)
             isBadgeClickable = this@CellBadgeStackAdapter.isBadgeStackClickable
             appearanceType = this@CellBadgeStackAdapter.appearanceType
             styleType = item.style ?: this@CellBadgeStackAdapter.styleType

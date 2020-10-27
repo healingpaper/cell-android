@@ -14,6 +14,9 @@ import com.gangnam.sister.cell.listener.OnItemDrawableClickListener
 import com.gangnam.sister.cell.util.DisplayManager
 import com.gangnam.sister.cell.util.NonScrollFlexboxLayoutManager
 import com.gangnam.sister.cell.util.OffsetDividerDecoration
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.JustifyContent
 
 // TODO: Horizontal ViewType 일 때 보이는 뷰 카운트 체크하기
 class CellBadgeStack @JvmOverloads constructor(
@@ -53,7 +56,6 @@ class CellBadgeStack @JvmOverloads constructor(
         }
 
     init {
-        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         context.theme.obtainStyledAttributes(attrs, R.styleable.CellBadgeStack, defStyleAttr, 0)
                 .use {
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackClickable)) {
@@ -74,7 +76,11 @@ class CellBadgeStack @JvmOverloads constructor(
                     val dividerSize = it.getDimensionPixelSize(R.styleable.CellBadgeStack_cellDividerSize, DisplayManager.dpToPx(context, 8))
                     badgeStackViewType = BadgeStackViewType.fromId(it.getInt(R.styleable.CellBadgeStack_cellBadgeStackViewType, 0))
                     adapter = badgeStackAdapter
-                    layoutManager = NonScrollFlexboxLayoutManager(context)
+                    layoutManager = NonScrollFlexboxLayoutManager(context).apply {
+                        flexWrap = FlexWrap.WRAP
+                        flexDirection = FlexDirection.ROW
+                        justifyContent = JustifyContent.FLEX_START
+                    }
                     isNestedScrollingEnabled = false
                     setPadding(0, 0, 0, -dividerSize)
                     addItemDecoration(OffsetDividerDecoration(0, 0, dividerSize, dividerSize))
@@ -83,6 +89,7 @@ class CellBadgeStack @JvmOverloads constructor(
                         setData(badges.map { charSequence -> charSequence.toString() }.distinct())
                     }
                 }
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
     }
 
     private fun setBadgeStackViewHeight() {
