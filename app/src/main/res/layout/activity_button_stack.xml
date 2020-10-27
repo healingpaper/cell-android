@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -41,6 +42,7 @@
                 android:layout_marginTop="@dimen/tiny"
                 app:cellFirstButtonText="First"
                 app:cellSecondButtonText="Second"
+                app:cellSecondButtonVisibility="visible"
                 app:cellThirdButtonVisibility="gone" />
 
             <com.gangnam.sister.cell.component.button.CellButtonStack
@@ -59,7 +61,8 @@
                 app:cellFirstButtonText="First"
                 app:cellSecondButtonText="Second"
                 app:cellSecondButtonVisibility="gone"
-                app:cellThirdButtonText="Third" />
+                app:cellThirdButtonText="Third"
+                app:cellThirdButtonVisibility="visible" />
 
             <com.gangnam.sister.cell.component.button.CellButtonStack
                 android:layout_width="match_parent"

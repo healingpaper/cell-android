@@ -57,13 +57,13 @@ class CellButtonStack @JvmOverloads constructor(
             checkAndUpdateMargin()
         }
 
-    var secondButtonVisibility: Int = View.VISIBLE
+    var secondButtonVisibility: Int = View.GONE
         set(value) {
             field = value
             secondBtn?.visibility = value
             checkAndUpdateMargin()
         }
-    var thirdButtonVisibility: Int = View.VISIBLE
+    var thirdButtonVisibility: Int = View.GONE
         set(value) {
             field = value
             thirdBtn?.visibility = value
@@ -121,13 +121,10 @@ class CellButtonStack @JvmOverloads constructor(
                         firstButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellFirstButtonVisibility, 0))
                     }
                     if (it.hasValue(R.styleable.CellButtonStack_cellSecondButtonVisibility)) {
-                        secondButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellSecondButtonVisibility, 0))
-                    }
-                    if (it.hasValue(R.styleable.CellButtonStack_cellSecondButtonVisibility)) {
-                        secondButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellSecondButtonVisibility, 0))
+                        secondButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellSecondButtonVisibility, 2))
                     }
                     if (it.hasValue(R.styleable.CellButtonStack_cellThirdButtonVisibility)) {
-                        thirdButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellThirdButtonVisibility, 0))
+                        thirdButtonVisibility = getButtonVisibility(it.getInt(R.styleable.CellButtonStack_cellThirdButtonVisibility, 2))
                     }
                     if (it.hasValue(R.styleable.CellButtonStack_cellButtonEnabled)) {
                         isButtonEnabled = it.getBoolean(R.styleable.CellButtonStack_cellButtonEnabled, true)
