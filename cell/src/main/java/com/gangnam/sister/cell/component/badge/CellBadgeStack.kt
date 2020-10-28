@@ -4,22 +4,19 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.core.content.res.use
-import androidx.core.view.children
-import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
 import com.gangnam.sister.cell.R
 import com.gangnam.sister.cell.element.badge.CellBadge
 import com.gangnam.sister.cell.listener.OnItemClickListener
 import com.gangnam.sister.cell.listener.OnItemDrawableClickListener
-import com.gangnam.sister.cell.util.DisplayManager
-import com.gangnam.sister.cell.util.NonScrollFlexboxLayoutManager
-import com.gangnam.sister.cell.util.OffsetDividerDecoration
+import com.gangnam.sister.cell.util.*
 
 // TODO: Horizontal ViewType 일 때 보이는 뷰 카운트 체크하기
 class CellBadgeStack @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAttr) {
     private val badgeStackAdapter = CellBadgeStackAdapter(arrayListOf())
+    private var hideLastDecorator: HideLastDecorator? = null
 
     var styleType: CellBadge.BadgeStyleType = CellBadge.BadgeStyleType.GRAY
         set(value) {
@@ -51,6 +48,11 @@ class CellBadgeStack @JvmOverloads constructor(
             field = value
             badgeStackAdapter.drawableEnd = value
         }
+    private var dividerSize: Int = DisplayManager.dpToPx(context, 8)
+        set(value) {
+            field = value
+            hideLastDecorator = HideLastDecorator(value)
+        }
 
     init {
         layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
@@ -71,13 +73,14 @@ class CellBadgeStack @JvmOverloads constructor(
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackAppearance)) {
                         appearanceType = CellBadge.BadgeAppearanceType.fromId(it.getInt(R.styleable.CellBadgeStack_cellBadgeStackAppearance, 0))
                     }
-                    val dividerSize = it.getDimensionPixelSize(R.styleable.CellBadgeStack_cellDividerSize, DisplayManager.dpToPx(context, 8))
-                    badgeStackViewType = BadgeStackViewType.fromId(it.getInt(R.styleable.CellBadgeStack_cellBadgeStackViewType, 0))
-                    adapter = badgeStackAdapter
-                    layoutManager = NonScrollFlexboxLayoutManager(context)
-                    isNestedScrollingEnabled = false
-                    setPadding(0, 0, 0, -dividerSize)
-                    addItemDecoration(OffsetDividerDecoration(0, 0, dividerSize, dividerSize))
+                    if (it.hasValue(R.styleable.CellBadgeStack_cellDividerSize)) {
+                        dividerSize = it.getDimensionPixelSize(R.styleable.CellBadgeStack_cellDividerSize, DisplayManager.dpToPx(context, 8))
+                    }
+                    if (it.hasValue(R.styleable.CellBadgeStack_cellBadgeStackViewType)) {
+                        badgeStackViewType = BadgeStackViewType.fromId(it.getInt(R.styleable.CellBadgeStack_cellBadgeStackViewType, 0))
+                    }
+                    hideLastDecorator = HideLastDecorator(dividerSize)
+                    initAdapter()
                     if (it.hasValue(R.styleable.CellBadgeStack_cellBadges)) {
                         val badges = it.getTextArray(R.styleable.CellBadgeStack_cellBadges)
                         setData(badges.map { charSequence -> charSequence.toString() }.distinct())
@@ -85,14 +88,26 @@ class CellBadgeStack @JvmOverloads constructor(
                 }
     }
 
-    private fun setBadgeStackViewHeight() {
-        post {
-            if (badgeStackViewType == BadgeStackViewType.HORIZONTAL) {
-                if (children.toCollection(arrayListOf()).isNotEmpty())
-                    updateLayoutParams { height = children.first().height }
-            } else updateLayoutParams { height = LayoutParams.WRAP_CONTENT }
-        }
+    private fun initAdapter() {
+        adapter = badgeStackAdapter
+        isNestedScrollingEnabled = false
+        setPadding(0, 0, 0, -dividerSize)
+        addItemDecoration(OffsetDividerDecoration(0, 0, dividerSize, dividerSize))
+        setBadgeStackViewHeight()
     }
+
+    private fun setBadgeStackViewHeight() {
+        layoutManager = if (badgeStackViewType == BadgeStackViewType.HORIZONTAL) {
+            NonScrollLinearLayoutManager(context, HORIZONTAL, false)
+        } else NonScrollFlexboxLayoutManager(context)
+        if (badgeStackViewType == BadgeStackViewType.HORIZONTAL) hideLastDecorator?.let { setItemDecoration(it) }
+    }
+
+    private fun setItemDecoration(decoration: ItemDecoration) {
+        removeItemDecoration(decoration)
+        addItemDecoration(decoration)
+    }
+
 
     fun setData(list: List<String>) {
         badgeStackAdapter.apply {

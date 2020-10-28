@@ -50,7 +50,6 @@ internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) :
     override fun onBindViewHolder(holder: CellBadgeStackViewHolder, position: Int) {
         holder.badge.apply {
             val item = list[position]
-            text = item.text
             isBadgeClickable = this@CellBadgeStackAdapter.isBadgeStackClickable
             appearanceType = this@CellBadgeStackAdapter.appearanceType
             styleType = item.style ?: this@CellBadgeStackAdapter.styleType
@@ -60,6 +59,7 @@ internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) :
                     item.endIconDrawable ?: drawableEnd,
                     0
             )
+            text = item.text
         }
     }
 
@@ -68,7 +68,7 @@ internal class CellBadgeStackAdapter(val list: ArrayList<CellBadgeStack.Item>) :
     fun setData(list: List<CellBadgeStack.Item>) {
         this.list.clear()
         this.list.addAll(list)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, this.list.size)
     }
 
     fun removeItem(index: Int) {
